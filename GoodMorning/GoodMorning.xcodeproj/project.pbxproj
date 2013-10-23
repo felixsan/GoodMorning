@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		A1859FD1978F475486A8D9F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F54D0946EA044D879FB9B24D /* libPods.a */; };
+		B54BA0A81818470600EA5A4F /* WeatherAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0A71818470600EA5A4F /* WeatherAPI.m */; };
+		B54BA0AB18184C7500EA5A4F /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0AA18184C7500EA5A4F /* WeatherModel.m */; };
+		B54BA0AE18184CC500EA5A4F /* WeatherSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0AD18184CC500EA5A4F /* WeatherSettingsView.m */; };
+		B54BA0B118184CF400EA5A4F /* WeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0B018184CF400EA5A4F /* WeatherView.m */; };
+		B54BA0B318184D3400EA5A4F /* WeatherSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B54BA0B218184D3400EA5A4F /* WeatherSettingsView.xib */; };
+		B54BA0B518184D4200EA5A4F /* WeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B54BA0B418184D4200EA5A4F /* WeatherView.xib */; };
 		D890E0856743A5EB074C2BC4 /* CountdownSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D890E2E2B51A7B642982945C /* CountdownSettingsView.m */; };
 		D890E27E7293CF6DE3A2CF09 /* CountdownSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D890EB80D97DA49862495E4F /* CountdownSettingsView.xib */; };
 		D890E34EDF3CA125B95ECE8C /* CountdownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D890EB593EC1CBFD393D9A31 /* CountdownView.xib */; };
@@ -39,6 +45,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B54BA0A61818470600EA5A4F /* WeatherAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherAPI.h; sourceTree = "<group>"; };
+		B54BA0A71818470600EA5A4F /* WeatherAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherAPI.m; sourceTree = "<group>"; };
+		B54BA0A918184C7500EA5A4F /* WeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherModel.h; sourceTree = "<group>"; };
+		B54BA0AA18184C7500EA5A4F /* WeatherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherModel.m; sourceTree = "<group>"; };
+		B54BA0AC18184CC500EA5A4F /* WeatherSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherSettingsView.h; sourceTree = "<group>"; };
+		B54BA0AD18184CC500EA5A4F /* WeatherSettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherSettingsView.m; sourceTree = "<group>"; };
+		B54BA0AF18184CF400EA5A4F /* WeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherView.h; sourceTree = "<group>"; };
+		B54BA0B018184CF400EA5A4F /* WeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherView.m; sourceTree = "<group>"; };
+		B54BA0B218184D3400EA5A4F /* WeatherSettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherSettingsView.xib; sourceTree = "<group>"; };
+		B54BA0B418184D4200EA5A4F /* WeatherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherView.xib; sourceTree = "<group>"; };
 		D890E04CD9A2B84B0D039366 /* CountdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownView.m; sourceTree = "<group>"; };
 		D890E05E195DF9D554735FE5 /* CountdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownView.h; sourceTree = "<group>"; };
 		D890E22169E8C72960C0B2B6 /* CountdownModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownModel.h; sourceTree = "<group>"; };
@@ -93,6 +109,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B54BA0A51818466E00EA5A4F /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				B54BA0A61818470600EA5A4F /* WeatherAPI.h */,
+				B54BA0A71818470600EA5A4F /* WeatherAPI.m */,
+				B54BA0A918184C7500EA5A4F /* WeatherModel.h */,
+				B54BA0AA18184C7500EA5A4F /* WeatherModel.m */,
+				B54BA0AC18184CC500EA5A4F /* WeatherSettingsView.h */,
+				B54BA0AD18184CC500EA5A4F /* WeatherSettingsView.m */,
+				B54BA0AF18184CF400EA5A4F /* WeatherView.h */,
+				B54BA0B018184CF400EA5A4F /* WeatherView.m */,
+				B54BA0B218184D3400EA5A4F /* WeatherSettingsView.xib */,
+				B54BA0B418184D4200EA5A4F /* WeatherView.xib */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
 		D890E77C105CF73AC09E79F9 /* Countdown */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +144,7 @@
 		D890E8272CB0ED6508E5A471 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B54BA0A51818466E00EA5A4F /* Weather */,
 				D890E77C105CF73AC09E79F9 /* Countdown */,
 			);
 			path = Modules;
@@ -240,7 +274,7 @@
 				ORGANIZATIONNAME = MakeItRain;
 				TargetAttributes = {
 					DE3F7F9F1810D3400062126A = {
-						TestTargetID = DE3F7F841810D3400062126A /* GoodMorning */;
+						TestTargetID = DE3F7F841810D3400062126A;
 					};
 				};
 			};
@@ -268,7 +302,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE3F7F931810D3400062126A /* InfoPlist.strings in Resources */,
+				B54BA0B518184D4200EA5A4F /* WeatherView.xib in Resources */,
 				DE23A01318162B8A008EEBE5 /* View.xib in Resources */,
+				B54BA0B318184D3400EA5A4F /* WeatherSettingsView.xib in Resources */,
 				DE3F7F9B1810D3400062126A /* Images.xcassets in Resources */,
 				D890E34EDF3CA125B95ECE8C /* CountdownView.xib in Resources */,
 				D890E27E7293CF6DE3A2CF09 /* CountdownSettingsView.xib in Resources */,
@@ -324,9 +360,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE3F7F991810D3400062126A /* AppDelegate.m in Sources */,
+				B54BA0B118184CF400EA5A4F /* WeatherView.m in Sources */,
+				B54BA0A81818470600EA5A4F /* WeatherAPI.m in Sources */,
 				DE3F7F951810D3400062126A /* main.m in Sources */,
 				D890E45231B5F8FBF31EF79F /* CountdownView.m in Sources */,
+				B54BA0AE18184CC500EA5A4F /* WeatherSettingsView.m in Sources */,
 				D890E0856743A5EB074C2BC4 /* CountdownSettingsView.m in Sources */,
+				B54BA0AB18184C7500EA5A4F /* WeatherModel.m in Sources */,
 				D890E95B0BAB03EE6DD660CF /* CountdownModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
