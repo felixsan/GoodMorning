@@ -10,4 +10,6 @@
 
 @interface WeatherModel : NSObject
 
+- (id)initWithDictionary:(NSDictionary *)data;
+
 @end

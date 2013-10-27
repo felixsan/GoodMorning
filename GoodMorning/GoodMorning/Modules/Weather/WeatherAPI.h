@@ -10,4 +10,8 @@
 
 @interface WeatherAPI : AFHTTPClient
 
++ (WeatherAPI *)instance;
+
+- (void)forecastWithLatitude:(float)latitude longitude:(float)longitude success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
 @end
