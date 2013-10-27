@@ -8,6 +8,7 @@
 
 #import "DevelopmentVC.h"
 #import "WeatherViewController.h"
+#import "CountdownViewController.h"
 
 @interface DevelopmentVC ()
 
@@ -42,6 +43,14 @@
     weather.view.frame = CGRectMake(10, 75, 1004, 222);
     [self.view addSubview:weather.view];
     [weather didMoveToParentViewController:self];
+
+    // Add Countdown View
+    CountdownViewController *countdown = [[CountdownViewController alloc] init];
+    [self addChildViewController:countdown];
+    countdown.view.frame = CGRectMake(686, 535, 328, 222);
+    [self.view addSubview:countdown.view];
+    [countdown didMoveToParentViewController:self];
+
 }
 
 @end
