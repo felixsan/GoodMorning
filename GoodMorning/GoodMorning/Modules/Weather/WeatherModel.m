@@ -11,9 +11,6 @@
 
 @interface WeatherModel ()
 
-@property (strong, nonatomic) Forecast *currently;
-@property (strong, nonatomic) NSMutableArray *hourly;
-
 @end
 
 

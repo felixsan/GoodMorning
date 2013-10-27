@@ -7,8 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Forecast.h"
 
 @interface WeatherModel : NSObject
+
+@property (strong, nonatomic) Forecast *currently;
+@property (strong, nonatomic) NSMutableArray *hourly;
 
 - (id)initWithDictionary:(NSDictionary *)data;
 

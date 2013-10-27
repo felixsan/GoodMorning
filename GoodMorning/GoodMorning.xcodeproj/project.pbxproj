@@ -15,6 +15,9 @@
 		B54BA0B318184D3400EA5A4F /* WeatherSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B54BA0B218184D3400EA5A4F /* WeatherSettingsView.xib */; };
 		B54BA0B518184D4200EA5A4F /* WeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B54BA0B418184D4200EA5A4F /* WeatherView.xib */; };
 		B5ACBC39181B64960015FBC3 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = B5ACBC38181B64960015FBC3 /* Forecast.m */; };
+		B5ACBD07181C9B220015FBC3 /* DevelopmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B5ACBD06181C9B220015FBC3 /* DevelopmentVC.m */; };
+		B5ACBD09181C9B360015FBC3 /* DevelopmentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5ACBD08181C9B360015FBC3 /* DevelopmentVC.xib */; };
+		B5ACBD0C181CAFF20015FBC3 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5ACBD0B181CAFF20015FBC3 /* WeatherViewController.m */; };
 		D890E0856743A5EB074C2BC4 /* CountdownSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D890E2E2B51A7B642982945C /* CountdownSettingsView.m */; };
 		D890E27E7293CF6DE3A2CF09 /* CountdownSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D890EB80D97DA49862495E4F /* CountdownSettingsView.xib */; };
 		D890E34EDF3CA125B95ECE8C /* CountdownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D890EB593EC1CBFD393D9A31 /* CountdownView.xib */; };
@@ -57,6 +60,11 @@
 		B54BA0B418184D4200EA5A4F /* WeatherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherView.xib; sourceTree = "<group>"; };
 		B5ACBC37181B64960015FBC3 /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
 		B5ACBC38181B64960015FBC3 /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
+		B5ACBD05181C9B220015FBC3 /* DevelopmentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevelopmentVC.h; sourceTree = "<group>"; };
+		B5ACBD06181C9B220015FBC3 /* DevelopmentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevelopmentVC.m; sourceTree = "<group>"; };
+		B5ACBD08181C9B360015FBC3 /* DevelopmentVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DevelopmentVC.xib; sourceTree = "<group>"; };
+		B5ACBD0A181CAFF20015FBC3 /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
+		B5ACBD0B181CAFF20015FBC3 /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
 		D890E04CD9A2B84B0D039366 /* CountdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownView.m; sourceTree = "<group>"; };
 		D890E05E195DF9D554735FE5 /* CountdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownView.h; sourceTree = "<group>"; };
 		D890E22169E8C72960C0B2B6 /* CountdownModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownModel.h; sourceTree = "<group>"; };
@@ -125,6 +133,8 @@
 				B54BA0AF18184CF400EA5A4F /* WeatherView.h */,
 				B54BA0B018184CF400EA5A4F /* WeatherView.m */,
 				B54BA0B418184D4200EA5A4F /* WeatherView.xib */,
+				B5ACBD0A181CAFF20015FBC3 /* WeatherViewController.h */,
+				B5ACBD0B181CAFF20015FBC3 /* WeatherViewController.m */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -193,6 +203,9 @@
 				DE3F7F9A1810D3400062126A /* Images.xcassets */,
 				DE3F7F8F1810D3400062126A /* Supporting Files */,
 				D890E8272CB0ED6508E5A471 /* Modules */,
+				B5ACBD05181C9B220015FBC3 /* DevelopmentVC.h */,
+				B5ACBD06181C9B220015FBC3 /* DevelopmentVC.m */,
+				B5ACBD08181C9B360015FBC3 /* DevelopmentVC.xib */,
 			);
 			path = GoodMorning;
 			sourceTree = "<group>";
@@ -306,6 +319,7 @@
 				DE3F7F931810D3400062126A /* InfoPlist.strings in Resources */,
 				B54BA0B518184D4200EA5A4F /* WeatherView.xib in Resources */,
 				B54BA0B318184D3400EA5A4F /* WeatherSettingsView.xib in Resources */,
+				B5ACBD09181C9B360015FBC3 /* DevelopmentVC.xib in Resources */,
 				DE3F7F9B1810D3400062126A /* Images.xcassets in Resources */,
 				D890E34EDF3CA125B95ECE8C /* CountdownView.xib in Resources */,
 				D890E27E7293CF6DE3A2CF09 /* CountdownSettingsView.xib in Resources */,
@@ -361,8 +375,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE3F7F991810D3400062126A /* AppDelegate.m in Sources */,
+				B5ACBD0C181CAFF20015FBC3 /* WeatherViewController.m in Sources */,
 				B54BA0B118184CF400EA5A4F /* WeatherView.m in Sources */,
 				B54BA0A81818470600EA5A4F /* WeatherAPI.m in Sources */,
+				B5ACBD07181C9B220015FBC3 /* DevelopmentVC.m in Sources */,
 				DE3F7F951810D3400062126A /* main.m in Sources */,
 				B5ACBC39181B64960015FBC3 /* Forecast.m in Sources */,
 				D890E45231B5F8FBF31EF79F /* CountdownView.m in Sources */,

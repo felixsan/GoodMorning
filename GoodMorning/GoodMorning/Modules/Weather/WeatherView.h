@@ -10,4 +10,7 @@
 
 @interface WeatherView : UIView
 
+@property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
+
 @end

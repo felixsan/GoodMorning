@@ -7,7 +7,7 @@
 //
 
 #import "WeatherAPI.h"
-
+#import "AFNetworking.h"
 
 #define API_KEY = "fabdcf23b63418fe5b70732b24653a62"
 #define BASE_WEATHER_URL = [NSUrl URLWithString:[NSString stringWithFormat: @"https://api.forecast.io/forecast/%@/", API_KEY]];
@@ -19,14 +19,24 @@
     static WeatherAPI *instance;
     
     dispatch_once(&once, ^{
-        instance = [NSURL URLWithString:[NSString stringWithFormat: @"https://api.forecast.io/forecast/%s/", "fabdcf23b63418fe5b70732b2465"]];
+        instance = [[WeatherAPI alloc] initWithBaseURL:[NSURL URLWithString:[NSString stringWithFormat: @"https://api.forecast.io/forecast/%s/", "fabdcf23b63418fe5b70732b24653a62"]]];
     });
-    
+
     return instance;
 }
 
+- (id)initWithBaseURL:(NSURL *)url {
+    self = [super initWithBaseURL:url];
+    if (self != nil) {
+        [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
+        [self setDefaultHeader:@"Accept" value:@"application/json"];
+    }
+    return self;
+}
+
 - (void)forecastWithLatitude:(float)latitude longitude:(float)longitude success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    [self getPath:[NSString stringWithFormat:@"%f,%f", latitude, longitude] parameters:nil success:success failure:failure];
+    NSString *path = [NSString stringWithFormat:@"%f,%f", latitude, longitude];
+    [self getPath:path parameters:nil success:success failure:failure];
 }
 
 @end
