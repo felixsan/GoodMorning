@@ -26,6 +26,7 @@
 		D890E34EDF3CA125B95ECE8C /* CountdownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D890EB593EC1CBFD393D9A31 /* CountdownView.xib */; };
 		D890E45231B5F8FBF31EF79F /* CountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = D890E04CD9A2B84B0D039366 /* CountdownView.m */; };
 		D890E95B0BAB03EE6DD660CF /* CountdownModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D890E80089732D7667361090 /* CountdownModel.m */; };
+		D890EEA96C49CF653D73CEA4 /* CountdownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D890EB1B418A966411F9ED9D /* CountdownViewController.m */; };
 		DE3F7F891810D3400062126A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F7F881810D3400062126A /* Foundation.framework */; };
 		DE3F7F8B1810D3400062126A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F7F8A1810D3400062126A /* CoreGraphics.framework */; };
 		DE3F7F8D1810D3400062126A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F7F8C1810D3400062126A /* UIKit.framework */; };
@@ -77,7 +78,9 @@
 		D890E22169E8C72960C0B2B6 /* CountdownModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownModel.h; sourceTree = "<group>"; };
 		D890E2343F16DF80F4C9F577 /* CountdownSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownSettingsView.h; sourceTree = "<group>"; };
 		D890E2E2B51A7B642982945C /* CountdownSettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownSettingsView.m; sourceTree = "<group>"; };
+		D890E3E5A73DB6CE07FF0F19 /* CountdownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownViewController.h; sourceTree = "<group>"; };
 		D890E80089732D7667361090 /* CountdownModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownModel.m; sourceTree = "<group>"; };
+		D890EB1B418A966411F9ED9D /* CountdownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownViewController.m; sourceTree = "<group>"; };
 		D890EB593EC1CBFD393D9A31 /* CountdownView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountdownView.xib; sourceTree = "<group>"; };
 		D890EB80D97DA49862495E4F /* CountdownSettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountdownSettingsView.xib; sourceTree = "<group>"; };
 		DE3F7F851810D3400062126A /* GoodMorning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodMorning.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,12 +174,14 @@
 			children = (
 				D890E05E195DF9D554735FE5 /* CountdownView.h */,
 				D890E04CD9A2B84B0D039366 /* CountdownView.m */,
+				D890EB593EC1CBFD393D9A31 /* CountdownView.xib */,
 				D890E2343F16DF80F4C9F577 /* CountdownSettingsView.h */,
 				D890E2E2B51A7B642982945C /* CountdownSettingsView.m */,
-				D890EB593EC1CBFD393D9A31 /* CountdownView.xib */,
 				D890EB80D97DA49862495E4F /* CountdownSettingsView.xib */,
 				D890E22169E8C72960C0B2B6 /* CountdownModel.h */,
 				D890E80089732D7667361090 /* CountdownModel.m */,
+				D890EB1B418A966411F9ED9D /* CountdownViewController.m */,
+				D890E3E5A73DB6CE07FF0F19 /* CountdownViewController.h */,
 			);
 			path = Countdown;
 			sourceTree = "<group>";
@@ -316,7 +321,7 @@
 				ORGANIZATIONNAME = MakeItRain;
 				TargetAttributes = {
 					DE3F7F9F1810D3400062126A = {
-						TestTargetID = DE3F7F841810D3400062126A;
+						TestTargetID = DE3F7F841810D3400062126A /* GoodMorning */;
 					};
 				};
 			};
@@ -416,6 +421,7 @@
 				D890E0856743A5EB074C2BC4 /* CountdownSettingsView.m in Sources */,
 				B54BA0AB18184C7500EA5A4F /* WeatherModel.m in Sources */,
 				D890E95B0BAB03EE6DD660CF /* CountdownModel.m in Sources */,
+				D890EEA96C49CF653D73CEA4 /* CountdownViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

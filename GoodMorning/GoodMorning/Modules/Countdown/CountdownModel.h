@@ -10,4 +10,9 @@
 
 @interface CountdownModel : NSObject
 
+@property (strong, nonatomic) NSDate *endDate;
+@property (strong, nonatomic) NSString *eventName;
+
+- (NSString *)getTimeLeft;
+
 @end
