@@ -8,6 +8,6 @@
 
 @interface CountdownViewController : UIViewController
 
-//@property(nonatomic,retain) CountdownView *countdownView;
 
+- (IBAction)showSettings:(id)sender;
 @end
