@@ -4,10 +4,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CountdownModel.h"
 
 @interface CountdownViewController : UIViewController
 
+@property (nonatomic, strong)NSTimer *countdownTimer;
+@property (nonatomic, strong)CountdownModel *cm;
+
+- (void)initCountdown;
 
 - (IBAction)showSettings:(id)sender;
+
+- (void)updateTime:(NSTimer *)timer;
 @end

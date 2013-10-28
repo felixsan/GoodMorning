@@ -21,8 +21,8 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days till the event!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="141" translatesAutoresizingMaskIntoConstraints="NO" id="7cv-8O-s8v">
-                    <rect key="frame" x="94" y="124" width="141" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days till the cm!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="288" translatesAutoresizingMaskIntoConstraints="NO" id="7cv-8O-s8v">
+                    <rect key="frame" x="20" y="124" width="288" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
@@ -41,11 +41,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="7cv-8O-s8v" firstAttribute="leading" secondItem="DKy-BL-46E" secondAttribute="leading" constant="20" id="2L6-fh-RDf"/>
                 <constraint firstAttribute="bottom" secondItem="L6b-4G-url" secondAttribute="bottom" constant="20" id="4gQ-r6-5fh"/>
                 <constraint firstItem="lhO-a3-ghI" firstAttribute="top" secondItem="DKy-BL-46E" secondAttribute="top" constant="20" id="FQt-sf-Rz9"/>
                 <constraint firstAttribute="trailing" secondItem="L6b-4G-url" secondAttribute="trailing" constant="20" id="Rmq-sq-fGk"/>
                 <constraint firstAttribute="centerX" secondItem="lhO-a3-ghI" secondAttribute="centerX" constant="0.5" id="Ygj-bF-eDw"/>
                 <constraint firstAttribute="centerX" secondItem="7cv-8O-s8v" secondAttribute="centerX" id="flC-Py-dwX"/>
+                <constraint firstAttribute="trailing" secondItem="7cv-8O-s8v" secondAttribute="trailing" constant="20" id="hAQ-LD-7JH"/>
                 <constraint firstItem="7cv-8O-s8v" firstAttribute="top" secondItem="lhO-a3-ghI" secondAttribute="bottom" constant="8" id="rB2-m8-Lty"/>
             </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>

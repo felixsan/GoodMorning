@@ -10,4 +10,8 @@
 
 @interface CountdownSettingsView : UIView
 
+@property (weak, nonatomic) IBOutlet UITextField *eventName;
+@property (weak, nonatomic) IBOutlet UIDatePicker *eventDate;
+
+
 @end
