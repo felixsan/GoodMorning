@@ -8,35 +8,49 @@
 
 #import "CountdownModel.h"
 
+NSString *const CountdownAmount = @"CountdownAmount";
+NSString *const CountdownGranularity = @"CountdownGranularity";
+
 @implementation CountdownModel
 
-- (NSString *)getTimeLeft {
++ (CountdownModel *)initWithName:(NSString *)name date:(NSDate *)endDate {
+    CountdownModel *cm = [[CountdownModel alloc] init];
+    cm.eventName = name;
+    cm.endDate = endDate;
+    return cm;
+}
+
+- (NSDictionary *)getTimeLeft {
     NSDate *now = [NSDate date];
     int secondsLeft = (int) [self.endDate timeIntervalSinceDate: now] ;
     int days    = (secondsLeft / (3600 * 24));
     int hours   = (secondsLeft/ 3600)- (days *24);
     int minutes = secondsLeft % 3600 / 60;
-
+    int result;
+    NSString *granularity;
     // Todo look at pluralization stuff
-    if (days > 1) {
-        return [NSString stringWithFormat:@"%01d Days",days];
-    } else if (days == 1) {
-        return [NSString stringWithFormat:@"%01d Day",days];
-    }
-
-    if (hours > 1) {
-        return [NSString stringWithFormat:@"%01d Hours",hours];
-    } else if (days == 1) {
-        return [NSString stringWithFormat:@"%01d Hour",hours];
-    }
-
-    if (minutes > 1) {
-        return [NSString stringWithFormat:@"%01d Minutes",minutes];
-    } else if (minutes == 1) {
-        return [NSString stringWithFormat:@"%01d Minute",minutes];
+    if (days >= 1) {
+        result = days;
+        granularity = @"Day";
+    } else if (hours >= 1) {
+        result = hours;
+        granularity = @"Hour";
+    } else if (minutes >= 1) {
+        result = minutes;
+        granularity = @"Minute";
+    } else if (secondsLeft >= 1) {
+        result = secondsLeft;
+        granularity = @"Second";
     } else {
-        return [NSString stringWithFormat:@"%01d Minutes",minutes];
+        result = 0;
+        granularity = @"";
     }
+
+    if (result != 1 && ![granularity isEqualToString:@""]) {
+        granularity = [granularity stringByAppendingString:@"s"];
+    }
+
+    return @{CountdownAmount: @(result), CountdownGranularity: granularity};
 }
 
 @end

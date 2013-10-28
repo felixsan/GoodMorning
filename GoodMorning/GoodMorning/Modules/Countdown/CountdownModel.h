@@ -6,13 +6,15 @@
 //  Copyright (c) 2013 MakeItRain. All rights reserved.
 //
 
-
+extern NSString *const CountdownAmount;
+extern NSString *const CountdownGranularity;
 
 @interface CountdownModel : NSObject
 
 @property (strong, nonatomic) NSDate *endDate;
 @property (strong, nonatomic) NSString *eventName;
 
-- (NSString *)getTimeLeft;
++ (CountdownModel *)initWithName:(NSString *)name date:(NSDate *)endDate;
+- (NSDictionary *)getTimeLeft;
 
 @end

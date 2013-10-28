@@ -5,7 +5,14 @@
 
 
 #import <Foundation/Foundation.h>
+#import "CountdownModel.h"
 
 
 @interface CountdownSettingsViewController : UIViewController
+
+
+@property (nonatomic, strong)CountdownModel *cm;
+
+
+
 @end
