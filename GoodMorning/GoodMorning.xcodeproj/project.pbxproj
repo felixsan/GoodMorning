@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		13CFE382181F59A900946D84 /* ModuleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CFE381181F59A900946D84 /* ModuleController.m */; };
+		90433701181E09EF00582879 /* ReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90433700181E09EF00582879 /* ReminderViewController.m */; };
+		90433705181E0A2800582879 /* ReminderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90433704181E0A2800582879 /* ReminderView.m */; };
+		90433708181E0A4500582879 /* ReminderSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90433707181E0A4500582879 /* ReminderSettingsViewController.m */; };
+		9043370B181E0A6B00582879 /* ReminderSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9043370A181E0A6B00582879 /* ReminderSettingsView.m */; };
+		9043370D181E0A8800582879 /* ReminderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9043370C181E0A8800582879 /* ReminderView.xib */; };
+		9043370F181E0A9A00582879 /* ReminderSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9043370E181E0A9A00582879 /* ReminderSettingsView.xib */; };
+		90433712181E0AB800582879 /* ReminderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90433711181E0AB800582879 /* ReminderModel.m */; };
 		A1859FD1978F475486A8D9F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F54D0946EA044D879FB9B24D /* libPods.a */; };
 		B54BA0A81818470600EA5A4F /* WeatherAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0A71818470600EA5A4F /* WeatherAPI.m */; };
 		B54BA0AB18184C7500EA5A4F /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0AA18184C7500EA5A4F /* WeatherModel.m */; };
@@ -56,6 +63,18 @@
 /* Begin PBXFileReference section */
 		13CFE380181F59A900946D84 /* ModuleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModuleController.h; sourceTree = "<group>"; };
 		13CFE381181F59A900946D84 /* ModuleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModuleController.m; sourceTree = "<group>"; };
+		904336FF181E09EF00582879 /* ReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReminderViewController.h; path = Reminders/ReminderViewController.h; sourceTree = "<group>"; };
+		90433700181E09EF00582879 /* ReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReminderViewController.m; path = Reminders/ReminderViewController.m; sourceTree = "<group>"; };
+		90433703181E0A2800582879 /* ReminderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReminderView.h; path = Reminders/ReminderView.h; sourceTree = "<group>"; };
+		90433704181E0A2800582879 /* ReminderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReminderView.m; path = Reminders/ReminderView.m; sourceTree = "<group>"; };
+		90433706181E0A4500582879 /* ReminderSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReminderSettingsViewController.h; path = Reminders/ReminderSettingsViewController.h; sourceTree = "<group>"; };
+		90433707181E0A4500582879 /* ReminderSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReminderSettingsViewController.m; path = Reminders/ReminderSettingsViewController.m; sourceTree = "<group>"; };
+		90433709181E0A6B00582879 /* ReminderSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReminderSettingsView.h; path = Reminders/ReminderSettingsView.h; sourceTree = "<group>"; };
+		9043370A181E0A6B00582879 /* ReminderSettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReminderSettingsView.m; path = Reminders/ReminderSettingsView.m; sourceTree = "<group>"; };
+		9043370C181E0A8800582879 /* ReminderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReminderView.xib; path = Reminders/ReminderView.xib; sourceTree = "<group>"; };
+		9043370E181E0A9A00582879 /* ReminderSettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReminderSettingsView.xib; path = Reminders/ReminderSettingsView.xib; sourceTree = "<group>"; };
+		90433710181E0AB800582879 /* ReminderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReminderModel.h; path = Reminders/ReminderModel.h; sourceTree = "<group>"; };
+		90433711181E0AB800582879 /* ReminderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReminderModel.m; path = Reminders/ReminderModel.m; sourceTree = "<group>"; };
 		B54BA0A61818470600EA5A4F /* WeatherAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherAPI.h; sourceTree = "<group>"; };
 		B54BA0A71818470600EA5A4F /* WeatherAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherAPI.m; sourceTree = "<group>"; };
 		B54BA0A918184C7500EA5A4F /* WeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherModel.h; sourceTree = "<group>"; };
@@ -134,6 +153,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90433702181E0A0A00582879 /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				90433710181E0AB800582879 /* ReminderModel.h */,
+				90433711181E0AB800582879 /* ReminderModel.m */,
+				90433703181E0A2800582879 /* ReminderView.h */,
+				90433704181E0A2800582879 /* ReminderView.m */,
+				90433709181E0A6B00582879 /* ReminderSettingsView.h */,
+				9043370A181E0A6B00582879 /* ReminderSettingsView.m */,
+				904336FF181E09EF00582879 /* ReminderViewController.h */,
+				90433700181E09EF00582879 /* ReminderViewController.m */,
+				90433706181E0A4500582879 /* ReminderSettingsViewController.h */,
+				90433707181E0A4500582879 /* ReminderSettingsViewController.m */,
+				9043370C181E0A8800582879 /* ReminderView.xib */,
+				9043370E181E0A9A00582879 /* ReminderSettingsView.xib */,
+			);
+			name = Reminder;
+			sourceTree = "<group>";
+		};
 		B54BA0A51818466E00EA5A4F /* Weather */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +239,7 @@
 				D890E77C105CF73AC09E79F9 /* Countdown */,
 				13CFE380181F59A900946D84 /* ModuleController.h */,
 				13CFE381181F59A900946D84 /* ModuleController.m */,
+				90433702181E0A0A00582879 /* Reminder */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -362,6 +401,8 @@
 				B5ACBE13181E1EB00015FBC3 /* HourlyForecastView.xib in Resources */,
 				DE3F7F931810D3400062126A /* InfoPlist.strings in Resources */,
 				B54BA0B518184D4200EA5A4F /* WeatherView.xib in Resources */,
+				9043370D181E0A8800582879 /* ReminderView.xib in Resources */,
+				9043370F181E0A9A00582879 /* ReminderSettingsView.xib in Resources */,
 				B54BA0B318184D3400EA5A4F /* WeatherSettingsView.xib in Resources */,
 				B5ACBD09181C9B360015FBC3 /* DevelopmentVC.xib in Resources */,
 				DE3F7F9B1810D3400062126A /* Images.xcassets in Resources */,
@@ -419,10 +460,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE3F7F991810D3400062126A /* AppDelegate.m in Sources */,
+				90433708181E0A4500582879 /* ReminderSettingsViewController.m in Sources */,
 				B5ACBD0C181CAFF20015FBC3 /* WeatherViewController.m in Sources */,
+				9043370B181E0A6B00582879 /* ReminderSettingsView.m in Sources */,
 				B54BA0B118184CF400EA5A4F /* WeatherView.m in Sources */,
 				B5ACBE0F181E1E820015FBC3 /* HourlyForecastView.m in Sources */,
 				B54BA0A81818470600EA5A4F /* WeatherAPI.m in Sources */,
+				90433712181E0AB800582879 /* ReminderModel.m in Sources */,
 				B5ACBD07181C9B220015FBC3 /* DevelopmentVC.m in Sources */,
 				DE3F7F951810D3400062126A /* main.m in Sources */,
 				13CFE382181F59A900946D84 /* ModuleController.m in Sources */,
@@ -430,6 +474,8 @@
 				D890E45231B5F8FBF31EF79F /* CountdownView.m in Sources */,
 				B54BA0AE18184CC500EA5A4F /* WeatherSettingsView.m in Sources */,
 				D890E0856743A5EB074C2BC4 /* CountdownSettingsView.m in Sources */,
+				90433705181E0A2800582879 /* ReminderView.m in Sources */,
+				90433701181E09EF00582879 /* ReminderViewController.m in Sources */,
 				B54BA0AB18184C7500EA5A4F /* WeatherModel.m in Sources */,
 				D890E95B0BAB03EE6DD660CF /* CountdownModel.m in Sources */,
 				D890EEA96C49CF653D73CEA4 /* CountdownViewController.m in Sources */,

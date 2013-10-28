@@ -9,6 +9,7 @@
 #import "DevelopmentVC.h"
 #import "WeatherViewController.h"
 #import "CountdownViewController.h"
+#import "ReminderViewController.h"
 
 @interface DevelopmentVC ()
 
@@ -51,6 +52,12 @@
     [self.view addSubview:countdown.view];
     [countdown didMoveToParentViewController:self];
 
+    // Adding the Reminders panel
+    ReminderViewController *reminders = [[ReminderViewController alloc] init];
+    [self addChildViewController:reminders];
+    reminders.view.frame = CGRectMake(686, 305, 328, 222);
+    [self.view addSubview:reminders.view];
+    [reminders didMoveToParentViewController:self];
 }
 
 @end
