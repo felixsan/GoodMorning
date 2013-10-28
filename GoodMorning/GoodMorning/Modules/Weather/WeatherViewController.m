@@ -52,6 +52,7 @@
     weatherView.summaryLabel.text = self.weather.currently.summary;
     weatherView.temperatureLowLabel.text = [NSString stringWithFormat:@"%1.f", self.weather.low];
     weatherView.temperatureHighLabel.text = [NSString stringWithFormat:@"%1.f", self.weather.high];
+    weatherView.iconImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"png/%@", self.weather.currently.icon]];
     
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setDateFormat:@"h:mm a"];
@@ -62,6 +63,7 @@
         HourlyForecastView *hourlyView = [[HourlyForecastView alloc] initWithFrame:frame];
         hourlyView.temperatureLabel.text = [NSString stringWithFormat:@"%1.f", hour.temperature];
         hourlyView.timeLabel.text = [outputFormatter stringFromDate:hour.time];
+        hourlyView.iconImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"png/%@", hour.icon]];
         [weatherView.hourlyScrollView addSubview:hourlyView];
         offset += 200;
     }

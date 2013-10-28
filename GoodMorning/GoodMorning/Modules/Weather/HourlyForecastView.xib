@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HourlyForecastView">
             <connections>
+                <outlet property="iconImage" destination="mRR-Zc-0ad" id="yOA-0P-pZ5"/>
                 <outlet property="temperatureLabel" destination="Fgo-zq-mdF" id="1SU-wS-5Jc"/>
                 <outlet property="timeLabel" destination="xBa-yU-wA7" id="OSu-j5-MvI"/>
             </connections>
@@ -21,7 +22,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sun.png" translatesAutoresizingMaskIntoConstraints="NO" id="mRR-Zc-0ad">
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clear-day.png" translatesAutoresizingMaskIntoConstraints="NO" id="mRR-Zc-0ad">
                     <rect key="frame" x="51" y="49" width="100" height="100"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -38,6 +39,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Sun.png" width="200" height="200"/>
+        <image name="clear-day.png" width="200" height="200"/>
     </resources>
 </document>

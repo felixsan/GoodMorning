@@ -24,7 +24,7 @@
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="70"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sun.png" translatesAutoresizingMaskIntoConstraints="NO" id="gQF-D9-gqd">
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear-day.png" translatesAutoresizingMaskIntoConstraints="NO" id="gQF-D9-gqd">
                             <rect key="frame" x="8" y="0.0" width="121" height="121"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -127,6 +127,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="hourlyScrollView" destination="9Pd-4X-OKE" id="A8Z-SI-xcj"/>
+                <outlet property="iconImage" destination="gQF-D9-gqd" id="tBz-Gz-xZR"/>
                 <outlet property="summaryLabel" destination="a99-mG-V86" id="R6A-pE-Mwu"/>
                 <outlet property="temperatureHighLabel" destination="A7R-Qt-OfC" id="en5-c9-8S1"/>
                 <outlet property="temperatureLabel" destination="k9i-20-hKW" id="Lzj-Yx-eXF"/>
@@ -135,6 +136,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Sun.png" width="200" height="200"/>
+        <image name="clear-day.png" width="200" height="200"/>
     </resources>
 </document>
