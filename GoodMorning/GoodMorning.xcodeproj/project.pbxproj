@@ -18,6 +18,10 @@
 		B5ACBD07181C9B220015FBC3 /* DevelopmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B5ACBD06181C9B220015FBC3 /* DevelopmentVC.m */; };
 		B5ACBD09181C9B360015FBC3 /* DevelopmentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5ACBD08181C9B360015FBC3 /* DevelopmentVC.xib */; };
 		B5ACBD0C181CAFF20015FBC3 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5ACBD0B181CAFF20015FBC3 /* WeatherViewController.m */; };
+		B5ACBE0A181DA8390015FBC3 /* Sun.png in Resources */ = {isa = PBXBuildFile; fileRef = B5ACBE09181DA8390015FBC3 /* Sun.png */; };
+		B5ACBE0C181DAA9B0015FBC3 /* m-sun.png in Resources */ = {isa = PBXBuildFile; fileRef = B5ACBE0B181DAA9B0015FBC3 /* m-sun.png */; };
+		B5ACBE0F181E1E820015FBC3 /* HourlyForecastView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5ACBE0E181E1E820015FBC3 /* HourlyForecastView.m */; };
+		B5ACBE13181E1EB00015FBC3 /* HourlyForecastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5ACBE12181E1EB00015FBC3 /* HourlyForecastView.xib */; };
 		D890E0856743A5EB074C2BC4 /* CountdownSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D890E2E2B51A7B642982945C /* CountdownSettingsView.m */; };
 		D890E27E7293CF6DE3A2CF09 /* CountdownSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D890EB80D97DA49862495E4F /* CountdownSettingsView.xib */; };
 		D890E34EDF3CA125B95ECE8C /* CountdownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D890EB593EC1CBFD393D9A31 /* CountdownView.xib */; };
@@ -65,6 +69,11 @@
 		B5ACBD08181C9B360015FBC3 /* DevelopmentVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DevelopmentVC.xib; sourceTree = "<group>"; };
 		B5ACBD0A181CAFF20015FBC3 /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
 		B5ACBD0B181CAFF20015FBC3 /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
+		B5ACBE09181DA8390015FBC3 /* Sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sun.png; sourceTree = "<group>"; };
+		B5ACBE0B181DAA9B0015FBC3 /* m-sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "m-sun.png"; sourceTree = "<group>"; };
+		B5ACBE0D181E1E820015FBC3 /* HourlyForecastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HourlyForecastView.h; sourceTree = "<group>"; };
+		B5ACBE0E181E1E820015FBC3 /* HourlyForecastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HourlyForecastView.m; sourceTree = "<group>"; };
+		B5ACBE12181E1EB00015FBC3 /* HourlyForecastView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HourlyForecastView.xib; sourceTree = "<group>"; };
 		D890E04CD9A2B84B0D039366 /* CountdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownView.m; sourceTree = "<group>"; };
 		D890E05E195DF9D554735FE5 /* CountdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownView.h; sourceTree = "<group>"; };
 		D890E22169E8C72960C0B2B6 /* CountdownModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownModel.h; sourceTree = "<group>"; };
@@ -121,6 +130,7 @@
 		B54BA0A51818466E00EA5A4F /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				B5ACBD0F181D8EB70015FBC3 /* Icons */,
 				B54BA0A61818470600EA5A4F /* WeatherAPI.h */,
 				B54BA0A71818470600EA5A4F /* WeatherAPI.m */,
 				B54BA0A918184C7500EA5A4F /* WeatherModel.h */,
@@ -135,8 +145,36 @@
 				B54BA0B418184D4200EA5A4F /* WeatherView.xib */,
 				B5ACBD0A181CAFF20015FBC3 /* WeatherViewController.h */,
 				B5ACBD0B181CAFF20015FBC3 /* WeatherViewController.m */,
+				B5ACBE0D181E1E820015FBC3 /* HourlyForecastView.h */,
+				B5ACBE0E181E1E820015FBC3 /* HourlyForecastView.m */,
+				B5ACBE12181E1EB00015FBC3 /* HourlyForecastView.xib */,
 			);
 			path = Weather;
+			sourceTree = "<group>";
+		};
+		B5ACBD0F181D8EB70015FBC3 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				B5ACBE06181DA7560015FBC3 /* meteocons */,
+				B5ACBE05181DA74E0015FBC3 /* climacons */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		B5ACBE05181DA74E0015FBC3 /* climacons */ = {
+			isa = PBXGroup;
+			children = (
+				B5ACBE09181DA8390015FBC3 /* Sun.png */,
+			);
+			name = climacons;
+			sourceTree = "<group>";
+		};
+		B5ACBE06181DA7560015FBC3 /* meteocons */ = {
+			isa = PBXGroup;
+			children = (
+				B5ACBE0B181DAA9B0015FBC3 /* m-sun.png */,
+			);
+			name = meteocons;
 			sourceTree = "<group>";
 		};
 		D890E77C105CF73AC09E79F9 /* Countdown */ = {
@@ -316,12 +354,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5ACBE13181E1EB00015FBC3 /* HourlyForecastView.xib in Resources */,
+				B5ACBE0A181DA8390015FBC3 /* Sun.png in Resources */,
 				DE3F7F931810D3400062126A /* InfoPlist.strings in Resources */,
 				B54BA0B518184D4200EA5A4F /* WeatherView.xib in Resources */,
 				B54BA0B318184D3400EA5A4F /* WeatherSettingsView.xib in Resources */,
 				B5ACBD09181C9B360015FBC3 /* DevelopmentVC.xib in Resources */,
 				DE3F7F9B1810D3400062126A /* Images.xcassets in Resources */,
 				D890E34EDF3CA125B95ECE8C /* CountdownView.xib in Resources */,
+				B5ACBE0C181DAA9B0015FBC3 /* m-sun.png in Resources */,
 				D890E27E7293CF6DE3A2CF09 /* CountdownSettingsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +418,7 @@
 				DE3F7F991810D3400062126A /* AppDelegate.m in Sources */,
 				B5ACBD0C181CAFF20015FBC3 /* WeatherViewController.m in Sources */,
 				B54BA0B118184CF400EA5A4F /* WeatherView.m in Sources */,
+				B5ACBE0F181E1E820015FBC3 /* HourlyForecastView.m in Sources */,
 				B54BA0A81818470600EA5A4F /* WeatherAPI.m in Sources */,
 				B5ACBD07181C9B220015FBC3 /* DevelopmentVC.m in Sources */,
 				DE3F7F951810D3400062126A /* main.m in Sources */,

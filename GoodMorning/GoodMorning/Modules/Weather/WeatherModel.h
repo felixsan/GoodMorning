@@ -13,6 +13,9 @@
 
 @property (strong, nonatomic) Forecast *currently;
 @property (strong, nonatomic) NSMutableArray *hourly;
+@property (strong, nonatomic) NSMutableArray *daily;
+@property (nonatomic, readonly) double high;
+@property (nonatomic, readonly) double low;
 
 - (id)initWithDictionary:(NSDictionary *)data;
 

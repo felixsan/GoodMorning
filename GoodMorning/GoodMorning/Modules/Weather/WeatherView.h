@@ -12,5 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *temperatureHighLabel;
+@property (weak, nonatomic) IBOutlet UILabel *temperatureLowLabel;
+@property (weak, nonatomic) IBOutlet UIScrollView *hourlyScrollView;
 
 @end

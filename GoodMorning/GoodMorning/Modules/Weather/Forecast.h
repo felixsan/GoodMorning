@@ -25,6 +25,8 @@
 @property (nonatomic) double pressure;
 @property (nonatomic) double floatfloatVisibility;
 @property (nonatomic) double floatozone;
+@property (nonatomic) double temperatureMax;
+@property (nonatomic) double temperatureMin;
 
 - (id)initWithDictionary:(NSDictionary *)data;
 

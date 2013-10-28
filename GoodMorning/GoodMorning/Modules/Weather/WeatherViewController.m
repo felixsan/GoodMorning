@@ -9,6 +9,7 @@
 #import "WeatherAPI.h"
 #import "WeatherModel.h"
 #import "WeatherView.h"
+#import "HourlyForecastView.h"
 #import "WeatherViewController.h"
 
 @interface WeatherViewController ()
@@ -37,7 +38,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,8 +48,24 @@
 
 - (void)updateView {
     WeatherView *weatherView = (WeatherView *)self.view;
-    weatherView.temperatureLabel.text = [NSString stringWithFormat:@"%f", self.weather.currently.temperature];
+    weatherView.temperatureLabel.text = [NSString stringWithFormat:@"%1.f", self.weather.currently.temperature];
     weatherView.summaryLabel.text = self.weather.currently.summary;
+    weatherView.temperatureLowLabel.text = [NSString stringWithFormat:@"%1.f", self.weather.low];
+    weatherView.temperatureHighLabel.text = [NSString stringWithFormat:@"%1.f", self.weather.high];
+    
+    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+    [outputFormatter setDateFormat:@"h:mm a"];
+    
+    float offset = 0;
+    for (Forecast *hour in self.weather.hourly) {
+        CGRect frame = CGRectMake(offset, 0, 200, 222);
+        HourlyForecastView *hourlyView = [[HourlyForecastView alloc] initWithFrame:frame];
+        hourlyView.temperatureLabel.text = [NSString stringWithFormat:@"%1.f", hour.temperature];
+        hourlyView.timeLabel.text = [outputFormatter stringFromDate:hour.time];
+        [weatherView.hourlyScrollView addSubview:hourlyView];
+        offset += 200;
+    }
+    weatherView.hourlyScrollView.contentSize = CGSizeMake(offset+200, 222);
 }
 
 @end
