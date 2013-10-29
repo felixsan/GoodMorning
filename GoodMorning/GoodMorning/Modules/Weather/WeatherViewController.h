@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 MakeItRain. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ModuleController.h"
 
-@interface WeatherViewController : UIViewController
+@interface WeatherViewController : ModuleController
 
 @end

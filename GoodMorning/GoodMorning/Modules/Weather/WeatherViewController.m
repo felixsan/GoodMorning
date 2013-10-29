@@ -20,6 +20,16 @@
 
 @implementation WeatherViewController
 
++ (NSUInteger)rows
+{
+    return 1;
+}
+
++ (NSUInteger)cols
+{
+    return 3;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

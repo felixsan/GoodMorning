@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13CFE382181F59A900946D84 /* ModuleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CFE381181F59A900946D84 /* ModuleController.m */; };
 		A1859FD1978F475486A8D9F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F54D0946EA044D879FB9B24D /* libPods.a */; };
 		B54BA0A81818470600EA5A4F /* WeatherAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0A71818470600EA5A4F /* WeatherAPI.m */; };
 		B54BA0AB18184C7500EA5A4F /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0AA18184C7500EA5A4F /* WeatherModel.m */; };
@@ -53,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13CFE380181F59A900946D84 /* ModuleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModuleController.h; sourceTree = "<group>"; };
+		13CFE381181F59A900946D84 /* ModuleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModuleController.m; sourceTree = "<group>"; };
 		B54BA0A61818470600EA5A4F /* WeatherAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherAPI.h; sourceTree = "<group>"; };
 		B54BA0A71818470600EA5A4F /* WeatherAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherAPI.m; sourceTree = "<group>"; };
 		B54BA0A918184C7500EA5A4F /* WeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherModel.h; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 			children = (
 				B54BA0A51818466E00EA5A4F /* Weather */,
 				D890E77C105CF73AC09E79F9 /* Countdown */,
+				13CFE380181F59A900946D84 /* ModuleController.h */,
+				13CFE381181F59A900946D84 /* ModuleController.m */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -326,7 +331,7 @@
 				ORGANIZATIONNAME = MakeItRain;
 				TargetAttributes = {
 					DE3F7F9F1810D3400062126A = {
-						TestTargetID = DE3F7F841810D3400062126A /* GoodMorning */;
+						TestTargetID = DE3F7F841810D3400062126A;
 					};
 				};
 			};
@@ -420,6 +425,7 @@
 				B54BA0A81818470600EA5A4F /* WeatherAPI.m in Sources */,
 				B5ACBD07181C9B220015FBC3 /* DevelopmentVC.m in Sources */,
 				DE3F7F951810D3400062126A /* main.m in Sources */,
+				13CFE382181F59A900946D84 /* ModuleController.m in Sources */,
 				B5ACBC39181B64960015FBC3 /* Forecast.m in Sources */,
 				D890E45231B5F8FBF31EF79F /* CountdownView.m in Sources */,
 				B54BA0AE18184CC500EA5A4F /* WeatherSettingsView.m in Sources */,
