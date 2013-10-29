@@ -35,7 +35,7 @@
 
 - (void)updateTime:(NSTimer *)timer {
     NSDictionary *timeLeft = self.cm.getTimeLeft;
-    NSLog(@"timeLeft - %@, %@", timeLeft[CountdownAmount], timeLeft[CountdownGranularity]);
+//    NSLog(@"timeLeft - %@, %@", timeLeft[CountdownAmount], timeLeft[CountdownGranularity]);
 
     // Set the time
     CountdownView *cv = (CountdownView *)self.view;
