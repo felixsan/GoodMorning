@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ModuleController.h"
 
-@interface TwitterViewController : ModuleController <UITableViewDataSource>
+@interface TwitterViewController : ModuleController <UITableViewDataSource, UITableViewDelegate>
 
 @end
