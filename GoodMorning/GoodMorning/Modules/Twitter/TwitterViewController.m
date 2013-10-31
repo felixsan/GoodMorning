@@ -8,7 +8,6 @@
 
 #import "TwitterViewController.h"
 #import "TweetCell.h"
-#import "TweetViewController.h"
 #import "TwitterClient.h"
 
 #define REUSE_IDENTIFIER @"TweetCell"
