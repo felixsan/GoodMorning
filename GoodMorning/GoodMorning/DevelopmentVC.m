@@ -10,6 +10,7 @@
 #import "WeatherViewController.h"
 #import "CountdownViewController.h"
 #import "TwitterViewController.h"
+#import "TrafficViewController.h"
 
 @interface DevelopmentVC ()
 
@@ -56,6 +57,12 @@
     twitter.view.frame = CGRectMake(10, 305, 328, 454);
     [self.view addSubview:twitter.view];
     [twitter didMoveToParentViewController:self];
+
+    TrafficViewController *traffic = [[TrafficViewController alloc] init];
+    [self addChildViewController:traffic];
+    traffic.view.frame = CGRectMake(348, 537, 328, 222);
+    [self.view addSubview:traffic.view];
+    [traffic didMoveToParentViewController:self];
 }
 
 @end
