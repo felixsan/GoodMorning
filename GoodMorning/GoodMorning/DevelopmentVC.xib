@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="4514"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="4510"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DevelopmentVC">
@@ -15,45 +15,40 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3f-Q8-Ddd" customClass="WeatherView">
-                    <rect key="frame" x="10" y="75" width="1004" height="220"/>
+                    <rect key="frame" x="10" y="74" width="1004" height="222"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PF9-fi-cwD">
-                    <rect key="frame" x="10" y="305" width="328" height="220"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PF9-fi-cwD" customClass="TwitterView">
+                    <rect key="frame" x="10" y="305" width="328" height="454"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ATD-Qi-ZKJ">
-                    <rect key="frame" x="686" y="305" width="328" height="220"/>
+                    <rect key="frame" x="686" y="305" width="328" height="222"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HEg-99-iNY">
-                    <rect key="frame" x="348" y="305" width="328" height="220"/>
+                    <rect key="frame" x="348" y="305" width="328" height="222"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6jb-fE-rgN">
-                    <rect key="frame" x="348" y="535" width="328" height="220"/>
+                    <rect key="frame" x="348" y="537" width="328" height="222"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qdD-gK-0z8" customClass="CountdownView">
-                    <rect key="frame" x="686" y="535" width="328" height="220"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zag-aV-lPO">
-                    <rect key="frame" x="10" y="535" width="328" height="220"/>
+                    <rect key="frame" x="686" y="537" width="328" height="222"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="P3f-Q8-Ddd" firstAttribute="top" secondItem="1" secondAttribute="top" constant="75" id="Z3D-nO-IWW"/>
-                <constraint firstAttribute="bottom" secondItem="P3f-Q8-Ddd" secondAttribute="bottom" constant="473" id="fNJ-Cn-jGv"/>
+                <constraint firstItem="P3f-Q8-Ddd" firstAttribute="top" secondItem="1" secondAttribute="top" constant="74" id="Z3D-nO-IWW"/>
+                <constraint firstAttribute="bottom" secondItem="P3f-Q8-Ddd" secondAttribute="bottom" constant="472" id="fNJ-Cn-jGv"/>
                 <constraint firstAttribute="trailing" secondItem="P3f-Q8-Ddd" secondAttribute="trailing" constant="10" id="juy-3F-zMY"/>
                 <constraint firstItem="P3f-Q8-Ddd" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="t2h-oF-t6x"/>
             </constraints>

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		13CFE382181F59A900946D84 /* ModuleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CFE381181F59A900946D84 /* ModuleController.m */; };
+		13CFE386181F5EAA00946D84 /* TwitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CFE385181F5EAA00946D84 /* TwitterViewController.m */; };
+		13CFE38D181F65D600946D84 /* TwitterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CFE38C181F65D600946D84 /* TwitterView.m */; };
+		13CFE38F181F660800946D84 /* TwitterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13CFE38E181F660800946D84 /* TwitterView.xib */; };
 		A1859FD1978F475486A8D9F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F54D0946EA044D879FB9B24D /* libPods.a */; };
 		B54BA0A81818470600EA5A4F /* WeatherAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0A71818470600EA5A4F /* WeatherAPI.m */; };
 		B54BA0AB18184C7500EA5A4F /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0AA18184C7500EA5A4F /* WeatherModel.m */; };
@@ -56,6 +59,11 @@
 /* Begin PBXFileReference section */
 		13CFE380181F59A900946D84 /* ModuleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModuleController.h; sourceTree = "<group>"; };
 		13CFE381181F59A900946D84 /* ModuleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModuleController.m; sourceTree = "<group>"; };
+		13CFE384181F5EAA00946D84 /* TwitterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterViewController.h; path = Twitter/TwitterViewController.h; sourceTree = "<group>"; };
+		13CFE385181F5EAA00946D84 /* TwitterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterViewController.m; path = Twitter/TwitterViewController.m; sourceTree = "<group>"; };
+		13CFE38B181F65D600946D84 /* TwitterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterView.h; path = Twitter/TwitterView.h; sourceTree = "<group>"; };
+		13CFE38C181F65D600946D84 /* TwitterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterView.m; path = Twitter/TwitterView.m; sourceTree = "<group>"; };
+		13CFE38E181F660800946D84 /* TwitterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TwitterView.xib; path = Twitter/TwitterView.xib; sourceTree = "<group>"; };
 		B54BA0A61818470600EA5A4F /* WeatherAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherAPI.h; sourceTree = "<group>"; };
 		B54BA0A71818470600EA5A4F /* WeatherAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherAPI.m; sourceTree = "<group>"; };
 		B54BA0A918184C7500EA5A4F /* WeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherModel.h; sourceTree = "<group>"; };
@@ -134,6 +142,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13CFE383181F5E6000946D84 /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				13CFE38B181F65D600946D84 /* TwitterView.h */,
+				13CFE38C181F65D600946D84 /* TwitterView.m */,
+				13CFE38E181F660800946D84 /* TwitterView.xib */,
+				13CFE384181F5EAA00946D84 /* TwitterViewController.h */,
+				13CFE385181F5EAA00946D84 /* TwitterViewController.m */,
+			);
+			name = Twitter;
+			sourceTree = "<group>";
+		};
 		B54BA0A51818466E00EA5A4F /* Weather */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +219,7 @@
 			children = (
 				B54BA0A51818466E00EA5A4F /* Weather */,
 				D890E77C105CF73AC09E79F9 /* Countdown */,
+				13CFE383181F5E6000946D84 /* Twitter */,
 				13CFE380181F59A900946D84 /* ModuleController.h */,
 				13CFE381181F59A900946D84 /* ModuleController.m */,
 			);
@@ -364,6 +385,7 @@
 				B54BA0B518184D4200EA5A4F /* WeatherView.xib in Resources */,
 				B54BA0B318184D3400EA5A4F /* WeatherSettingsView.xib in Resources */,
 				B5ACBD09181C9B360015FBC3 /* DevelopmentVC.xib in Resources */,
+				13CFE38F181F660800946D84 /* TwitterView.xib in Resources */,
 				DE3F7F9B1810D3400062126A /* Images.xcassets in Resources */,
 				D890E34EDF3CA125B95ECE8C /* CountdownView.xib in Resources */,
 				D890E27E7293CF6DE3A2CF09 /* CountdownSettingsView.xib in Resources */,
@@ -426,7 +448,9 @@
 				B5ACBD07181C9B220015FBC3 /* DevelopmentVC.m in Sources */,
 				DE3F7F951810D3400062126A /* main.m in Sources */,
 				13CFE382181F59A900946D84 /* ModuleController.m in Sources */,
+				13CFE386181F5EAA00946D84 /* TwitterViewController.m in Sources */,
 				B5ACBC39181B64960015FBC3 /* Forecast.m in Sources */,
+				13CFE38D181F65D600946D84 /* TwitterView.m in Sources */,
 				D890E45231B5F8FBF31EF79F /* CountdownView.m in Sources */,
 				B54BA0AE18184CC500EA5A4F /* WeatherSettingsView.m in Sources */,
 				D890E0856743A5EB074C2BC4 /* CountdownSettingsView.m in Sources */,
