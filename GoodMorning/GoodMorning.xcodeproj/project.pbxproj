@@ -15,6 +15,8 @@
 		9043370D181E0A8800582879 /* ReminderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9043370C181E0A8800582879 /* ReminderView.xib */; };
 		9043370F181E0A9A00582879 /* ReminderSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9043370E181E0A9A00582879 /* ReminderSettingsView.xib */; };
 		90433712181E0AB800582879 /* ReminderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90433711181E0AB800582879 /* ReminderModel.m */; };
+		90981A60182366E40089B080 /* ModuleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90981A5F182366E40089B080 /* ModuleHeaderView.xib */; };
+		90981A63182366FB0089B080 /* ModuleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90981A62182366FB0089B080 /* ModuleHeaderView.m */; };
 		A1859FD1978F475486A8D9F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F54D0946EA044D879FB9B24D /* libPods.a */; };
 		B54BA0A81818470600EA5A4F /* WeatherAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0A71818470600EA5A4F /* WeatherAPI.m */; };
 		B54BA0AB18184C7500EA5A4F /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0AA18184C7500EA5A4F /* WeatherModel.m */; };
@@ -75,6 +77,9 @@
 		9043370E181E0A9A00582879 /* ReminderSettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReminderSettingsView.xib; path = Reminders/ReminderSettingsView.xib; sourceTree = "<group>"; };
 		90433710181E0AB800582879 /* ReminderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReminderModel.h; path = Reminders/ReminderModel.h; sourceTree = "<group>"; };
 		90433711181E0AB800582879 /* ReminderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReminderModel.m; path = Reminders/ReminderModel.m; sourceTree = "<group>"; };
+		90981A5F182366E40089B080 /* ModuleHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ModuleHeaderView.xib; path = Common/ModuleHeaderView.xib; sourceTree = "<group>"; };
+		90981A61182366FB0089B080 /* ModuleHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModuleHeaderView.h; path = Common/ModuleHeaderView.h; sourceTree = "<group>"; };
+		90981A62182366FB0089B080 /* ModuleHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModuleHeaderView.m; path = Common/ModuleHeaderView.m; sourceTree = "<group>"; };
 		B54BA0A61818470600EA5A4F /* WeatherAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherAPI.h; sourceTree = "<group>"; };
 		B54BA0A71818470600EA5A4F /* WeatherAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherAPI.m; sourceTree = "<group>"; };
 		B54BA0A918184C7500EA5A4F /* WeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherModel.h; sourceTree = "<group>"; };
@@ -170,6 +175,16 @@
 				9043370E181E0A9A00582879 /* ReminderSettingsView.xib */,
 			);
 			name = Reminder;
+			sourceTree = "<group>";
+		};
+		90981A5E182366AE0089B080 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				90981A5F182366E40089B080 /* ModuleHeaderView.xib */,
+				90981A61182366FB0089B080 /* ModuleHeaderView.h */,
+				90981A62182366FB0089B080 /* ModuleHeaderView.m */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		B54BA0A51818466E00EA5A4F /* Weather */ = {
@@ -287,6 +302,7 @@
 				B5ACBD05181C9B220015FBC3 /* DevelopmentVC.h */,
 				B5ACBD06181C9B220015FBC3 /* DevelopmentVC.m */,
 				B5ACBD08181C9B360015FBC3 /* DevelopmentVC.xib */,
+				90981A5E182366AE0089B080 /* Common */,
 			);
 			path = GoodMorning;
 			sourceTree = "<group>";
@@ -404,6 +420,7 @@
 				9043370D181E0A8800582879 /* ReminderView.xib in Resources */,
 				9043370F181E0A9A00582879 /* ReminderSettingsView.xib in Resources */,
 				B54BA0B318184D3400EA5A4F /* WeatherSettingsView.xib in Resources */,
+				90981A60182366E40089B080 /* ModuleHeaderView.xib in Resources */,
 				B5ACBD09181C9B360015FBC3 /* DevelopmentVC.xib in Resources */,
 				DE3F7F9B1810D3400062126A /* Images.xcassets in Resources */,
 				D890E34EDF3CA125B95ECE8C /* CountdownView.xib in Resources */,
@@ -479,6 +496,7 @@
 				B54BA0AB18184C7500EA5A4F /* WeatherModel.m in Sources */,
 				D890E95B0BAB03EE6DD660CF /* CountdownModel.m in Sources */,
 				D890EEA96C49CF653D73CEA4 /* CountdownViewController.m in Sources */,
+				90981A63182366FB0089B080 /* ModuleHeaderView.m in Sources */,
 				D890EF09560E11A2D82BCE7E /* CountdownSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
