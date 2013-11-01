@@ -19,4 +19,6 @@
 
 - (id)initWithDictionary:(NSDictionary *)data;
 
+- (NSArray *)keyHours;
+
 @end

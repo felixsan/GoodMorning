@@ -38,6 +38,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    WeatherView *weatherView = (WeatherView *)self.view;
+//    weatherView.layer.borderColor = [UIColor blackColor].CGColor;
+//    weatherView.layer.borderWidth = 1.0f;
+//    weatherView.layer.shadowOffset = CGSizeMake(2, 2);
+//    weatherView.layer.shadowColor = [[UIColor blackColor] CGColor];
+//    weatherView.layer.shadowRadius = 4.0f;
+//    weatherView.layer.shadowOpacity = 1.0f;
+//    weatherView.layer.shadowPath = [[UIBezierPath bezierPathWithRect:weatherView.layer.bounds] CGPath];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,16 +66,16 @@
     [outputFormatter setDateFormat:@"h:mm a"];
     
     float offset = 0;
-    for (Forecast *hour in self.weather.hourly) {
-        CGRect frame = CGRectMake(offset, 0, 200, 222);
+    for (Forecast *hour in [self.weather keyHours]) {
+        CGRect frame = CGRectMake(offset, 0, 150, 222);
         HourlyForecastView *hourlyView = [[HourlyForecastView alloc] initWithFrame:frame];
         hourlyView.temperatureLabel.text = [NSString stringWithFormat:@"%1.f", hour.temperature];
         hourlyView.timeLabel.text = [outputFormatter stringFromDate:hour.time];
         hourlyView.iconImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"png/%@", hour.icon]];
         [weatherView.hourlyScrollView addSubview:hourlyView];
-        offset += 200;
+        offset += 150;
     }
-    weatherView.hourlyScrollView.contentSize = CGSizeMake(offset+200, 222);
+    weatherView.hourlyScrollView.contentSize = CGSizeMake(offset+150, 222);
 }
 
 @end

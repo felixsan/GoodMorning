@@ -48,4 +48,31 @@
     return ((Forecast *)self.daily[0]).temperatureMin;
 }
 
+- (NSArray *)keyHours {
+    NSDictionary *reference_hours = @{
+        @"6:00 AM" : @"1",
+        @"8:00 AM" : @"1",
+        @"10:00 AM" : @"1",
+        @"12:00 PM" : @"1",
+        @"3:00 PM" : @"1",
+        @"5:00 PM" : @"1",
+        @"7:00 PM" : @"1",
+        @"12:00 AM" : @"1",
+        @"2:00 AM" : @"1",
+        @"4:00 AM" : @"1",
+    };
+    
+    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+    [outputFormatter setDateFormat:@"h:mm a"];
+
+    NSMutableArray *results = [[NSMutableArray alloc] init];
+    for (Forecast *hour in self.hourly) {
+        NSString *time = [outputFormatter stringFromDate:hour.time];
+        if ([reference_hours objectForKey:time] != nil) {
+            [results addObject:hour];
+        }
+    }
+    return results;
+}
+
 @end
