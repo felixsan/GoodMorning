@@ -9,17 +9,19 @@
 #import <EventKit/EventKit.h>
 #import <EventKitUI/EventKitUI.h>
 #import "ReminderViewController.h"
+#import "ReminderSettingsViewController.h"
 
 @interface ReminderViewController () <EKEventEditViewDelegate>
 
 // EKEventStore instance associated with the current Reminder application
 @property (nonatomic, strong) EKEventStore *eventStore;
 
-// Default reminders list associated with the above event store
-@property (nonatomic, strong) EKCalendar *defaultReminderList;
 
-// Array of all reminders happening within the next 24 hours
-@property (nonatomic, strong) NSMutableArray *remindersList;
+// Array of all reminder lists available
+@property (nonatomic, strong) NSArray *remindersLists;
+
+// Array of all reminders in a list
+@property (nonatomic, strong) NSMutableArray *reminders;
 
 // Used to add a reminder
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
@@ -27,9 +29,45 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property(nonatomic, strong) EKCalendar *currentReminderCalendar;
+
+@property (nonatomic, strong) ReminderSettingsViewController *reminderSettingsVC;
+
 @end
 
 @implementation ReminderViewController
+
+- (ReminderSettingsViewController *)reminderSettingsVC {
+    if (!_reminderSettingsVC) {
+        _reminderSettingsVC = [[ReminderSettingsViewController alloc] init];
+    }
+
+    return _reminderSettingsVC;
+}
+
+
+- (ReminderModel *)rm {
+    if (!_rm) {
+        _rm = [[ReminderModel alloc] init];
+    }
+
+    return _rm;
+}
+
+- (void)setRemindersLists:(NSArray *)remindersLists {
+    _remindersLists = remindersLists;
+    self.rm.reminderLists = remindersLists;
+}
+
+- (void)setCurrentReminderCalendar:(EKCalendar *)reminderCalendar {
+    _currentReminderCalendar = reminderCalendar;
+    self.rm.curReminderCalendar = reminderCalendar;
+}
+
+- (void)setReminders:(NSMutableArray *)reminders {
+    _reminders = reminders;
+    self.rm.reminders = reminders;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,21 +83,21 @@
 	// Initialize the event store
 	self.eventStore = [[EKEventStore alloc] init];
     // Initialize the events list
-	self.remindersList = [[NSMutableArray alloc] initWithCapacity:0];
+//	self.remindersLists = [[NSMutableArray alloc] initWithCapacity:0];
     // The Add button is initially disabled
     self.addButton.enabled = NO;
 
     // Register our cell
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
 
+    // Check whether we are authorized to access Reminders
+    [self checkEventStoreAccessForReminder];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    // Check whether we are authorized to access Reminders
-    [self checkEventStoreAccessForReminder];
-    
+
 }
 
 #pragma mark -
@@ -67,8 +105,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    [self.remindersList addObjectsFromArray:[self fetchReminders]];
-    return [self.remindersList count];
+    if (self.currentReminderCalendar != nil) {
+//        [self fetchRemindersFrom:self.currentReminderCalendar];
+        NSLog(@"Table - %d", [self.reminders count]);
+        return [self.reminders count];
+    } else {
+        return 0;
+    }
 
 }
 
@@ -76,7 +119,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     // Get the event at the row selected and display its title
-    cell.textLabel.text = [[self.remindersList objectAtIndex:(NSUInteger) indexPath.row] title];
+    cell.textLabel.text = [[self.reminders objectAtIndex:(NSUInteger) indexPath.row] title];
+    NSLog(@"Title - %@", cell.textLabel.text);
     return cell;
 }
 
@@ -84,7 +128,7 @@
 #pragma mark -
 #pragma mark Access Reminders
 
-// Check the authorization status of our application for Calendar
+// Check the authorization status of our application for Reminders
 -(void)checkEventStoreAccessForReminder
 {
     EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeReminder];
@@ -113,16 +157,16 @@
     }
 }
 
-// Prompt the user for access to their Calendar
+// Prompt the user for access to their Reminders
 -(void)requestReminderAccess
 {
-    [self.eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error)
+    [self.eventStore requestAccessToEntityType:EKEntityTypeReminder completion:^(BOOL granted, NSError *error)
      {
          if (granted)
          {
              // Let's ensure that our code will be executed from the main queue
              dispatch_async(dispatch_get_main_queue(), ^{
-                 // The user has granted access to their Calendar; let's populate our UI with all events occuring in the next 24 hours.
+                 // The user has granted access to their Reminders; let's populate our UI with all events occurring in the next 24 hours.
                  [self accessGrantedForReminder];
              });
          }
@@ -130,51 +174,58 @@
 }
 
 
-// This method is called when the user has granted permission to Calendar
+// This method is called when the user has granted permission to their Reminders
 -(void)accessGrantedForReminder
 {
     // Let's get the default calendar associated with our event store
-    self.defaultReminderList = self.eventStore.defaultCalendarForNewReminders;
+    self.currentReminderCalendar = self.eventStore.defaultCalendarForNewReminders;
+    self.remindersLists = [self.eventStore calendarsForEntityType:EKEntityTypeReminder];
+    NSLog(@"Default Reminders Calendar - %@", self.eventStore.defaultCalendarForNewReminders.title);
     // Enable the Add button
     self.addButton.enabled = YES;
-    // Fetch all events happening in the next 24 hours and put them into eventsList
-    self.remindersList = [self fetchReminders];
-    // Update the UI with the above events
+    // Fetch all reminders
+    [self fetchRemindersFrom:self.currentReminderCalendar];
+    // Update the UI with the above reminders
     [self.tableView reloadData];
 }
 
 #pragma mark -
 #pragma mark Fetch events
 
-// Fetch all events happening in the next 24 hours
-- (NSMutableArray *)fetchReminders
-{
-    NSDate *startDate = [NSDate date];
+- (void)fetchRemindersFrom:(EKCalendar *)reminderCalendar {
+    // Fetch only incomplete reminders
+    NSPredicate *predicate;
+    switch (self.rm.type) {
+        case ShowAll:{
+            predicate = [self.eventStore predicateForRemindersInCalendars:@[reminderCalendar]];
+            break;
+        }
+        case ShowIncomplete: {
+            predicate = [self.eventStore predicateForIncompleteRemindersWithDueDateStarting:nil ending:nil calendars:@[reminderCalendar]];
+            break;
+        }
+        case ShowComplete: {
+            predicate = [self.eventStore predicateForCompletedRemindersWithCompletionDateStarting:nil ending:nil calendars:@[reminderCalendar]];
+            break;
+        }
+        default: {
+            predicate = [self.eventStore predicateForIncompleteRemindersWithDueDateStarting:nil ending:nil calendars:@[reminderCalendar]];
+            break;
+        }
+    }
 
-    //Create the end date components
-    NSDateComponents *tomorrowDateComponents = [[NSDateComponents alloc] init];
-    tomorrowDateComponents.day = 1;
 
-    NSDate *endDate = [[NSCalendar currentCalendar] dateByAddingComponents:tomorrowDateComponents
-                                                                    toDate:startDate
-                                                                   options:0];
-    // We will only search the default reminders for our tasks
-    NSArray *reminderArray = @[];//[NSArray arrayWithObject:self.defaultReminderList];
+    id reminderRequest = [self.eventStore fetchRemindersMatchingPredicate:predicate completion:^(NSArray *reminders) {
+        self.reminders = [NSMutableArray arrayWithArray:reminders] ;
+        NSLog(@"Fetched reminders - %@", self.reminders);
+        [self.tableView reloadData];
+    }];
 
-    // Create the predicate
-    NSPredicate *predicate = [self.eventStore predicateForEventsWithStartDate:startDate
-                                                                      endDate:endDate
-                                                                    calendars:reminderArray];
-
-    // Fetch all events that match the predicate
-    NSMutableArray *events = [NSMutableArray arrayWithArray:[self.eventStore eventsMatchingPredicate:predicate]];
-
-    return events;
 }
 
 
 #pragma mark -
-#pragma mark Add a new event
+#pragma mark Add a new reminder
 
 // Display an event edit view controller when the user taps the "+" button.
 // A new event is added to Calendar when the user taps the "Done" button in the above view controller.
@@ -204,7 +255,7 @@
         {
             dispatch_async(dispatch_get_main_queue(), ^{
                 // Re-fetch all events happening in the next 24 hours
-                self.remindersList = [self fetchReminders];
+                [self fetchRemindersFrom:self.currentReminderCalendar];
                 // Update the UI with the above events
                 [self.tableView reloadData];
             });
@@ -216,9 +267,17 @@
 // Set the calendar edited by EKEventEditViewController to our chosen calendar - the default calendar.
 - (EKCalendar *)eventEditViewControllerDefaultCalendarForNewEvents:(EKEventEditViewController *)controller
 {
-    return self.defaultReminderList;
+    return self.currentReminderCalendar;
 }
 
+
+- (IBAction)showSettings:(id)sender {
+    NSLog(@"Showing the settings");
+    self.reminderSettingsVC.rm = self.rm;
+    [self presentViewController:self.reminderSettingsVC
+                       animated:YES
+                     completion:nil];
+}
 
 
 @end

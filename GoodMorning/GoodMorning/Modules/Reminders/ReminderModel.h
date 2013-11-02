@@ -7,7 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <EventKit/EventKit.h>
+
+typedef enum ShowRemindersType {
+    ShowAll,
+    ShowIncomplete,
+    ShowComplete
+} ShowRemindersType;
 
 @interface ReminderModel : NSObject
+
+@property (strong, nonatomic) NSMutableArray *reminders;
+@property (strong, nonatomic) NSArray *reminderLists;
+@property (strong, nonatomic) EKCalendar *curReminderCalendar;
+@property (nonatomic) ShowRemindersType type;
+
 
 @end

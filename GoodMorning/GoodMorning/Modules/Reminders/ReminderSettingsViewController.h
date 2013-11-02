@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReminderModel.h"
 
-@interface ReminderSettingsViewController : UIViewController
+@interface ReminderSettingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong)ReminderModel *rm;
 
 @end

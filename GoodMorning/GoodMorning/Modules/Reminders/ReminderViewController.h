@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReminderModel.h"
 
 @interface ReminderViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableViewCell *reminderCell;
+@property (nonatomic, strong) ReminderModel *rm;
 
+- (IBAction)showSettings:(id)sender;
 
 @end

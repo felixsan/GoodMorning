@@ -10,4 +10,12 @@
 
 @implementation ReminderModel
 
+- (ShowRemindersType)type {
+    if (!_type) {
+        _type = ShowIncomplete;
+    }
+
+    return _type;
+}
+
 @end
