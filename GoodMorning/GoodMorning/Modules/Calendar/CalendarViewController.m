@@ -69,9 +69,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"eventCell" forIndexPath:indexPath];
-
+    cell = [cell initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:@"evenCell"];
     // Get the event at the row selected and display its title
-    cell.textLabel.text = [[self.eventsList objectAtIndex:(NSUInteger) indexPath.row] title];
+    EKEvent *event = [self.eventsList objectAtIndex:(NSUInteger) indexPath.row];
+
+    // Set the date to be the start time
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    cell.textLabel.text = [formatter stringFromDate:[event startDate]];
+    cell.detailTextLabel.text = [event title];
     return cell;
 }
 
