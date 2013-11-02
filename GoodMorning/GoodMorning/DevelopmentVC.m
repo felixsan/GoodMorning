@@ -10,6 +10,7 @@
 #import "WeatherViewController.h"
 #import "CountdownViewController.h"
 #import "ReminderViewController.h"
+#import "CalendarViewController.h"
 
 @interface DevelopmentVC ()
 
@@ -58,6 +59,15 @@
     reminders.view.frame = CGRectMake(686, 305, 328, 222);
     [self.view addSubview:reminders.view];
     [reminders didMoveToParentViewController:self];
+
+    // Adding the Calendar panel
+    CalendarViewController *calendar = [[CalendarViewController alloc] init];
+    [self addChildViewController:calendar];
+    calendar.view.frame = CGRectMake(348, 305, 328, 222);
+    [self.view addSubview:calendar.view];
+    [calendar didMoveToParentViewController:self];
+
+
 }
 
 @end
