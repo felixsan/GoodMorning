@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ModuleController.h"
 
-@interface CalendarViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface CalendarViewController : ModuleController <UITableViewDelegate, UITableViewDataSource>
 
 @end

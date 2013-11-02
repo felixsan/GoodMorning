@@ -6,10 +6,11 @@
 //  Copyright (c) 2013 MakeItRain. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "ReminderModel.h"
 
-@interface ReminderViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+#import "ReminderModel.h"
+#import "ModuleController.h"
+
+@interface ReminderViewController : ModuleController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableViewCell *reminderCell;
 @property (nonatomic, strong) ReminderModel *rm;
