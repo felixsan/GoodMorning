@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalendarViewController">
             <connections>
+                <outlet property="tableView" destination="k23-mM-Z0f" id="0vE-ql-J8d"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>
