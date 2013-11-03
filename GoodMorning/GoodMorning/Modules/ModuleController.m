@@ -24,4 +24,17 @@
     return 1;
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self addStyleToView:self.view];
+    
+}
+
+- (void)addStyleToView:(UIView *)view {
+    view.layer.shadowOffset = CGSizeMake(2, 2);
+    view.layer.shadowColor = [[UIColor grayColor] CGColor];
+    view.layer.shadowRadius = 3.0f;
+    view.layer.shadowOpacity = 0.7f;
+}
+
 @end
