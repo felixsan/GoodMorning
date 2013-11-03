@@ -15,6 +15,7 @@
 @interface WeatherViewController ()
 
 @property WeatherModel *weather;
+@property CLLocationManager *locationManager;
 
 @end
 
@@ -24,13 +25,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [[WeatherAPI instance] forecastWithLatitude:37.7806 longitude:-121.9904 success:^(AFHTTPRequestOperation *operation, id response) {
-//            NSLog(response);
-            self.weather = [[WeatherModel alloc] initWithDictionary:response];
-            [self updateView];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            // Do nothing
-        }];
+        [self startStandardUpdates];
     }
     return self;
 }
@@ -76,6 +71,35 @@
         offset += 150;
     }
     weatherView.hourlyScrollView.contentSize = CGSizeMake(offset+150, 222);
+}
+
+- (void)startStandardUpdates
+{
+    if (nil == self.locationManager)
+        self.locationManager = [[CLLocationManager alloc] init];
+    
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    self.locationManager.distanceFilter = 500; // meters
+    
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+     didUpdateLocations:(NSArray *)locations {
+    // If it's a relatively recent event, turn off updates to save power.
+    CLLocation* location = [locations lastObject];
+    [self loadWeatherWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude];
+    [self.locationManager stopUpdatingLocation];
+}
+
+- (void)loadWeatherWithLatitude:(double)latitude longitude:(double)longitude {
+    [[WeatherAPI instance] forecastWithLatitude:latitude longitude:longitude success:^(AFHTTPRequestOperation *operation, id response) {
+        self.weather = [[WeatherModel alloc] initWithDictionary:response];
+        [self updateView];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // Do nothing
+    }];
 }
 
 @end
