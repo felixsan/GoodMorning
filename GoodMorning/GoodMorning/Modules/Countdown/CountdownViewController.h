@@ -3,10 +3,9 @@
 // Copyright (c) 2013 MakeItRain. All rights reserved.
 //
 
-#import "Modulecontroller.h"
 #import "CountdownModel.h"
 
-@interface CountdownViewController : ModuleController
+@interface CountdownViewController : UIViewController
 
 @property (nonatomic, strong)NSTimer *countdownTimer;
 @property (nonatomic, strong)CountdownModel *cm;
