@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 MakeItRain. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "ModuleController.h"
 
-@interface WeatherViewController : ModuleController
+@interface WeatherViewController : ModuleController <CLLocationManagerDelegate>
 
 @end
