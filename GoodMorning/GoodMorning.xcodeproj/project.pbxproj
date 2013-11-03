@@ -28,7 +28,6 @@
 		90433712181E0AB800582879 /* ReminderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90433711181E0AB800582879 /* ReminderModel.m */; };
 		90981A60182366E40089B080 /* ModuleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90981A5F182366E40089B080 /* ModuleHeaderView.xib */; };
 		90981A63182366FB0089B080 /* ModuleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90981A62182366FB0089B080 /* ModuleHeaderView.m */; };
-		90A2B1E5182490AC009E418C /* CalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A2B1E4182490AC009E418C /* CalendarModel.m */; };
 		90A2B1EA182490D2009E418C /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A2B1E8182490D2009E418C /* CalendarViewController.m */; };
 		90A2B1EB182490D2009E418C /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90A2B1E9182490D2009E418C /* CalendarView.xib */; };
 		90A2B1EF182490E4009E418C /* CalendarSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A2B1ED182490E4009E418C /* CalendarSettingsViewController.m */; };
@@ -131,8 +130,6 @@
 		90981A5F182366E40089B080 /* ModuleHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ModuleHeaderView.xib; path = Common/ModuleHeaderView.xib; sourceTree = "<group>"; };
 		90981A61182366FB0089B080 /* ModuleHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModuleHeaderView.h; path = Common/ModuleHeaderView.h; sourceTree = "<group>"; };
 		90981A62182366FB0089B080 /* ModuleHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModuleHeaderView.m; path = Common/ModuleHeaderView.m; sourceTree = "<group>"; };
-		90A2B1E3182490AC009E418C /* CalendarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarModel.h; path = Calendar/CalendarModel.h; sourceTree = "<group>"; };
-		90A2B1E4182490AC009E418C /* CalendarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarModel.m; path = Calendar/CalendarModel.m; sourceTree = "<group>"; };
 		90A2B1E7182490D2009E418C /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarViewController.h; path = Calendar/CalendarViewController.h; sourceTree = "<group>"; };
 		90A2B1E8182490D2009E418C /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarViewController.m; path = Calendar/CalendarViewController.m; sourceTree = "<group>"; };
 		90A2B1E9182490D2009E418C /* CalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CalendarView.xib; path = Calendar/CalendarView.xib; sourceTree = "<group>"; };
@@ -263,6 +260,7 @@
 		13CFE383181F5E6000946D84 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				130E0DA8182231770043E24F /* Tweet.h */,
 				130E0DA9182231770043E24F /* Tweet.m */,
 				130E0DAA182231770043E24F /* User.h */,
@@ -279,6 +277,8 @@
 			name = Twitter;
 				90A2B1E3182490AC009E418C /* CalendarModel.h */,
 				90A2B1E4182490AC009E418C /* CalendarModel.m */,
+=======
+>>>>>>> Get rid of CalendarModel - Not needed with EventKit's EKEvent Model
 				90A2B1E7182490D2009E418C /* CalendarViewController.h */,
 				90A2B1E8182490D2009E418C /* CalendarViewController.m */,
 				90A2B1E9182490D2009E418C /* CalendarView.xib */,
@@ -647,7 +647,12 @@
 				130E0DB2182232490043E24F /* TweetCell.m in Sources */,
 				13477C6618224E3C005AF7A6 /* TrafficViewController.m in Sources */,
 				B5ACBD07181C9B220015FBC3 /* DevelopmentVC.m in Sources */,
+<<<<<<< HEAD
 				B576B975182640AD006E3E57 /* ReminderModel.m in Sources */,
+=======
+				90A2B1F31824913C009E418C /* CalendarView.m in Sources */,
+				90A2B1EF182490E4009E418C /* CalendarSettingsViewController.m in Sources */,
+>>>>>>> Get rid of CalendarModel - Not needed with EventKit's EKEvent Model
 				DE3F7F951810D3400062126A /* main.m in Sources */,
 				B576B978182640AD006E3E57 /* ReminderSettingsViewController.m in Sources */,
 				13CFE382181F59A900946D84 /* ModuleController.m in Sources */,
