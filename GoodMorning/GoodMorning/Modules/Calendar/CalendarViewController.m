@@ -27,18 +27,11 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+-(void)presentCalendarEditModalWith:(EKEvent *)event;
+
 @end
 
 @implementation CalendarViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -59,15 +52,13 @@
     [self checkEventStoreAccessForCalendar];
 }
 
-
 #pragma mark -
-#pragma mark Table View
+#pragma mark TableViewDelegate Functions
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.eventsList.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -79,6 +70,12 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    // Get the event at the row selected and present the edit event modal
+    EKEvent *event = [self.eventsList objectAtIndex:(NSUInteger) indexPath.row];
+    [self presentCalendarEditModalWith:event];
+}
 
 #pragma mark -
 #pragma mark Access Calendar
@@ -112,7 +109,6 @@
     }
 }
 
-
 // Prompt the user for access to their Calendar
 -(void)requestCalendarAccess
 {
@@ -129,7 +125,6 @@
     }];
 }
 
-
 // This method is called when the user has granted permission to Calendar
 -(void)accessGrantedForCalendar
 {
@@ -142,7 +137,6 @@
     // Update the UI with the above events
     [self.tableView reloadData];
 }
-
 
 #pragma mark -
 #pragma mark Fetch events
@@ -173,23 +167,14 @@
     return events;
 }
 
-
 #pragma mark -
 #pragma mark Add a new event
 
 // Display an event edit view controller when the user taps the "+" button.
 // A new event is added to Calendar when the user taps the "Done" button in the above view controller.
-- (IBAction)addEvent:(id)sender
-{
-    // Create an instance of EKEventEditViewController
-    EKEventEditViewController *addController = [[EKEventEditViewController alloc] init];
-
-    // Set addController's event store to the current event store
-    addController.eventStore = self.eventStore;
-    addController.editViewDelegate = self;
-    [self presentViewController:addController animated:YES completion:nil];
+- (IBAction)addEvent:(id)sender {
+    [self presentCalendarEditModalWith:nil];
 }
-
 
 #pragma mark -
 #pragma mark EKEventEditViewDelegate
@@ -213,11 +198,28 @@
     }];
 }
 
-
 // Set the calendar edited by EKEventEditViewController to our chosen calendar - the default calendar.
 - (EKCalendar *)eventEditViewControllerDefaultCalendarForNewEvents:(EKEventEditViewController *)controller
 {
     return self.defaultCalendar;
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+
+- (void)presentCalendarEditModalWith:(EKEvent *)event {
+    // Create an instance of EKEventEditViewController
+    EKEventEditViewController *addController = [[EKEventEditViewController alloc] init];
+
+    // Set addController's event store to the current event store
+    addController.eventStore = self.eventStore;
+    addController.editViewDelegate = self;
+    if (event) {
+        addController.event = event;
+    }
+
+    [self presentViewController:addController animated:YES completion:nil];
 }
 
 @end
