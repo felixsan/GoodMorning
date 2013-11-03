@@ -9,6 +9,7 @@
 #import <EventKit/EventKit.h>
 #import <EventKitUI/EventKitUI.h>
 #import "CalendarViewController.h"
+#import "CalendarCell.h"
 
 @interface CalendarViewController () <EKEventEditViewDelegate>
 
@@ -49,8 +50,10 @@
     // The Add button is initially disabled
     self.addButton.enabled = NO;
 
-    // Register our cell
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"eventCell"];
+
+    // Add in our custom cell
+    UINib *calendarCellNib = [UINib nibWithNibName:@"CalendarCell" bundle:nil];
+    [self.tableView registerNib:calendarCellNib forCellReuseIdentifier:@"eventCell"];
 
     // Check whether we are authorized to access Reminders
     [self checkEventStoreAccessForCalendar];
@@ -68,16 +71,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"eventCell" forIndexPath:indexPath];
-    cell = [cell initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:@"evenCell"];
     // Get the event at the row selected and display its title
     EKEvent *event = [self.eventsList objectAtIndex:(NSUInteger) indexPath.row];
 
-    // Set the date to be the start time
-    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setTimeStyle:NSDateFormatterShortStyle];
-    cell.textLabel.text = [formatter stringFromDate:[event startDate]];
-    cell.detailTextLabel.text = [event title];
+    CalendarCell *cell = [tableView dequeueReusableCellWithIdentifier:@"eventCell" forIndexPath:indexPath];
+    cell.event = event;
     return cell;
 }
 

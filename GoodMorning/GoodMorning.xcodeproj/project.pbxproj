@@ -19,6 +19,24 @@
 		13477C6B18224F35005AF7A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13477C6A18224F35005AF7A6 /* MapKit.framework */; };
 		13CFE382181F59A900946D84 /* ModuleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CFE381181F59A900946D84 /* ModuleController.m */; };
 		13CFE386181F5EAA00946D84 /* TwitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CFE385181F5EAA00946D84 /* TwitterViewController.m */; };
+		90433701181E09EF00582879 /* ReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90433700181E09EF00582879 /* ReminderViewController.m */; };
+		90433705181E0A2800582879 /* ReminderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90433704181E0A2800582879 /* ReminderView.m */; };
+		90433708181E0A4500582879 /* ReminderSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90433707181E0A4500582879 /* ReminderSettingsViewController.m */; };
+		9043370B181E0A6B00582879 /* ReminderSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9043370A181E0A6B00582879 /* ReminderSettingsView.m */; };
+		9043370D181E0A8800582879 /* ReminderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9043370C181E0A8800582879 /* ReminderView.xib */; };
+		9043370F181E0A9A00582879 /* ReminderSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9043370E181E0A9A00582879 /* ReminderSettingsView.xib */; };
+		90433712181E0AB800582879 /* ReminderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90433711181E0AB800582879 /* ReminderModel.m */; };
+		90981A60182366E40089B080 /* ModuleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90981A5F182366E40089B080 /* ModuleHeaderView.xib */; };
+		90981A63182366FB0089B080 /* ModuleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90981A62182366FB0089B080 /* ModuleHeaderView.m */; };
+		90A2B1E5182490AC009E418C /* CalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A2B1E4182490AC009E418C /* CalendarModel.m */; };
+		90A2B1EA182490D2009E418C /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A2B1E8182490D2009E418C /* CalendarViewController.m */; };
+		90A2B1EB182490D2009E418C /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90A2B1E9182490D2009E418C /* CalendarView.xib */; };
+		90A2B1EF182490E4009E418C /* CalendarSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A2B1ED182490E4009E418C /* CalendarSettingsViewController.m */; };
+		90A2B1F0182490E4009E418C /* CalendarSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90A2B1EE182490E4009E418C /* CalendarSettingsView.xib */; };
+		90A2B1F31824913C009E418C /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A2B1F21824913C009E418C /* CalendarView.m */; };
+		90A2B1F61824914F009E418C /* CalendarSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A2B1F51824914F009E418C /* CalendarSettingsView.m */; };
+		90A2B1F8182694D2009E418C /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90A2B1F7182694D2009E418C /* CalendarCell.xib */; };
+		90A2B1FB18269769009E418C /* CalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A2B1FA18269769009E418C /* CalendarCell.m */; };
 		A1859FD1978F475486A8D9F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F54D0946EA044D879FB9B24D /* libPods.a */; };
 		B54BA0A81818470600EA5A4F /* WeatherAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0A71818470600EA5A4F /* WeatherAPI.m */; };
 		B54BA0AB18184C7500EA5A4F /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0AA18184C7500EA5A4F /* WeatherModel.m */; };
@@ -98,6 +116,36 @@
 		13CFE381181F59A900946D84 /* ModuleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModuleController.m; sourceTree = "<group>"; };
 		13CFE384181F5EAA00946D84 /* TwitterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterViewController.h; path = Twitter/TwitterViewController.h; sourceTree = "<group>"; };
 		13CFE385181F5EAA00946D84 /* TwitterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterViewController.m; path = Twitter/TwitterViewController.m; sourceTree = "<group>"; };
+		904336FF181E09EF00582879 /* ReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReminderViewController.h; path = Reminders/ReminderViewController.h; sourceTree = "<group>"; };
+		90433700181E09EF00582879 /* ReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReminderViewController.m; path = Reminders/ReminderViewController.m; sourceTree = "<group>"; };
+		90433703181E0A2800582879 /* ReminderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReminderView.h; path = Reminders/ReminderView.h; sourceTree = "<group>"; };
+		90433704181E0A2800582879 /* ReminderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReminderView.m; path = Reminders/ReminderView.m; sourceTree = "<group>"; };
+		90433706181E0A4500582879 /* ReminderSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReminderSettingsViewController.h; path = Reminders/ReminderSettingsViewController.h; sourceTree = "<group>"; };
+		90433707181E0A4500582879 /* ReminderSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReminderSettingsViewController.m; path = Reminders/ReminderSettingsViewController.m; sourceTree = "<group>"; };
+		90433709181E0A6B00582879 /* ReminderSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReminderSettingsView.h; path = Reminders/ReminderSettingsView.h; sourceTree = "<group>"; };
+		9043370A181E0A6B00582879 /* ReminderSettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReminderSettingsView.m; path = Reminders/ReminderSettingsView.m; sourceTree = "<group>"; };
+		9043370C181E0A8800582879 /* ReminderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReminderView.xib; path = Reminders/ReminderView.xib; sourceTree = "<group>"; };
+		9043370E181E0A9A00582879 /* ReminderSettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReminderSettingsView.xib; path = Reminders/ReminderSettingsView.xib; sourceTree = "<group>"; };
+		90433710181E0AB800582879 /* ReminderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReminderModel.h; path = Reminders/ReminderModel.h; sourceTree = "<group>"; };
+		90433711181E0AB800582879 /* ReminderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReminderModel.m; path = Reminders/ReminderModel.m; sourceTree = "<group>"; };
+		90981A5F182366E40089B080 /* ModuleHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ModuleHeaderView.xib; path = Common/ModuleHeaderView.xib; sourceTree = "<group>"; };
+		90981A61182366FB0089B080 /* ModuleHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModuleHeaderView.h; path = Common/ModuleHeaderView.h; sourceTree = "<group>"; };
+		90981A62182366FB0089B080 /* ModuleHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModuleHeaderView.m; path = Common/ModuleHeaderView.m; sourceTree = "<group>"; };
+		90A2B1E3182490AC009E418C /* CalendarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarModel.h; path = Calendar/CalendarModel.h; sourceTree = "<group>"; };
+		90A2B1E4182490AC009E418C /* CalendarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarModel.m; path = Calendar/CalendarModel.m; sourceTree = "<group>"; };
+		90A2B1E7182490D2009E418C /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarViewController.h; path = Calendar/CalendarViewController.h; sourceTree = "<group>"; };
+		90A2B1E8182490D2009E418C /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarViewController.m; path = Calendar/CalendarViewController.m; sourceTree = "<group>"; };
+		90A2B1E9182490D2009E418C /* CalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CalendarView.xib; path = Calendar/CalendarView.xib; sourceTree = "<group>"; };
+		90A2B1EC182490E4009E418C /* CalendarSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarSettingsViewController.h; path = Calendar/CalendarSettingsViewController.h; sourceTree = "<group>"; };
+		90A2B1ED182490E4009E418C /* CalendarSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarSettingsViewController.m; path = Calendar/CalendarSettingsViewController.m; sourceTree = "<group>"; };
+		90A2B1EE182490E4009E418C /* CalendarSettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CalendarSettingsView.xib; path = Calendar/CalendarSettingsView.xib; sourceTree = "<group>"; };
+		90A2B1F11824913C009E418C /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarView.h; path = Calendar/CalendarView.h; sourceTree = "<group>"; };
+		90A2B1F21824913C009E418C /* CalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarView.m; path = Calendar/CalendarView.m; sourceTree = "<group>"; };
+		90A2B1F41824914F009E418C /* CalendarSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarSettingsView.h; path = Calendar/CalendarSettingsView.h; sourceTree = "<group>"; };
+		90A2B1F51824914F009E418C /* CalendarSettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarSettingsView.m; path = Calendar/CalendarSettingsView.m; sourceTree = "<group>"; };
+		90A2B1F7182694D2009E418C /* CalendarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CalendarCell.xib; path = Calendar/CalendarCell.xib; sourceTree = "<group>"; };
+		90A2B1F918269769009E418C /* CalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarCell.h; path = Calendar/CalendarCell.h; sourceTree = "<group>"; };
+		90A2B1FA18269769009E418C /* CalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarCell.m; path = Calendar/CalendarCell.m; sourceTree = "<group>"; };
 		B54BA0A61818470600EA5A4F /* WeatherAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherAPI.h; sourceTree = "<group>"; };
 		B54BA0A71818470600EA5A4F /* WeatherAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherAPI.m; sourceTree = "<group>"; };
 		B54BA0A918184C7500EA5A4F /* WeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherModel.h; sourceTree = "<group>"; };
@@ -229,6 +277,23 @@
 				13477C5F18224C1A005AF7A6 /* TwitterViewController.xib */,
 			);
 			name = Twitter;
+				90A2B1E3182490AC009E418C /* CalendarModel.h */,
+				90A2B1E4182490AC009E418C /* CalendarModel.m */,
+				90A2B1E7182490D2009E418C /* CalendarViewController.h */,
+				90A2B1E8182490D2009E418C /* CalendarViewController.m */,
+				90A2B1E9182490D2009E418C /* CalendarView.xib */,
+				90A2B1EC182490E4009E418C /* CalendarSettingsViewController.h */,
+				90A2B1ED182490E4009E418C /* CalendarSettingsViewController.m */,
+				90A2B1EE182490E4009E418C /* CalendarSettingsView.xib */,
+				90A2B1F11824913C009E418C /* CalendarView.h */,
+				90A2B1F21824913C009E418C /* CalendarView.m */,
+				90A2B1F41824914F009E418C /* CalendarSettingsView.h */,
+				90A2B1F51824914F009E418C /* CalendarSettingsView.m */,
+				90A2B1F7182694D2009E418C /* CalendarCell.xib */,
+				90A2B1F918269769009E418C /* CalendarCell.h */,
+				90A2B1FA18269769009E418C /* CalendarCell.m */,
+			);
+			name = Calendar;
 			sourceTree = "<group>";
 		};
 		B54BA0A51818466E00EA5A4F /* Weather */ = {
@@ -515,6 +580,7 @@
 				B576B977182640AD006E3E57 /* ReminderSettingsView.xib in Resources */,
 				D890E34EDF3CA125B95ECE8C /* CountdownView.xib in Resources */,
 				D890E27E7293CF6DE3A2CF09 /* CountdownSettingsView.xib in Resources */,
+				90A2B1F8182694D2009E418C /* CalendarCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +662,8 @@
 				D890E0856743A5EB074C2BC4 /* CountdownSettingsView.m in Sources */,
 				B54BA0AB18184C7500EA5A4F /* WeatherModel.m in Sources */,
 				D890E95B0BAB03EE6DD660CF /* CountdownModel.m in Sources */,
+				90A2B1FB18269769009E418C /* CalendarCell.m in Sources */,
+				90A2B1EA182490D2009E418C /* CalendarViewController.m in Sources */,
 				D890EEA96C49CF653D73CEA4 /* CountdownViewController.m in Sources */,
 				D890EF09560E11A2D82BCE7E /* CountdownSettingsViewController.m in Sources */,
 			);
