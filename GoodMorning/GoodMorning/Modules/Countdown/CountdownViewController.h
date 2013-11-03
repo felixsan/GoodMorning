@@ -3,6 +3,7 @@
 // Copyright (c) 2013 MakeItRain. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "CountdownModel.h"
 
 @interface CountdownViewController : UIViewController

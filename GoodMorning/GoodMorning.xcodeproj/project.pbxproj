@@ -331,7 +331,7 @@
 				ORGANIZATIONNAME = MakeItRain;
 				TargetAttributes = {
 					DE3F7F9F1810D3400062126A = {
-						TestTargetID = DE3F7F841810D3400062126A;
+						TestTargetID = DE3F7F841810D3400062126A /* GoodMorning */;
 					};
 				};
 			};
