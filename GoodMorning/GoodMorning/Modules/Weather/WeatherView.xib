@@ -28,7 +28,7 @@
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="70"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear-night.png" translatesAutoresizingMaskIntoConstraints="NO" id="gQF-D9-gqd">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gQF-D9-gqd">
                             <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
@@ -131,7 +131,4 @@
             </connections>
         </view>
     </objects>
-    <resources>
-        <image name="clear-night.png" width="200" height="200"/>
-    </resources>
 </document>
