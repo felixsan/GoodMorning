@@ -11,6 +11,8 @@
 #import "CountdownViewController.h"
 #import "TwitterViewController.h"
 #import "TrafficViewController.h"
+#import "ReminderViewController.h"
+#import "CalendarViewController.h"
 
 @interface DevelopmentVC ()
 
@@ -63,6 +65,20 @@
     traffic.view.frame = CGRectMake(348, 537, 328, 222);
     [self.view addSubview:traffic.view];
     [traffic didMoveToParentViewController:self];
+
+    // Adding the Reminders panel
+    ReminderViewController *reminders = [[ReminderViewController alloc] init];
+    [self addChildViewController:reminders];
+    reminders.view.frame = CGRectMake(686, 305, 328, 222);
+    [self.view addSubview:reminders.view];
+    [reminders didMoveToParentViewController:self];
+
+    // Adding the Calendar panel
+    CalendarViewController *calendar = [[CalendarViewController alloc] init];
+    [self addChildViewController:calendar];
+    calendar.view.frame = CGRectMake(348, 305, 328, 222);
+    [self.view addSubview:calendar.view];
+    [calendar didMoveToParentViewController:self];
 }
 
 @end
