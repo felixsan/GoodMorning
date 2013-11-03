@@ -43,14 +43,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    WeatherView *weatherView = (WeatherView *)self.view;
-//    weatherView.layer.borderColor = [UIColor blackColor].CGColor;
-//    weatherView.layer.borderWidth = 1.0f;
-//    weatherView.layer.shadowOffset = CGSizeMake(2, 2);
-//    weatherView.layer.shadowColor = [[UIColor blackColor] CGColor];
-//    weatherView.layer.shadowRadius = 4.0f;
-//    weatherView.layer.shadowOpacity = 1.0f;
-//    weatherView.layer.shadowPath = [[UIBezierPath bezierPathWithRect:weatherView.layer.bounds] CGPath];
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,7 +72,7 @@
         [weatherView.hourlyScrollView addSubview:hourlyView];
         offset += 150;
     }
-    weatherView.hourlyScrollView.contentSize = CGSizeMake(offset+150, 222);
+    weatherView.hourlyScrollView.contentSize = CGSizeMake(offset, 222);
 }
 
 - (void)startStandardUpdates
