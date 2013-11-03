@@ -7,7 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		130E0DAC182231770043E24F /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E0DA9182231770043E24F /* Tweet.m */; };
+		130E0DAD182231770043E24F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E0DAB182231770043E24F /* User.m */; };
+		130E0DB2182232490043E24F /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E0DB1182232490043E24F /* TweetCell.m */; };
+		13477C5D182244C2005AF7A6 /* TwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 13477C5C182244C2005AF7A6 /* TwitterClient.m */; };
+		13477C6018224C1A005AF7A6 /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13477C5E18224C1A005AF7A6 /* TweetCell.xib */; };
+		13477C6118224C1A005AF7A6 /* TwitterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13477C5F18224C1A005AF7A6 /* TwitterViewController.xib */; };
+		13477C6618224E3C005AF7A6 /* TrafficViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13477C6418224E3C005AF7A6 /* TrafficViewController.m */; };
+		13477C6718224E3C005AF7A6 /* TrafficViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13477C6518224E3C005AF7A6 /* TrafficViewController.xib */; };
+		13477C6918224F0D005AF7A6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13477C6818224F0D005AF7A6 /* Social.framework */; };
+		13477C6B18224F35005AF7A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13477C6A18224F35005AF7A6 /* MapKit.framework */; };
 		13CFE382181F59A900946D84 /* ModuleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CFE381181F59A900946D84 /* ModuleController.m */; };
+		13CFE386181F5EAA00946D84 /* TwitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CFE385181F5EAA00946D84 /* TwitterViewController.m */; };
 		A1859FD1978F475486A8D9F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F54D0946EA044D879FB9B24D /* libPods.a */; };
 		B54BA0A81818470600EA5A4F /* WeatherAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0A71818470600EA5A4F /* WeatherAPI.m */; };
 		B54BA0AB18184C7500EA5A4F /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0AA18184C7500EA5A4F /* WeatherModel.m */; };
@@ -54,8 +65,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		130E0DA8182231770043E24F /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tweet.h; path = Twitter/Tweet.h; sourceTree = "<group>"; };
+		130E0DA9182231770043E24F /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tweet.m; path = Twitter/Tweet.m; sourceTree = "<group>"; };
+		130E0DAA182231770043E24F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Twitter/User.h; sourceTree = "<group>"; };
+		130E0DAB182231770043E24F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Twitter/User.m; sourceTree = "<group>"; };
+		130E0DB0182232490043E24F /* TweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TweetCell.h; path = Twitter/TweetCell.h; sourceTree = "<group>"; };
+		130E0DB1182232490043E24F /* TweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TweetCell.m; path = Twitter/TweetCell.m; sourceTree = "<group>"; };
+		13477C5B182244C2005AF7A6 /* TwitterClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterClient.h; path = Twitter/TwitterClient.h; sourceTree = "<group>"; };
+		13477C5C182244C2005AF7A6 /* TwitterClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterClient.m; path = Twitter/TwitterClient.m; sourceTree = "<group>"; };
+		13477C5E18224C1A005AF7A6 /* TweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TweetCell.xib; path = Twitter/TweetCell.xib; sourceTree = "<group>"; };
+		13477C5F18224C1A005AF7A6 /* TwitterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TwitterViewController.xib; path = Twitter/TwitterViewController.xib; sourceTree = "<group>"; };
+		13477C6318224E3C005AF7A6 /* TrafficViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrafficViewController.h; path = Traffic/TrafficViewController.h; sourceTree = "<group>"; };
+		13477C6418224E3C005AF7A6 /* TrafficViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrafficViewController.m; path = Traffic/TrafficViewController.m; sourceTree = "<group>"; };
+		13477C6518224E3C005AF7A6 /* TrafficViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TrafficViewController.xib; path = Traffic/TrafficViewController.xib; sourceTree = "<group>"; };
+		13477C6818224F0D005AF7A6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		13477C6A18224F35005AF7A6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		13CFE380181F59A900946D84 /* ModuleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModuleController.h; sourceTree = "<group>"; };
 		13CFE381181F59A900946D84 /* ModuleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModuleController.m; sourceTree = "<group>"; };
+		13CFE384181F5EAA00946D84 /* TwitterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterViewController.h; path = Twitter/TwitterViewController.h; sourceTree = "<group>"; };
+		13CFE385181F5EAA00946D84 /* TwitterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterViewController.m; path = Twitter/TwitterViewController.m; sourceTree = "<group>"; };
 		B54BA0A61818470600EA5A4F /* WeatherAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherAPI.h; sourceTree = "<group>"; };
 		B54BA0A71818470600EA5A4F /* WeatherAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherAPI.m; sourceTree = "<group>"; };
 		B54BA0A918184C7500EA5A4F /* WeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherModel.h; sourceTree = "<group>"; };
@@ -114,6 +142,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13477C6B18224F35005AF7A6 /* MapKit.framework in Frameworks */,
+				13477C6918224F0D005AF7A6 /* Social.framework in Frameworks */,
 				DE3F7F8B1810D3400062126A /* CoreGraphics.framework in Frameworks */,
 				DE3F7F8D1810D3400062126A /* UIKit.framework in Frameworks */,
 				DE3F7F891810D3400062126A /* Foundation.framework in Frameworks */,
@@ -134,6 +164,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13477C6218224E22005AF7A6 /* Traffic */ = {
+			isa = PBXGroup;
+			children = (
+				13477C6318224E3C005AF7A6 /* TrafficViewController.h */,
+				13477C6418224E3C005AF7A6 /* TrafficViewController.m */,
+				13477C6518224E3C005AF7A6 /* TrafficViewController.xib */,
+			);
+			name = Traffic;
+			sourceTree = "<group>";
+		};
+		13CFE383181F5E6000946D84 /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				130E0DA8182231770043E24F /* Tweet.h */,
+				130E0DA9182231770043E24F /* Tweet.m */,
+				130E0DAA182231770043E24F /* User.h */,
+				130E0DAB182231770043E24F /* User.m */,
+				13477C5B182244C2005AF7A6 /* TwitterClient.h */,
+				13477C5C182244C2005AF7A6 /* TwitterClient.m */,
+				130E0DB0182232490043E24F /* TweetCell.h */,
+				130E0DB1182232490043E24F /* TweetCell.m */,
+				13477C5E18224C1A005AF7A6 /* TweetCell.xib */,
+				13CFE384181F5EAA00946D84 /* TwitterViewController.h */,
+				13CFE385181F5EAA00946D84 /* TwitterViewController.m */,
+				13477C5F18224C1A005AF7A6 /* TwitterViewController.xib */,
+			);
+			name = Twitter;
+			sourceTree = "<group>";
+		};
 		B54BA0A51818466E00EA5A4F /* Weather */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +258,8 @@
 			children = (
 				B54BA0A51818466E00EA5A4F /* Weather */,
 				D890E77C105CF73AC09E79F9 /* Countdown */,
+				13477C6218224E22005AF7A6 /* Traffic */,
+				13CFE383181F5E6000946D84 /* Twitter */,
 				13CFE380181F59A900946D84 /* ModuleController.h */,
 				13CFE381181F59A900946D84 /* ModuleController.m */,
 			);
@@ -228,6 +289,8 @@
 		DE3F7F871810D3400062126A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				13477C6A18224F35005AF7A6 /* MapKit.framework */,
+				13477C6818224F0D005AF7A6 /* Social.framework */,
 				DE3F7F881810D3400062126A /* Foundation.framework */,
 				DE3F7F8A1810D3400062126A /* CoreGraphics.framework */,
 				DE3F7F8C1810D3400062126A /* UIKit.framework */,
@@ -358,8 +421,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13477C6718224E3C005AF7A6 /* TrafficViewController.xib in Resources */,
 				B5ACBE17181E42CE0015FBC3 /* png in Resources */,
+				13477C6018224C1A005AF7A6 /* TweetCell.xib in Resources */,
 				B5ACBE13181E1EB00015FBC3 /* HourlyForecastView.xib in Resources */,
+				13477C6118224C1A005AF7A6 /* TwitterViewController.xib in Resources */,
 				DE3F7F931810D3400062126A /* InfoPlist.strings in Resources */,
 				B54BA0B518184D4200EA5A4F /* WeatherView.xib in Resources */,
 				B54BA0B318184D3400EA5A4F /* WeatherSettingsView.xib in Resources */,
@@ -418,17 +484,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				130E0DAD182231770043E24F /* User.m in Sources */,
 				DE3F7F991810D3400062126A /* AppDelegate.m in Sources */,
+				13477C5D182244C2005AF7A6 /* TwitterClient.m in Sources */,
 				B5ACBD0C181CAFF20015FBC3 /* WeatherViewController.m in Sources */,
 				B54BA0B118184CF400EA5A4F /* WeatherView.m in Sources */,
 				B5ACBE0F181E1E820015FBC3 /* HourlyForecastView.m in Sources */,
 				B54BA0A81818470600EA5A4F /* WeatherAPI.m in Sources */,
+				130E0DB2182232490043E24F /* TweetCell.m in Sources */,
+				13477C6618224E3C005AF7A6 /* TrafficViewController.m in Sources */,
 				B5ACBD07181C9B220015FBC3 /* DevelopmentVC.m in Sources */,
 				DE3F7F951810D3400062126A /* main.m in Sources */,
 				13CFE382181F59A900946D84 /* ModuleController.m in Sources */,
+				13CFE386181F5EAA00946D84 /* TwitterViewController.m in Sources */,
 				B5ACBC39181B64960015FBC3 /* Forecast.m in Sources */,
 				D890E45231B5F8FBF31EF79F /* CountdownView.m in Sources */,
 				B54BA0AE18184CC500EA5A4F /* WeatherSettingsView.m in Sources */,
+				130E0DAC182231770043E24F /* Tweet.m in Sources */,
 				D890E0856743A5EB074C2BC4 /* CountdownSettingsView.m in Sources */,
 				B54BA0AB18184C7500EA5A4F /* WeatherModel.m in Sources */,
 				D890E95B0BAB03EE6DD660CF /* CountdownModel.m in Sources */,

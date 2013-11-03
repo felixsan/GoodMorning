@@ -9,6 +9,8 @@
 #import "DevelopmentVC.h"
 #import "WeatherViewController.h"
 #import "CountdownViewController.h"
+#import "TwitterViewController.h"
+#import "TrafficViewController.h"
 
 @interface DevelopmentVC ()
 
@@ -40,17 +42,27 @@
 - (void)addModules {
     WeatherViewController *weather = [[WeatherViewController alloc] init];
     [self addChildViewController:weather];
-    weather.view.frame = CGRectMake(10, 75, 1004, 222);
+    weather.view.frame = CGRectMake(10, 74, 1004, 222);
     [self.view addSubview:weather.view];
     [weather didMoveToParentViewController:self];
 
-    // Add Countdown View
     CountdownViewController *countdown = [[CountdownViewController alloc] init];
     [self addChildViewController:countdown];
-    countdown.view.frame = CGRectMake(686, 535, 328, 222);
+    countdown.view.frame = CGRectMake(686, 537, 328, 222);
     [self.view addSubview:countdown.view];
     [countdown didMoveToParentViewController:self];
+    
+    TwitterViewController *twitter = [[TwitterViewController alloc] init];
+    [self addChildViewController:twitter];
+    twitter.view.frame = CGRectMake(10, 305, 328, 454);
+    [self.view addSubview:twitter.view];
+    [twitter didMoveToParentViewController:self];
 
+    TrafficViewController *traffic = [[TrafficViewController alloc] init];
+    [self addChildViewController:traffic];
+    traffic.view.frame = CGRectMake(348, 537, 328, 222);
+    [self.view addSubview:traffic.view];
+    [traffic didMoveToParentViewController:self];
 }
 
 @end
