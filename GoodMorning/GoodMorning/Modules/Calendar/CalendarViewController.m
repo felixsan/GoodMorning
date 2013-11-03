@@ -19,6 +19,10 @@
 // Default calendar associated with the above event store
 @property (nonatomic, strong) EKCalendar *defaultCalendar;
 
+
+@property (nonatomic, strong) NSArray *availableCalendars;
+@property (nonatomic, strong) NSArray *displayedCalendars;
+
 // Array of all events happening within the next 24 hours
 @property (nonatomic, strong) NSMutableArray *eventsList;
 
@@ -133,7 +137,7 @@
         {
             // Let's ensure that our code will be executed from the main queue
             dispatch_async(dispatch_get_main_queue(), ^{
-                // The user has granted access to their Calendar; let's populate our UI with all events occuring in the next 24 hours.
+                // The user has granted access to their Calendar; let's populate our UI with all events occurring in the next 24 hours.
                 [self accessGrantedForCalendar];
             });
         }
@@ -145,6 +149,18 @@
 {
     // Let's get the default calendar associated with our event store
     self.defaultCalendar = self.eventStore.defaultCalendarForNewEvents;
+
+    // Set the visible calendars
+    // Check to see if we have a countdown defined in the UserDefaults
+    NSDictionary *calendarDict = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"calendarKey"];
+    if (!calendarDict) {
+        // If we don't have anything just show the default calendar
+        self.displayedCalendars = @[self.defaultCalendar];
+    } else {
+        self.displayedCalendars  = calendarDict[@"displayedCalendars"];
+    }
+
+
     // Enable the Add button
     self.addButton.enabled = YES;
     [self refresh];
@@ -165,13 +181,11 @@
     NSDate *endDate = [[NSCalendar currentCalendar] dateByAddingComponents:tomorrowDateComponents
                                                                     toDate:startDate
                                                                    options:0];
-    // We will only search the default calendar for our events
-    NSArray *calendarArray = [NSArray arrayWithObject:self.defaultCalendar];
 
     // Create the predicate
     NSPredicate *predicate = [self.eventStore predicateForEventsWithStartDate:startDate
                                                                       endDate:endDate
-                                                                    calendars:calendarArray];
+                                                                    calendars:self.displayedCalendars];
 
     // Fetch all events that match the predicate
     NSMutableArray *events = [NSMutableArray arrayWithArray:[self.eventStore eventsMatchingPredicate:predicate]];
@@ -224,6 +238,7 @@
     // Initialize the events list
     self.eventsList = [[NSMutableArray alloc] initWithCapacity:0];
 
+    // Listen for outside calendar updates
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(refresh)
                                                  name:EKEventStoreChangedNotification
@@ -231,6 +246,7 @@
 }
 
 - (void)refresh {
+    self.availableCalendars = [self.eventStore calendarsForEntityType:EKEntityTypeEvent];
     self.eventsList = [self fetchEvents];
     // Update the UI with the above events
     [self.tableView reloadData];
