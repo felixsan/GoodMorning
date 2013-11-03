@@ -10,6 +10,7 @@
 #import <EventKitUI/EventKitUI.h>
 #import "CalendarViewController.h"
 #import "CalendarCell.h"
+#import "CalendarSettingsViewController.h"
 
 @interface CalendarViewController () <EKEventEditViewDelegate>
 
@@ -30,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property(nonatomic, strong) CalendarSettingsViewController *calendarSettings;
 
 - (void)setup;
 - (void)refresh;
@@ -38,6 +40,15 @@
 @end
 
 @implementation CalendarViewController
+
+- (CalendarSettingsViewController *)calendarSettings {
+    if (!_calendarSettings) {
+        _calendarSettings = [[CalendarSettingsViewController alloc] init];
+    }
+
+    return _calendarSettings;
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -265,5 +276,16 @@
 
     [self presentViewController:addController animated:YES completion:nil];
 }
+
+- (IBAction)showSettings:(id)sender {
+    NSLog(@"Showing the calendar settings");
+    self.calendarSettings.availableCalendars = self.availableCalendars;
+    self.calendarSettings.displayedCalendars = self.displayedCalendars;
+
+    [self presentViewController:self.calendarSettings
+                       animated:YES
+                     completion:nil];
+}
+
 
 @end

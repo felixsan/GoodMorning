@@ -36,6 +36,8 @@
 		90A2B1F61824914F009E418C /* CalendarSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A2B1F51824914F009E418C /* CalendarSettingsView.m */; };
 		90A2B1F8182694D2009E418C /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90A2B1F7182694D2009E418C /* CalendarCell.xib */; };
 		90A2B1FB18269769009E418C /* CalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A2B1FA18269769009E418C /* CalendarCell.m */; };
+		90A2B1FE1826B608009E418C /* CalendarListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A2B1FD1826B608009E418C /* CalendarListCell.m */; };
+		90A2B2001826B621009E418C /* CalendarListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90A2B1FF1826B621009E418C /* CalendarListCell.xib */; };
 		A1859FD1978F475486A8D9F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F54D0946EA044D879FB9B24D /* libPods.a */; };
 		B54BA0A81818470600EA5A4F /* WeatherAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0A71818470600EA5A4F /* WeatherAPI.m */; };
 		B54BA0AB18184C7500EA5A4F /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B54BA0AA18184C7500EA5A4F /* WeatherModel.m */; };
@@ -143,6 +145,9 @@
 		90A2B1F7182694D2009E418C /* CalendarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CalendarCell.xib; path = Calendar/CalendarCell.xib; sourceTree = "<group>"; };
 		90A2B1F918269769009E418C /* CalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarCell.h; path = Calendar/CalendarCell.h; sourceTree = "<group>"; };
 		90A2B1FA18269769009E418C /* CalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarCell.m; path = Calendar/CalendarCell.m; sourceTree = "<group>"; };
+		90A2B1FC1826B608009E418C /* CalendarListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarListCell.h; path = Calendar/CalendarListCell.h; sourceTree = "<group>"; };
+		90A2B1FD1826B608009E418C /* CalendarListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarListCell.m; path = Calendar/CalendarListCell.m; sourceTree = "<group>"; };
+		90A2B1FF1826B621009E418C /* CalendarListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CalendarListCell.xib; path = Calendar/CalendarListCell.xib; sourceTree = "<group>"; };
 		B54BA0A61818470600EA5A4F /* WeatherAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherAPI.h; sourceTree = "<group>"; };
 		B54BA0A71818470600EA5A4F /* WeatherAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherAPI.m; sourceTree = "<group>"; };
 		B54BA0A918184C7500EA5A4F /* WeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherModel.h; sourceTree = "<group>"; };
@@ -260,7 +265,6 @@
 		13CFE383181F5E6000946D84 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				130E0DA8182231770043E24F /* Tweet.h */,
 				130E0DA9182231770043E24F /* Tweet.m */,
 				130E0DAA182231770043E24F /* User.h */,
@@ -277,8 +281,6 @@
 			name = Twitter;
 				90A2B1E3182490AC009E418C /* CalendarModel.h */,
 				90A2B1E4182490AC009E418C /* CalendarModel.m */,
-=======
->>>>>>> Get rid of CalendarModel - Not needed with EventKit's EKEvent Model
 				90A2B1E7182490D2009E418C /* CalendarViewController.h */,
 				90A2B1E8182490D2009E418C /* CalendarViewController.m */,
 				90A2B1E9182490D2009E418C /* CalendarView.xib */,
@@ -292,6 +294,9 @@
 				90A2B1F7182694D2009E418C /* CalendarCell.xib */,
 				90A2B1F918269769009E418C /* CalendarCell.h */,
 				90A2B1FA18269769009E418C /* CalendarCell.m */,
+				90A2B1FC1826B608009E418C /* CalendarListCell.h */,
+				90A2B1FD1826B608009E418C /* CalendarListCell.m */,
+				90A2B1FF1826B621009E418C /* CalendarListCell.xib */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -576,6 +581,7 @@
 				B54BA0B518184D4200EA5A4F /* WeatherView.xib in Resources */,
 				B54BA0B318184D3400EA5A4F /* WeatherSettingsView.xib in Resources */,
 				B5ACBD09181C9B360015FBC3 /* DevelopmentVC.xib in Resources */,
+				90A2B2001826B621009E418C /* CalendarListCell.xib in Resources */,
 				DE3F7F9B1810D3400062126A /* Images.xcassets in Resources */,
 				B576B977182640AD006E3E57 /* ReminderSettingsView.xib in Resources */,
 				D890E34EDF3CA125B95ECE8C /* CountdownView.xib in Resources */,
@@ -641,18 +647,17 @@
 				13477C5D182244C2005AF7A6 /* TwitterClient.m in Sources */,
 				B5ACBD0C181CAFF20015FBC3 /* WeatherViewController.m in Sources */,
 				B576B97B182640AD006E3E57 /* ReminderViewController.m in Sources */,
+				90A2B1FE1826B608009E418C /* CalendarListCell.m in Sources */,
+				9043370B181E0A6B00582879 /* ReminderSettingsView.m in Sources */,
 				B54BA0B118184CF400EA5A4F /* WeatherView.m in Sources */,
 				B5ACBE0F181E1E820015FBC3 /* HourlyForecastView.m in Sources */,
 				B54BA0A81818470600EA5A4F /* WeatherAPI.m in Sources */,
 				130E0DB2182232490043E24F /* TweetCell.m in Sources */,
 				13477C6618224E3C005AF7A6 /* TrafficViewController.m in Sources */,
 				B5ACBD07181C9B220015FBC3 /* DevelopmentVC.m in Sources */,
-<<<<<<< HEAD
 				B576B975182640AD006E3E57 /* ReminderModel.m in Sources */,
-=======
 				90A2B1F31824913C009E418C /* CalendarView.m in Sources */,
 				90A2B1EF182490E4009E418C /* CalendarSettingsViewController.m in Sources */,
->>>>>>> Get rid of CalendarModel - Not needed with EventKit's EKEvent Model
 				DE3F7F951810D3400062126A /* main.m in Sources */,
 				B576B978182640AD006E3E57 /* ReminderSettingsViewController.m in Sources */,
 				13CFE382181F59A900946D84 /* ModuleController.m in Sources */,

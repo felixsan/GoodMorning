@@ -6,9 +6,13 @@
 //  Copyright (c) 2013 MakeItRain. All rights reserved.
 //
 
+#import <EventKit/EventKit.h>
 #import "CalendarSettingsViewController.h"
+#import "CalendarListCell.h"
 
 @interface CalendarSettingsViewController ()
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -18,21 +22,55 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        // For ios 6 and below use the PresentationPage Sheet
+        self.modalPresentationStyle = UIModalPresentationPageSheet;
+        self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        // For ios 7 use the custom presentation that flips over
     }
     return self;
 }
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
+    // Add in our custom cell
+    UINib *calendarListCellNib = [UINib nibWithNibName:@"CalendarListCell" bundle:nil];
+    [self.tableView registerNib:calendarListCellNib forCellReuseIdentifier:@"calendarCell"];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    self.view.superview.bounds = CGRectMake(0,0,722, 413);
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.availableCalendars count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    // Get the event at the row selected and display its title
+    EKCalendar *calendar= [self.availableCalendars objectAtIndex:(NSUInteger) indexPath.row];
+
+    CalendarListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"calendarCell" forIndexPath:indexPath];
+    cell.calendarName.text = [calendar title];
+    return cell;
+}
+
+- (IBAction)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
+}
+
+- (IBAction)saveChanges:(id)sender {
+//    self.displayedCalendars
+//    [[NSUserDefaults standardUserDefaults] setObject:@{} forKey:@"calendarKey"];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self dismissViewControllerAnimated:YES  completion:nil];
+
 }
 
 @end
