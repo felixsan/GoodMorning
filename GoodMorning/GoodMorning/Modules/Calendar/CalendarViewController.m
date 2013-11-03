@@ -27,22 +27,37 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
--(void)presentCalendarEditModalWith:(EKEvent *)event;
+- (void)setup;
+- (void)refresh;
+- (void)presentCalendarEditModalWith:(EKEvent *)event;
 
 @end
 
 @implementation CalendarViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setup];
+    }
+    return self;
+
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Initialize the event store
-    self.eventStore = [[EKEventStore alloc] init];
-    // Initialize the events list
-    self.eventsList = [[NSMutableArray alloc] initWithCapacity:0];
     // The Add button is initially disabled
     self.addButton.enabled = NO;
-
 
     // Add in our custom cell
     UINib *calendarCellNib = [UINib nibWithNibName:@"CalendarCell" bundle:nil];
@@ -81,7 +96,7 @@
 #pragma mark Access Calendar
 
 // Check the authorization status of our application for Calendar
--(void)checkEventStoreAccessForCalendar
+- (void)checkEventStoreAccessForCalendar
 {
     EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
 
@@ -110,7 +125,7 @@
 }
 
 // Prompt the user for access to their Calendar
--(void)requestCalendarAccess
+- (void)requestCalendarAccess
 {
     [self.eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error)
     {
@@ -126,16 +141,13 @@
 }
 
 // This method is called when the user has granted permission to Calendar
--(void)accessGrantedForCalendar
+- (void)accessGrantedForCalendar
 {
     // Let's get the default calendar associated with our event store
     self.defaultCalendar = self.eventStore.defaultCalendarForNewEvents;
     // Enable the Add button
     self.addButton.enabled = YES;
-    // Fetch all events happening in the next 24 hours and put them into eventsList
-    self.eventsList = [self fetchEvents];
-    // Update the UI with the above events
-    [self.tableView reloadData];
+    [self refresh];
 }
 
 #pragma mark -
@@ -189,10 +201,7 @@
         if (action != EKEventEditViewActionCanceled)
         {
             dispatch_async(dispatch_get_main_queue(), ^{
-                // Re-fetch all events happening in the next 24 hours
-                self.eventsList = [self fetchEvents];
-                // Update the UI with the above events
-                [self.tableView reloadData];
+                [self refresh];
             });
         }
     }];
@@ -207,6 +216,25 @@
 #pragma mark -
 #pragma mark Private Methods
 
+
+- (void)setup {
+
+    // Initialize the event store
+    self.eventStore = [[EKEventStore alloc] init];
+    // Initialize the events list
+    self.eventsList = [[NSMutableArray alloc] initWithCapacity:0];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refresh)
+                                                 name:EKEventStoreChangedNotification
+                                               object:self.eventStore];
+}
+
+- (void)refresh {
+    self.eventsList = [self fetchEvents];
+    // Update the UI with the above events
+    [self.tableView reloadData];
+}
 
 - (void)presentCalendarEditModalWith:(EKEvent *)event {
     // Create an instance of EKEventEditViewController
