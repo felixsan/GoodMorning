@@ -7,6 +7,7 @@
 //
 
 #import "CalendarCell.h"
+#import "CalendarColorView.h"
 
 @interface CalendarCell ()
 
@@ -14,7 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *eventName;
 @property (weak, nonatomic) IBOutlet UILabel *eventLocation;
 @property (weak, nonatomic) IBOutlet UILabel *eventCalendar;
-@property (weak, nonatomic) IBOutlet UILabel *eventCalendarColor;
+@property (weak, nonatomic) IBOutlet CalendarColorView *calendarColor;
+
 
 @end
 
@@ -31,7 +33,7 @@
     self.eventName.text = event.title;
     self.eventLocation.text = event.location;
     self.eventCalendar.text = event.calendar.title;
-//    self.eventCalendarColor = event.calendar.CGColor;
+    self.calendarColor.calendarColor = event.calendar.CGColor;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

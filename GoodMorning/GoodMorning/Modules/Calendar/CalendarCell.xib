@@ -21,21 +21,32 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vacation Begins" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Jk1-a3-Tpl">
-                        <rect key="frame" x="74" y="13" width="124" height="21"/>
+                        <rect key="frame" x="99" y="11" width="124" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pKi-Fi-DDG" customClass="CalendarColorView">
+                        <rect key="frame" x="74" y="14" width="15" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="hRP-zI-GHo"/>
+                            <constraint firstAttribute="width" constant="15" id="lpt-mm-fOk"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Jk1-a3-Tpl" firstAttribute="top" secondItem="1Nl-CW-gNk" secondAttribute="top" constant="13" id="DE9-t3-HdK"/>
-                    <constraint firstItem="jpt-Je-wZp" firstAttribute="centerY" secondItem="Jk1-a3-Tpl" secondAttribute="centerY" id="LQR-jw-pW6"/>
+                    <constraint firstItem="Jk1-a3-Tpl" firstAttribute="leading" secondItem="pKi-Fi-DDG" secondAttribute="trailing" constant="10" id="0dw-pn-kbw"/>
+                    <constraint firstItem="jpt-Je-wZp" firstAttribute="centerY" secondItem="pKi-Fi-DDG" secondAttribute="centerY" constant="-0.5" id="ELN-Kf-JZL"/>
+                    <constraint firstItem="pKi-Fi-DDG" firstAttribute="leading" secondItem="jpt-Je-wZp" secondAttribute="trailing" constant="10" id="SId-ZS-ePO"/>
                     <constraint firstItem="jpt-Je-wZp" firstAttribute="leading" secondItem="1Nl-CW-gNk" secondAttribute="leading" constant="10" id="g39-bI-iuC"/>
                     <constraint firstItem="jpt-Je-wZp" firstAttribute="top" secondItem="1Nl-CW-gNk" secondAttribute="top" constant="16" id="kbc-YH-1S5"/>
-                    <constraint firstItem="Jk1-a3-Tpl" firstAttribute="leading" secondItem="jpt-Je-wZp" secondAttribute="trailing" constant="10" id="sbO-wF-gNF"/>
+                    <constraint firstItem="Jk1-a3-Tpl" firstAttribute="top" secondItem="1Nl-CW-gNk" secondAttribute="top" constant="11" id="pTI-tm-fPL"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="calendarColor" destination="pKi-Fi-DDG" id="X38-JK-ov6"/>
                 <outlet property="eventName" destination="Jk1-a3-Tpl" id="UwP-wr-HOP"/>
                 <outlet property="eventTime" destination="jpt-Je-wZp" id="Ut6-Jk-ri8"/>
             </connections>
