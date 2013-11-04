@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="722" height="413"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6b-P9-ARH">
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6b-P9-ARH">
                     <rect key="frame" x="20" y="129" width="682" height="216"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <date key="date" timeIntervalSinceReferenceDate="404597747.17255902">
@@ -45,7 +45,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                     </timeZone>
                 </datePicker>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNA-fL-G7W">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNA-fL-G7W">
                     <rect key="frame" x="20" y="100" width="41" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -71,13 +71,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <action selector="cancelDateChange:" destination="-1" eventType="touchUpInside" id="3eS-75-BGv"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y63-uh-nmU">
-                    <rect key="frame" x="121" y="32" width="580" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y63-uh-nmU">
+                    <rect key="frame" x="121" y="41" width="580" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Event Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVE-oU-VJB">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVE-oU-VJB">
                     <rect key="frame" x="20" y="42" width="99" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -86,7 +86,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="ZVE-oU-VJB" firstAttribute="top" secondItem="1" secondAttribute="top" constant="42" id="6zp-kh-pNF"/>
+                <constraint firstItem="K6b-P9-ARH" firstAttribute="top" secondItem="TNA-fL-G7W" secondAttribute="bottom" constant="8" id="Ccg-Js-zoD"/>
+                <constraint firstAttribute="trailing" secondItem="K6b-P9-ARH" secondAttribute="trailing" constant="20" id="G4u-3Y-t1V"/>
+                <constraint firstItem="TNA-fL-G7W" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="JYY-oj-pVJ"/>
+                <constraint firstItem="K6b-P9-ARH" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="LdT-VK-sgK"/>
+                <constraint firstItem="ZVE-oU-VJB" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="PLq-0e-1Qk"/>
+                <constraint firstAttribute="trailing" secondItem="Y63-uh-nmU" secondAttribute="trailing" constant="21" id="nMg-uu-E5B"/>
                 <constraint firstItem="ZVE-oU-VJB" firstAttribute="bottom" secondItem="Y63-uh-nmU" secondAttribute="bottom" id="u8E-tx-FJx"/>
+                <constraint firstItem="TNA-fL-G7W" firstAttribute="top" secondItem="ZVE-oU-VJB" secondAttribute="bottom" constant="37" id="xaU-A6-J3U"/>
+                <constraint firstItem="Y63-uh-nmU" firstAttribute="leading" secondItem="ZVE-oU-VJB" secondAttribute="trailing" constant="2" id="z63-NH-T5D"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
