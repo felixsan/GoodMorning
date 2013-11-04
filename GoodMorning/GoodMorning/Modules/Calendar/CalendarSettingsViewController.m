@@ -43,6 +43,9 @@
     // Set the table inset
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 40, 0, 10);
 
+    // Add an empty footer
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
 
 }
 
