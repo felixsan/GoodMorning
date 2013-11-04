@@ -128,7 +128,11 @@
                self.loading = NO;
            }];
         } else {
-            // TODO: render a special view
+            self.tableView.hidden = YES;
+            CGRect frame = CGRectMake(10, 10, 328, 24);
+            UILabel *label = [[UILabel alloc] initWithFrame:frame];
+            label.text = @"Sorry, no twitter accounts found";
+            [self.view addSubview:label];
         }
     }];
 }
