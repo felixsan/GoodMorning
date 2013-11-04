@@ -195,8 +195,6 @@
     self.addButton.enabled = YES;
     // Fetch all reminders
     [self fetchRemindersFrom:self.currentReminderCalendar];
-    // Update the UI with the above reminders
-    [self.tableView reloadData];
 }
 
 #pragma mark -
@@ -227,7 +225,7 @@
     id reminderRequest = [self.eventStore fetchRemindersMatchingPredicate:predicate completion:^(NSArray *reminders) {
         self.reminders = [NSMutableArray arrayWithArray:reminders] ;
         NSLog(@"Fetched reminders - %@", self.reminders);
-        [self.tableView reloadData];
+        [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     }];
 
 }
@@ -266,7 +264,7 @@
                 // Re-fetch all events happening in the next 24 hours
                 [self fetchRemindersFrom:self.currentReminderCalendar];
                 // Update the UI with the above events
-                [self.tableView reloadData];
+                [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
             });
         }
     }];
