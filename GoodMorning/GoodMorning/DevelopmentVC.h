@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UICollectionView+Draggable.h"
+#import "RFQuiltLayout.h"
 
-@interface DevelopmentVC : UIViewController
+@interface DevelopmentVC : UICollectionViewController <UICollectionViewDataSource_Draggable, RFQuiltLayoutDelegate>
 
 @end
