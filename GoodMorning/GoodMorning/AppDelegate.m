@@ -8,14 +8,21 @@
 
 #import "AppDelegate.h"
 #import "DevelopmentVC.h"
+#import "DraggableQuiltLayout.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    DevelopmentVC *vc = [[DevelopmentVC alloc] init];
+
+    DraggableQuiltLayout *layout = [[DraggableQuiltLayout alloc] init];
+    layout.direction = UICollectionViewScrollDirectionVertical;
+    layout.blockPixels = CGSizeMake(338, 232);
+
+    DevelopmentVC *vc = [[DevelopmentVC alloc] initWithCollectionViewLayout:layout];
+    layout.delegate = vc;
+
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = nvc;
     self.window.backgroundColor = [UIColor whiteColor];

@@ -11,6 +11,7 @@
 		130E0DAD182231770043E24F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E0DAB182231770043E24F /* User.m */; };
 		130E0DB2182232490043E24F /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E0DB1182232490043E24F /* TweetCell.m */; };
 		1344440F18276CB1001ECAF9 /* map.html in Resources */ = {isa = PBXBuildFile; fileRef = 1344440E18276CB1001ECAF9 /* map.html */; };
+		134444121827765E001ECAF9 /* DraggableQuiltLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 134444111827765E001ECAF9 /* DraggableQuiltLayout.m */; };
 		13477C5D182244C2005AF7A6 /* TwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 13477C5C182244C2005AF7A6 /* TwitterClient.m */; };
 		13477C6018224C1A005AF7A6 /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13477C5E18224C1A005AF7A6 /* TweetCell.xib */; };
 		13477C6118224C1A005AF7A6 /* TwitterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13477C5F18224C1A005AF7A6 /* TwitterViewController.xib */; };
@@ -45,7 +46,6 @@
 		B576B974182640AD006E3E57 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B576B960182640AD006E3E57 /* CalendarViewController.m */; };
 		B5ACBC39181B64960015FBC3 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = B5ACBC38181B64960015FBC3 /* Forecast.m */; };
 		B5ACBD07181C9B220015FBC3 /* DevelopmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B5ACBD06181C9B220015FBC3 /* DevelopmentVC.m */; };
-		B5ACBD09181C9B360015FBC3 /* DevelopmentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5ACBD08181C9B360015FBC3 /* DevelopmentVC.xib */; };
 		B5ACBD0C181CAFF20015FBC3 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5ACBD0B181CAFF20015FBC3 /* WeatherViewController.m */; };
 		B5ACBE0F181E1E820015FBC3 /* HourlyForecastView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5ACBE0E181E1E820015FBC3 /* HourlyForecastView.m */; };
 		B5ACBE13181E1EB00015FBC3 /* HourlyForecastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5ACBE12181E1EB00015FBC3 /* HourlyForecastView.xib */; };
@@ -89,6 +89,8 @@
 		130E0DB0182232490043E24F /* TweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TweetCell.h; path = Twitter/TweetCell.h; sourceTree = "<group>"; };
 		130E0DB1182232490043E24F /* TweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TweetCell.m; path = Twitter/TweetCell.m; sourceTree = "<group>"; };
 		1344440E18276CB1001ECAF9 /* map.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = map.html; sourceTree = "<group>"; };
+		134444101827765E001ECAF9 /* DraggableQuiltLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableQuiltLayout.h; sourceTree = "<group>"; };
+		134444111827765E001ECAF9 /* DraggableQuiltLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableQuiltLayout.m; sourceTree = "<group>"; };
 		13477C5B182244C2005AF7A6 /* TwitterClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterClient.h; path = Twitter/TwitterClient.h; sourceTree = "<group>"; };
 		13477C5C182244C2005AF7A6 /* TwitterClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterClient.m; path = Twitter/TwitterClient.m; sourceTree = "<group>"; };
 		13477C5E18224C1A005AF7A6 /* TweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TweetCell.xib; path = Twitter/TweetCell.xib; sourceTree = "<group>"; };
@@ -144,7 +146,6 @@
 		B5ACBC38181B64960015FBC3 /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
 		B5ACBD05181C9B220015FBC3 /* DevelopmentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevelopmentVC.h; sourceTree = "<group>"; };
 		B5ACBD06181C9B220015FBC3 /* DevelopmentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevelopmentVC.m; sourceTree = "<group>"; };
-		B5ACBD08181C9B360015FBC3 /* DevelopmentVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DevelopmentVC.xib; sourceTree = "<group>"; };
 		B5ACBD0A181CAFF20015FBC3 /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
 		B5ACBD0B181CAFF20015FBC3 /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
 		B5ACBE0D181E1E820015FBC3 /* HourlyForecastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HourlyForecastView.h; sourceTree = "<group>"; };
@@ -400,7 +401,8 @@
 				D890E8272CB0ED6508E5A471 /* Modules */,
 				B5ACBD05181C9B220015FBC3 /* DevelopmentVC.h */,
 				B5ACBD06181C9B220015FBC3 /* DevelopmentVC.m */,
-				B5ACBD08181C9B360015FBC3 /* DevelopmentVC.xib */,
+				134444101827765E001ECAF9 /* DraggableQuiltLayout.h */,
+				134444111827765E001ECAF9 /* DraggableQuiltLayout.m */,
 			);
 			path = GoodMorning;
 			sourceTree = "<group>";
@@ -524,7 +526,6 @@
 				90D1B7B21826FE3E00B633ED /* ReminderView.xib in Resources */,
 				B54BA0B518184D4200EA5A4F /* WeatherView.xib in Resources */,
 				B54BA0B318184D3400EA5A4F /* WeatherSettingsView.xib in Resources */,
-				B5ACBD09181C9B360015FBC3 /* DevelopmentVC.xib in Resources */,
 				DE3F7F9B1810D3400062126A /* Images.xcassets in Resources */,
 				1344440F18276CB1001ECAF9 /* map.html in Resources */,
 				90D1B7891826FDA800B633ED /* CalendarCell.xib in Resources */,
@@ -610,6 +611,7 @@
 				90D1B78A1826FDA800B633ED /* CalendarListCell.m in Sources */,
 				90D1B7B11826FE3E00B633ED /* ReminderView.m in Sources */,
 				D890E0856743A5EB074C2BC4 /* CountdownSettingsView.m in Sources */,
+				134444121827765E001ECAF9 /* DraggableQuiltLayout.m in Sources */,
 				B54BA0AB18184C7500EA5A4F /* WeatherModel.m in Sources */,
 				D890E95B0BAB03EE6DD660CF /* CountdownModel.m in Sources */,
 				D890EEA96C49CF653D73CEA4 /* CountdownViewController.m in Sources */,
