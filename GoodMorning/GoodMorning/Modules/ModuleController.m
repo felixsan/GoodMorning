@@ -14,12 +14,12 @@
 
 @implementation ModuleController
 
-+ (NSUInteger)rows
+- (NSUInteger)rows
 {
     return 1;
 }
 
-+ (NSUInteger)cols
+- (NSUInteger)cols
 {
     return 1;
 }

@@ -25,12 +25,12 @@
 
 @implementation TwitterViewController
 
-+ (NSUInteger)rows
+- (NSUInteger)rows
 {
     return 2;
 }
 
-+ (NSUInteger)cols
+- (NSUInteger)cols
 {
     return 1;
 }

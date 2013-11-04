@@ -10,7 +10,7 @@
 
 @interface ModuleController : UIViewController
 
-+ (NSUInteger)rows;
-+ (NSUInteger)cols;
+- (NSUInteger)rows;
+- (NSUInteger)cols;
 
 @end
