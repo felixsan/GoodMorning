@@ -39,6 +39,11 @@
     // Add in our custom cell
     UINib *calendarListCellNib = [UINib nibWithNibName:@"CalendarListCell" bundle:nil];
     [self.tableView registerNib:calendarListCellNib forCellReuseIdentifier:@"calendarCell"];
+
+    // Set the table inset
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 40, 0, 10);
+
+
 }
 
 - (void)viewWillLayoutSubviews{
@@ -56,7 +61,8 @@
     EKCalendar *calendar= [self.availableCalendars objectAtIndex:(NSUInteger) indexPath.row];
 
     CalendarListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"calendarCell" forIndexPath:indexPath];
-    cell.calendarName.text = [calendar title];
+    cell.calendar = calendar;
+
     return cell;
 }
 

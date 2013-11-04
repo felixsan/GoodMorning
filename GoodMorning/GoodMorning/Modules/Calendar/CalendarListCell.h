@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <EventKit/EventKit.h>
 
 @interface CalendarListCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *calendarName;
-@property (nonatomic, getter=isChosen) BOOL chosen;
+@property (nonatomic, strong) EKCalendar *calendar;
 
 @end
