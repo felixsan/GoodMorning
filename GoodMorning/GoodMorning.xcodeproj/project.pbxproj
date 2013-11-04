@@ -10,13 +10,13 @@
 		130E0DAC182231770043E24F /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E0DA9182231770043E24F /* Tweet.m */; };
 		130E0DAD182231770043E24F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E0DAB182231770043E24F /* User.m */; };
 		130E0DB2182232490043E24F /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E0DB1182232490043E24F /* TweetCell.m */; };
+		1344440F18276CB1001ECAF9 /* map.html in Resources */ = {isa = PBXBuildFile; fileRef = 1344440E18276CB1001ECAF9 /* map.html */; };
 		13477C5D182244C2005AF7A6 /* TwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 13477C5C182244C2005AF7A6 /* TwitterClient.m */; };
 		13477C6018224C1A005AF7A6 /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13477C5E18224C1A005AF7A6 /* TweetCell.xib */; };
 		13477C6118224C1A005AF7A6 /* TwitterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13477C5F18224C1A005AF7A6 /* TwitterViewController.xib */; };
 		13477C6618224E3C005AF7A6 /* TrafficViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13477C6418224E3C005AF7A6 /* TrafficViewController.m */; };
 		13477C6718224E3C005AF7A6 /* TrafficViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13477C6518224E3C005AF7A6 /* TrafficViewController.xib */; };
 		13477C6918224F0D005AF7A6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13477C6818224F0D005AF7A6 /* Social.framework */; };
-		13477C6B18224F35005AF7A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13477C6A18224F35005AF7A6 /* MapKit.framework */; };
 		13CFE382181F59A900946D84 /* ModuleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CFE381181F59A900946D84 /* ModuleController.m */; };
 		13CFE386181F5EAA00946D84 /* TwitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CFE385181F5EAA00946D84 /* TwitterViewController.m */; };
 		90D1B7881826FDA800B633ED /* CalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D1B7831826FDA800B633ED /* CalendarCell.m */; };
@@ -88,6 +88,7 @@
 		130E0DAB182231770043E24F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Twitter/User.m; sourceTree = "<group>"; };
 		130E0DB0182232490043E24F /* TweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TweetCell.h; path = Twitter/TweetCell.h; sourceTree = "<group>"; };
 		130E0DB1182232490043E24F /* TweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TweetCell.m; path = Twitter/TweetCell.m; sourceTree = "<group>"; };
+		1344440E18276CB1001ECAF9 /* map.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = map.html; sourceTree = "<group>"; };
 		13477C5B182244C2005AF7A6 /* TwitterClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterClient.h; path = Twitter/TwitterClient.h; sourceTree = "<group>"; };
 		13477C5C182244C2005AF7A6 /* TwitterClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterClient.m; path = Twitter/TwitterClient.m; sourceTree = "<group>"; };
 		13477C5E18224C1A005AF7A6 /* TweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TweetCell.xib; path = Twitter/TweetCell.xib; sourceTree = "<group>"; };
@@ -187,7 +188,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13477C6B18224F35005AF7A6 /* MapKit.framework in Frameworks */,
 				13477C6918224F0D005AF7A6 /* Social.framework in Frameworks */,
 				DE3F7F8B1810D3400062126A /* CoreGraphics.framework in Frameworks */,
 				DE3F7F8D1810D3400062126A /* UIKit.framework in Frameworks */,
@@ -215,6 +215,7 @@
 				13477C6318224E3C005AF7A6 /* TrafficViewController.h */,
 				13477C6418224E3C005AF7A6 /* TrafficViewController.m */,
 				13477C6518224E3C005AF7A6 /* TrafficViewController.xib */,
+				1344440E18276CB1001ECAF9 /* map.html */,
 			);
 			name = Traffic;
 			sourceTree = "<group>";
@@ -525,6 +526,7 @@
 				B54BA0B318184D3400EA5A4F /* WeatherSettingsView.xib in Resources */,
 				B5ACBD09181C9B360015FBC3 /* DevelopmentVC.xib in Resources */,
 				DE3F7F9B1810D3400062126A /* Images.xcassets in Resources */,
+				1344440F18276CB1001ECAF9 /* map.html in Resources */,
 				90D1B7891826FDA800B633ED /* CalendarCell.xib in Resources */,
 				D890E34EDF3CA125B95ECE8C /* CountdownView.xib in Resources */,
 				D890E27E7293CF6DE3A2CF09 /* CountdownSettingsView.xib in Resources */,

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "ModuleController.h"
 
-@interface TrafficViewController : UIViewController
+@interface TrafficViewController : ModuleController <CLLocationManagerDelegate>
 
 @end

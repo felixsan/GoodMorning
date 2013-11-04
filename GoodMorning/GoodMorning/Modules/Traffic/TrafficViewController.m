@@ -11,28 +11,40 @@
 
 @interface TrafficViewController ()
 
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
 @implementation TrafficViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder:aDecoder];
     if (self) {
         // Custom initialization
     }
     return self;
 }
 
+- (CLLocationManager *)locationManager
+{
+    if (!_locationManager) {
+        _locationManager = [[CLLocationManager alloc] init];
+    }
+    return _locationManager;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.mapView.userLocation addObserver:self
-                                forKeyPath:@"location"
-                                   options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld)
-                                   context:nil];}
+
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    self.locationManager.distanceFilter = 500; // meters
+
+    [self.locationManager startUpdatingLocation];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -40,17 +52,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-// Listen to change in the userLocation
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+#pragma mark - CLLocationManager delegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    MKCoordinateRegion region;
-    region.center = self.mapView.userLocation.coordinate;
+    CLLocation* location = [locations lastObject];
+    CLLocationDegrees latitude = location.coordinate.latitude;
+    CLLocationDegrees longitude = location.coordinate.longitude;
+
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"map" ofType:@"html"];
+    NSString *content = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSString *html = [NSString stringWithFormat:content, latitude, longitude];
     
-    MKCoordinateSpan span;
-    span.latitudeDelta  = 1; // Change these values to change the zoom
-    span.longitudeDelta = 1;
-    region.span = span;
-    
-    [self.mapView setRegion:region animated:YES];
+    [self.webView loadHTMLString:html baseURL:nil];
 }
+
 @end
