@@ -80,6 +80,9 @@
 
     // Check whether we are authorized to access Reminders
     [self checkEventStoreAccessForCalendar];
+
+    // Add an empty footer
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 #pragma mark -

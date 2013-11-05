@@ -10,6 +10,7 @@
 #import <EventKitUI/EventKitUI.h>
 #import "ReminderViewController.h"
 #import "ReminderSettingsViewController.h"
+#import "ReminderCell.h"
 
 @interface ReminderViewController () <EKEventEditViewDelegate>
 
@@ -87,8 +88,19 @@
     // The Add button is initially disabled
     self.addButton.enabled = NO;
 
-    // Register our cell
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+//    // Register our cell
+//    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+
+    // Add in our custom cell
+    UINib *reminderCellNib = [UINib nibWithNibName:@"ReminderCell" bundle:nil];
+    [self.tableView registerNib:reminderCellNib forCellReuseIdentifier:@"reminderCell"];
+
+
+    // Set the table inset
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 60, 0, 10);
+
+    // Add an empty footer
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 
     // Check whether we are authorized to access Reminders
     [self checkEventStoreAccessForReminder];
@@ -116,11 +128,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    ReminderCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reminderCell" forIndexPath:indexPath];
 
     // Get the event at the row selected and display its title
-    cell.textLabel.text = [[self.reminders objectAtIndex:(NSUInteger) indexPath.row] title];
-    NSLog(@"Title - %@", cell.textLabel.text);
+    cell.reminder = [self.reminders objectAtIndex:(NSUInteger) indexPath.row];
+//    NSLog(@"Title - %@", cell.title.text);
     return cell;
 }
 
@@ -181,12 +193,11 @@
     self.currentReminderCalendar = self.eventStore.defaultCalendarForNewReminders;
     self.remindersLists = [self.eventStore calendarsForEntityType:EKEntityTypeReminder];
     NSLog(@"Default Reminders Calendar - %@", self.eventStore.defaultCalendarForNewReminders.title);
+    NSLog(@"Default Reminders Calendar - %@", self.eventStore.defaultCalendarForNewReminders);
     // Enable the Add button
     self.addButton.enabled = YES;
     // Fetch all reminders
     [self fetchRemindersFrom:self.currentReminderCalendar];
-    // Update the UI with the above reminders
-    [self.tableView reloadData];
 }
 
 #pragma mark -
@@ -214,11 +225,10 @@
         }
     }
 
-
     id reminderRequest = [self.eventStore fetchRemindersMatchingPredicate:predicate completion:^(NSArray *reminders) {
         self.reminders = [NSMutableArray arrayWithArray:reminders] ;
         NSLog(@"Fetched reminders - %@", self.reminders);
-        [self.tableView reloadData];
+        [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     }];
 
 }
@@ -257,7 +267,7 @@
                 // Re-fetch all events happening in the next 24 hours
                 [self fetchRemindersFrom:self.currentReminderCalendar];
                 // Update the UI with the above events
-                [self.tableView reloadData];
+                [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
             });
         }
     }];

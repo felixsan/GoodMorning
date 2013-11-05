@@ -6,27 +6,39 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailButton" indentationWidth="10" id="OIG-wy-gWM" customClass="CalendarListCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="OIG-wy-gWM" customClass="CalendarListCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OIG-wy-gWM" id="9OA-BB-4oL">
-                <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JdK-Fc-RXj">
-                        <rect key="frame" x="60" y="11" width="120" height="21"/>
+                        <rect key="frame" x="40" y="11" width="120" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sa9-tI-8g1" customClass="CalendarColorView">
+                        <rect key="frame" x="15" y="15" width="15" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="G4H-qg-Ws6"/>
+                            <constraint firstAttribute="width" constant="15" id="PeC-mb-vMB"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="JdK-Fc-RXj" firstAttribute="leading" secondItem="9OA-BB-4oL" secondAttribute="leading" constant="60" id="TWS-xU-F0D"/>
-                    <constraint firstItem="JdK-Fc-RXj" firstAttribute="centerY" secondItem="9OA-BB-4oL" secondAttribute="centerY" id="cxr-49-gKX"/>
+                    <constraint firstItem="Sa9-tI-8g1" firstAttribute="leading" secondItem="9OA-BB-4oL" secondAttribute="leading" constant="15" id="80Y-xK-Djy"/>
+                    <constraint firstItem="JdK-Fc-RXj" firstAttribute="top" secondItem="9OA-BB-4oL" secondAttribute="top" constant="11" id="CeZ-JB-sAg"/>
+                    <constraint firstItem="JdK-Fc-RXj" firstAttribute="leading" secondItem="Sa9-tI-8g1" secondAttribute="trailing" constant="10" id="MU6-g5-xxA"/>
+                    <constraint firstItem="Sa9-tI-8g1" firstAttribute="top" secondItem="9OA-BB-4oL" secondAttribute="top" constant="15" id="bhi-f1-R3M"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="calendarName" destination="JdK-Fc-RXj" id="vzd-S5-nqS"/>
+                <outlet property="calendarName" destination="JdK-Fc-RXj" id="plN-vf-vpa"/>
+                <outlet property="colorView" destination="Sa9-tI-8g1" id="vdy-5V-UIk"/>
             </connections>
         </tableViewCell>
     </objects>

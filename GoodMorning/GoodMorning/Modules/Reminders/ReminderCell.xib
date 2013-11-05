@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="nVU-Zt-JXb" customClass="ReminderCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nVU-Zt-JXb" id="9Oh-Gj-uZP">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aax-Nn-P71">
+                        <rect key="frame" x="60" y="11" width="98" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Reminder #1">
+                                <attributes>
+                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VYc-g6-Nzl" customClass="ReminderCellStatusView">
+                        <rect key="frame" x="15" y="5" width="34" height="34"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="34" id="7mE-7V-prU"/>
+                            <constraint firstAttribute="height" constant="34" id="UG0-oy-voF"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="aax-Nn-P71" firstAttribute="leading" secondItem="VYc-g6-Nzl" secondAttribute="trailing" constant="11" id="BZL-RI-FYO"/>
+                    <constraint firstItem="aax-Nn-P71" firstAttribute="top" secondItem="9Oh-Gj-uZP" secondAttribute="top" constant="11" id="jaf-sX-1rT"/>
+                    <constraint firstItem="VYc-g6-Nzl" firstAttribute="leading" secondItem="9Oh-Gj-uZP" secondAttribute="leading" constant="15" id="uKe-iH-M0D"/>
+                    <constraint firstItem="VYc-g6-Nzl" firstAttribute="top" secondItem="9Oh-Gj-uZP" secondAttribute="top" constant="5" id="xI2-bg-nmV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="statusView" destination="VYc-g6-Nzl" id="U3v-DD-k3M"/>
+                <outlet property="title" destination="aax-Nn-P71" id="FgU-We-WIW"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

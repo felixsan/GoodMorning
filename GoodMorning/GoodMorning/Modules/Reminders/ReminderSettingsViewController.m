@@ -38,6 +38,10 @@
 //    rsv.rm = self.rm;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ReminderListCell"];
 
+    // Add an empty footer
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
+
 }
 
 - (void)viewWillLayoutSubviews{

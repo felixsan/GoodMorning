@@ -7,23 +7,23 @@
 //
 
 #import "CalendarListCell.h"
+#import "CalendarColorView.h"
+
+@interface CalendarListCell ()
+
+@property (weak, nonatomic) IBOutlet UILabel *calendarName;
+@property (weak, nonatomic) IBOutlet CalendarColorView *colorView;
+
+@end
 
 @implementation CalendarListCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+- (void)setCalendar:(EKCalendar *)calendar {
+    _calendar = calendar;
+    self.calendarName.text = calendar.title;
+    self.colorView.calendarColor = calendar.CGColor;
+
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 @end
