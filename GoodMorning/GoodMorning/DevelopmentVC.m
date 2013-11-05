@@ -50,7 +50,7 @@
 
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     self.collectionView.draggable = YES;
-
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView reloadData];
 }
 
