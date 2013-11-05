@@ -101,9 +101,10 @@
     if (actualPosition >= contentHeight && !self.loading) {
         Tweet *tweet = [self.tweets lastObject];
         self.loading = YES;
-        [[TwitterClient instance] homeTimelineWithCount:20 sinceId:0 maxId:tweet.id callback:^(NSError *error, SLRequest *request, NSArray *response) {
+        [[TwitterClient instance] homeTimelineWithCount:21 sinceId:0 maxId:tweet.id callback:^(NSError *error, SLRequest *request, NSArray *response) {
             if (error) {
             } else {
+                [self.tweets removeObjectAtIndex:[self.tweets count] - 1];
                 [self.tweets addObjectsFromArray:response];
                 [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
             }
