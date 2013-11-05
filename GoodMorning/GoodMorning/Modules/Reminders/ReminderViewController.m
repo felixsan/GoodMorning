@@ -234,7 +234,7 @@
             self.rm.type = ShowAll;
             [self fetchRemindersFrom:self.currentReminderCalendar];
         }
-        NSLog(@"Fetched reminders - %@", self.reminders);
+//        NSLog(@"Fetched reminders - %@", self.reminders);
 
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"priority" ascending:YES] ;
         NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
@@ -310,7 +310,7 @@
 
 
 - (IBAction)showSettings:(id)sender {
-    NSLog(@"Showing the settings");
+//    NSLog(@"Showing the settings");
     self.reminderSettingsVC.rm = self.rm;
     [self presentViewController:self.reminderSettingsVC
                        animated:YES
