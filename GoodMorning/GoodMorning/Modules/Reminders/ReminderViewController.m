@@ -118,8 +118,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     if (self.currentReminderCalendar != nil) {
-//        [self fetchRemindersFrom:self.currentReminderCalendar];
-        NSLog(@"Table - %d", [self.reminders count]);
+//        NSLog(@"Table - %d", [self.reminders count]);
         return [self.reminders count];
     } else {
         return 0;
@@ -192,8 +191,11 @@
     // Let's get the default calendar associated with our event store
     self.currentReminderCalendar = self.eventStore.defaultCalendarForNewReminders;
     self.remindersLists = [self.eventStore calendarsForEntityType:EKEntityTypeReminder];
-    NSLog(@"Default Reminders Calendar - %@", self.eventStore.defaultCalendarForNewReminders.title);
-    NSLog(@"Default Reminders Calendar - %@", self.eventStore.defaultCalendarForNewReminders);
+
+
+
+//    NSLog(@"Default Reminders Calendar - %@", self.eventStore.defaultCalendarForNewReminders.title);
+//    NSLog(@"Default Reminders Calendar - %@", self.eventStore.defaultCalendarForNewReminders);
     // Enable the Add button
     self.addButton.enabled = YES;
     // Fetch all reminders
@@ -224,12 +226,38 @@
             break;
         }
     }
-
+    predicate = [self.eventStore predicateForRemindersInCalendars:@[reminderCalendar]];
     id reminderRequest = [self.eventStore fetchRemindersMatchingPredicate:predicate completion:^(NSArray *reminders) {
         self.reminders = [NSMutableArray arrayWithArray:reminders] ;
+        if ([self.reminders count] == 0) {
+            [self createFakeReminders];
+            self.rm.type = ShowAll;
+            [self fetchRemindersFrom:self.currentReminderCalendar];
+        }
         NSLog(@"Fetched reminders - %@", self.reminders);
+
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"priority" ascending:YES] ;
+        NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+        self.reminders = [[self.reminders sortedArrayUsingDescriptors:sortDescriptors] mutableCopy];
         [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     }];
+
+}
+
+- (void)createFakeReminders {
+    NSArray *sampleReminderTitles = @[@"Finish App", @"???", @"Profit", @"Get milk"];
+
+    for (int i = 0; i < [sampleReminderTitles count]; i++) {
+        NSString *name  = [sampleReminderTitles objectAtIndex:(NSUInteger) i];
+        EKReminder *reminder = [EKReminder reminderWithEventStore:self.eventStore];
+        reminder.title = name;
+        reminder.calendar = self.currentReminderCalendar;
+        reminder.completed = i == 0 ? YES : NO;
+        reminder.priority = i;
+        [self.eventStore saveReminder:reminder commit:NO error:nil];
+    }
+    self.rm.type = ShowAll;
+    [self.eventStore commit:nil];
 
 }
 
