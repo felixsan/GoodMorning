@@ -18,8 +18,11 @@
 
 @property (strong, nonatomic) NSMutableArray *tweets;
 @property (assign, nonatomic) BOOL loading;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 - (void)fetchTimelineForUser;
+- (void)handleRefresh;
+- (void)reloadData;
 
 @end
 
@@ -43,6 +46,14 @@
     return _tweets;
 }
 
+- (UIRefreshControl *)refreshControl
+{
+    if (!_refreshControl) {
+        _refreshControl = [[UIRefreshControl alloc] init];
+    }
+    return _refreshControl;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -61,6 +72,10 @@
     UINib *nib = [UINib nibWithNibName:REUSE_IDENTIFIER bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:REUSE_IDENTIFIER];
     
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
+    [self.refreshControl addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
+
     [self fetchTimelineForUser];
 }
 
@@ -120,7 +135,7 @@
     [[TwitterClient instance] requestAccess:^(BOOL granted, NSError *error) {
         if (granted) {
             self.loading = YES;
-           [[TwitterClient instance] homeTimelineWithCount:20 sinceId:0 maxId:0 callback:^(NSError *error, SLRequest *request, NSArray *response) {
+            [[TwitterClient instance] homeTimelineWithCount:20 sinceId:0 maxId:0 callback:^(NSError *error, SLRequest *request, NSArray *response) {
                if (error) {
                } else {
                    [self.tweets addObjectsFromArray:response];
@@ -135,6 +150,19 @@
             label.text = @"Sorry, no twitter accounts found";
             [self.view addSubview:label];
         }
+    }];
+}
+
+- (void)handleRefresh
+{
+    [[TwitterClient instance] homeTimelineWithCount:20 sinceId:0 maxId:0 callback:^(NSError *error, SLRequest *request, NSArray *response) {
+        if (error) {
+        } else {
+            [self.tweets removeAllObjects];
+            [self.tweets addObjectsFromArray:response];
+            [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+        }
+        [self.refreshControl endRefreshing];
     }];
 }
 
