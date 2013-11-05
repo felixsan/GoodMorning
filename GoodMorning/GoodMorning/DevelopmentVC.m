@@ -16,13 +16,15 @@
 
 @interface DevelopmentVC ()
 
+@property (strong, nonatomic) NSMutableArray *controllers;
+
 @end
 
 @implementation DevelopmentVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCollectionViewLayout:layout];
     if (self) {
         self.title = @"Good Morning";
     }
@@ -32,7 +34,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self addModules];
+
+    WeatherViewController *weather = [[WeatherViewController alloc] init];
+    TwitterViewController *twitter = [[TwitterViewController alloc] init];
+    ReminderViewController *reminder = [[ReminderViewController alloc] init];
+    CalendarViewController *calendar = [[CalendarViewController alloc] init];
+    TrafficViewController *traffic = [[TrafficViewController alloc] init];
+    CountdownViewController *countdown = [[CountdownViewController alloc] init];
+    self.controllers = [[NSMutableArray alloc] initWithArray:@[ weather, twitter, reminder, calendar, traffic, countdown ]];
+
+    for (UIViewController *controller in self.controllers) {
+        [self addChildViewController:controller];
+        [controller didMoveToParentViewController:self];
+    }
+
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
+    self.collectionView.draggable = YES;
+
+    [self.collectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,44 +60,46 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)addModules {
-    WeatherViewController *weather = [[WeatherViewController alloc] init];
-    [self addChildViewController:weather];
-    weather.view.frame = CGRectMake(10, 74, 1004, 222);
-    [self.view addSubview:weather.view];
-    [weather didMoveToParentViewController:self];
+#pragma mark - UICollectionView data source
 
-    CountdownViewController *countdown = [[CountdownViewController alloc] init];
-    [self addChildViewController:countdown];
-    countdown.view.frame = CGRectMake(686, 537, 328, 222);
-    [self.view addSubview:countdown.view];
-    [countdown didMoveToParentViewController:self];
-    
-    TwitterViewController *twitter = [[TwitterViewController alloc] init];
-    [self addChildViewController:twitter];
-    twitter.view.frame = CGRectMake(10, 305, 328, 454);
-    [self.view addSubview:twitter.view];
-    [twitter didMoveToParentViewController:self];
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [self.controllers count];
+}
 
-    TrafficViewController *traffic = [[TrafficViewController alloc] init];
-    [self addChildViewController:traffic];
-    traffic.view.frame = CGRectMake(348, 537, 328, 222);
-    [self.view addSubview:traffic.view];
-    [traffic didMoveToParentViewController:self];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    ModuleController *controller = self.controllers[indexPath.row];
+    [cell addSubview:controller.view];
+    return cell;
+}
 
-    // Adding the Reminders panel
-    ReminderViewController *reminders = [[ReminderViewController alloc] init];
-    [self addChildViewController:reminders];
-    reminders.view.frame = CGRectMake(686, 305, 328, 222);
-    [self.view addSubview:reminders.view];
-    [reminders didMoveToParentViewController:self];
+#pragma mark - UICollectionViewFlowLayout draggable
 
-    // Adding the Calendar panel
-    CalendarViewController *calendar = [[CalendarViewController alloc] init];
-    [self addChildViewController:calendar];
-    calendar.view.frame = CGRectMake(348, 305, 328, 222);
-    [self.view addSubview:calendar.view];
-    [calendar didMoveToParentViewController:self];
+- (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+    id object = [self.controllers objectAtIndex:fromIndexPath.row];
+    [self.controllers removeObjectAtIndex:fromIndexPath.row];
+    [self.controllers insertObject:object atIndex:toIndexPath.row];
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+#pragma mark - RFQuiltLayout delegate
+
+- (CGSize)blockSizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ModuleController *controller = self.controllers[indexPath.row];
+    return CGSizeMake([controller cols], [controller rows]);
+}
+
+- (UIEdgeInsets)insetsForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UIEdgeInsetsMake(5, 5, 5, 5);
 }
 
 @end
