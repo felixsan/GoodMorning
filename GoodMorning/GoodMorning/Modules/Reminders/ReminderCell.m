@@ -37,11 +37,18 @@
 
 - (void)setReminder:(EKReminder *)reminder {
     _reminder = reminder;
-
-    self.title.text = reminder.title;
+    NSDictionary *mainTextAttributes;
     self.completed = reminder.isCompleted;
     self.statusView.completed = reminder.isCompleted;
     self.statusView.completedColor = reminder.calendar.CGColor;
+    if (reminder.isCompleted) {
+        mainTextAttributes = @{NSForegroundColorAttributeName : [UIColor grayColor], NSStrikethroughStyleAttributeName: @(NSUnderlineStyleSingle)};
+    } else {
+        mainTextAttributes = @{NSForegroundColorAttributeName : [UIColor blackColor], NSStrikethroughStyleAttributeName: @(NSUnderlineStyleNone)};
+    }
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:reminder.title attributes: mainTextAttributes];
+
+    self.title.attributedText = str;
     [self.statusView setNeedsDisplay];
 }
 

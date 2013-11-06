@@ -36,6 +36,11 @@
     return self;
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ %@", self.id, self.text];
+}
+
 + (NSArray *)tweetsWithArray:(NSArray *)array
 {
     NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:[array count]];

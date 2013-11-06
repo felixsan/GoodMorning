@@ -2,13 +2,23 @@ PODS:
   - AFNetworking (1.3.3)
   - AFOAuth1Client (0.3.1):
     - AFNetworking (~> 1.3)
+  - DraggableCollectionView (0.2)
+  - RFQuiltLayout (1.1.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 1.3.1)
   - AFOAuth1Client
+  - DraggableCollectionView (from `https://github.com/blindsey/DraggableCollectionView.git`)
+  - RFQuiltLayout (~> 1.1.1)
+
+EXTERNAL SOURCES:
+  DraggableCollectionView:
+    :git: https://github.com/blindsey/DraggableCollectionView.git
 
 SPEC CHECKSUMS:
   AFNetworking: 0700ec7a58c36ad217173e167f6e4df7270df66b
   AFOAuth1Client: 8e83e357129c6dd4511dbb77b03977b206383dc1
+  DraggableCollectionView: e1cba2fa43b0c5f9d25c42ce81605eba9d9d8018
+  RFQuiltLayout: 8a3da0aaafcc29430d1a519e3ebb99f06191db40
 
 COCOAPODS: 0.26.2
