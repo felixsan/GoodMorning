@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -16,6 +16,10 @@
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:30 PM" textAlignment="right" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jpt-Je-wZp">
                         <rect key="frame" x="10" y="16" width="54" height="15"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="54" id="dcn-hf-NNJ"/>
+                            <constraint firstAttribute="height" constant="15" id="sQf-NY-dbp"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -38,11 +42,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="Jk1-a3-Tpl" firstAttribute="leading" secondItem="pKi-Fi-DDG" secondAttribute="trailing" constant="10" id="0dw-pn-kbw"/>
-                    <constraint firstItem="jpt-Je-wZp" firstAttribute="centerY" secondItem="pKi-Fi-DDG" secondAttribute="centerY" constant="-0.5" id="ELN-Kf-JZL"/>
-                    <constraint firstItem="pKi-Fi-DDG" firstAttribute="leading" secondItem="jpt-Je-wZp" secondAttribute="trailing" constant="10" id="SId-ZS-ePO"/>
                     <constraint firstItem="jpt-Je-wZp" firstAttribute="leading" secondItem="1Nl-CW-gNk" secondAttribute="leading" constant="10" id="g39-bI-iuC"/>
+                    <constraint firstItem="pKi-Fi-DDG" firstAttribute="leading" secondItem="jpt-Je-wZp" secondAttribute="trailing" constant="10" id="j8i-sp-4VP"/>
                     <constraint firstItem="jpt-Je-wZp" firstAttribute="top" secondItem="1Nl-CW-gNk" secondAttribute="top" constant="16" id="kbc-YH-1S5"/>
                     <constraint firstItem="Jk1-a3-Tpl" firstAttribute="top" secondItem="1Nl-CW-gNk" secondAttribute="top" constant="11" id="pTI-tm-fPL"/>
+                    <constraint firstItem="pKi-Fi-DDG" firstAttribute="top" secondItem="1Nl-CW-gNk" secondAttribute="top" constant="14" id="tHe-zT-ZNK"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
