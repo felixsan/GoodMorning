@@ -41,7 +41,7 @@
     CountdownView *cv = (CountdownView *)self.view;
     BOOL isPast = [timeLeft[CountdownAmount] intValue] == 0 && [timeLeft[CountdownGranularity] isEqualToString:@""];
     cv.timeLeft.text = !isPast ? [timeLeft[CountdownAmount] stringValue] : @"😃" ;
-    cv.eventName.text = !isPast ? [NSString stringWithFormat:@"%@ till %@!", timeLeft[CountdownGranularity], self.cm.eventName] : [NSString stringWithFormat:@"%@!", self.cm.eventName];
+    cv.eventName.text = !isPast ? [NSString stringWithFormat:@"%@ until %@!", timeLeft[CountdownGranularity], self.cm.eventName] : [NSString stringWithFormat:@"%@!", self.cm.eventName];
 
 }
 
@@ -72,6 +72,8 @@
 
 - (void)initCountdown {
     CountdownView *cv = (CountdownView *)self.view;
+    cv.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CountdownBackground"]];
+
     cv.timeLeft.text = @"";
     cv.eventName.text = @"";
 
