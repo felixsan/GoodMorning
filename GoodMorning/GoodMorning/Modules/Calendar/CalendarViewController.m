@@ -300,7 +300,7 @@
     static NSDateFormatter *formatter;
     if (!formatter) {
         formatter = [[NSDateFormatter alloc] init];
-        formatter.dateFormat = @"EEEE MMMM dd";
+        formatter.dateFormat = @"EEEE MMMM d";
     }
     return [formatter stringFromDate:[NSDate date]];
 }

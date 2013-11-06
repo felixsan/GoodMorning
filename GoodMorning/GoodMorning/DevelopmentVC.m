@@ -73,28 +73,28 @@
     ModuleController *controller = self.controllers[indexPath.row];
     
     if ([controller hasHeader]) {
-        UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 330, 22)];
+        UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 329, 30)];
         header.backgroundColor = [controller headerColor];
 
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 328, 22)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 328, 30)];
         label.textAlignment = NSTextAlignmentCenter;
         
         NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:[controller headerTitle]];
         NSRange range = NSMakeRange(0, [string length]);
         [string addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:range];
-        [string addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:16.f] range:range];
+        [string addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:18.f] range:range];
         label.attributedText = string;
         
         [header addSubview:label];
         
         if ([controller settingsSelector]) {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoDark];
-            button.frame = CGRectMake(305, 3, 16, 16);
+            button.frame = CGRectMake(305, 8, 16, 16);
             [button addTarget:controller action:[controller settingsSelector] forControlEvents:UIControlEventTouchUpInside];
             [header addSubview:button];
         }
         [cell addSubview:header];
-        controller.view.frame = CGRectMake(0, 22, 328, 200);
+        controller.view.frame = CGRectMake(0, 30, 328, 192);
     }
     [cell addSubview:controller.view];
     return cell;
