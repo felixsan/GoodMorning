@@ -67,4 +67,19 @@
     [self.webView loadHTMLString:html baseURL:nil];
 }
 
+- (BOOL)hasHeader
+{
+    return YES;
+}
+
+- (NSString *)headerTitle
+{
+    return @"Traffic";
+}
+
+- (UIColor *)headerColor
+{
+    return [UIColor colorWithRed:154.0/255 green:2.0/255 blue:143.0/255  alpha:1.f];
+}
+
 @end

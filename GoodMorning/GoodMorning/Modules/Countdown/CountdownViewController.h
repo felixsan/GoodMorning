@@ -14,7 +14,5 @@
 
 - (void)initCountdown;
 
-- (IBAction)showSettings:(id)sender;
-
 - (void)updateTime:(NSTimer *)timer;
 @end

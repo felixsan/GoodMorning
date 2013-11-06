@@ -171,4 +171,19 @@
     [self.tableView reloadData];
 }
 
+- (BOOL)hasHeader
+{
+    return YES;
+}
+
+- (NSString *)headerTitle
+{
+    return @"Twitter";
+}
+
+- (UIColor *)headerColor
+{
+    return [UIColor colorWithRed:75.0/255 green:228.0/255 blue:246.0/255 alpha:1.0];
+}
+
 @end
