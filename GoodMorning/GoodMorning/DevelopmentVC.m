@@ -98,6 +98,12 @@
         controller.view.frame = CGRectMake(0, 30, 328, 192);
     }
     [cell addSubview:controller.view];
+
+    cell.layer.shadowOffset = CGSizeMake(2, 2);
+    cell.layer.shadowColor = [[UIColor grayColor] CGColor];
+    cell.layer.shadowRadius = 3.0f;
+    cell.layer.shadowOpacity = 0.7f;
+
     return cell;
 }
 
