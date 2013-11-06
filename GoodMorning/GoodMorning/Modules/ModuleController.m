@@ -24,10 +24,29 @@
     return 1;
 }
 
+- (BOOL)hasHeader
+{
+    return NO;
+}
+
+- (NSString *)headerTitle
+{
+    return nil;
+}
+
+- (UIColor *)headerColor
+{
+    return nil;
+}
+
+- (SEL)settingsSelector
+{
+    return nil;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addStyleToView:self.view];
-    
 }
 
 - (void)addStyleToView:(UIView *)view {

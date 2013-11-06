@@ -45,7 +45,7 @@
 
 }
 
-- (IBAction)showSettings:(id)sender {
+- (void)showSettings {
     NSLog(@"Showing the settings");
     self.countdownSettingsVC.cm = self.cm;
     [self presentViewController:self.countdownSettingsVC
@@ -104,5 +104,24 @@
     }
 }
 
+- (BOOL)hasHeader
+{
+    return YES;
+}
+
+- (NSString *)headerTitle
+{
+    return @"Countdown";
+}
+
+- (UIColor *)headerColor
+{
+    return [UIColor colorWithRed:13.0/255 green:196.0/255 blue:83.0/255 alpha:1.f];
+}
+
+- (SEL)settingsSelector
+{
+    return @selector(showSettings);
+}
 
 @end

@@ -13,4 +13,9 @@
 - (NSUInteger)rows;
 - (NSUInteger)cols;
 
+- (BOOL)hasHeader;
+- (NSString *)headerTitle;
+- (UIColor *)headerColor;
+- (SEL)settingsSelector;
+
 @end

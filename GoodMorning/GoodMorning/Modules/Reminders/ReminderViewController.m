@@ -309,7 +309,7 @@
 }
 
 
-- (IBAction)showSettings:(id)sender {
+- (void)showSettings {
 //    NSLog(@"Showing the settings");
     self.reminderSettingsVC.rm = self.rm;
     [self presentViewController:self.reminderSettingsVC
@@ -317,5 +317,24 @@
                      completion:nil];
 }
 
+- (BOOL)hasHeader
+{
+    return YES;
+}
+
+- (NSString *)headerTitle
+{
+    return @"Reminders";
+}
+
+- (UIColor *)headerColor
+{
+    return [UIColor colorWithRed:1.f green:141/255.0 blue:78/255.0 alpha:1.f];
+}
+
+- (SEL)settingsSelector
+{
+    return @selector(showSettings);
+}
 
 @end

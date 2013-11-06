@@ -280,7 +280,7 @@
     [self presentViewController:addController animated:YES completion:nil];
 }
 
-- (IBAction)showSettings:(id)sender {
+- (void)showSettings {
     NSLog(@"Showing the calendar settings");
     self.calendarSettings.availableCalendars = self.availableCalendars;
     self.calendarSettings.displayedCalendars = self.displayedCalendars;
@@ -288,6 +288,31 @@
     [self presentViewController:self.calendarSettings
                        animated:YES
                      completion:nil];
+}
+
+- (BOOL)hasHeader
+{
+    return YES;
+}
+
+- (NSString *)headerTitle
+{
+    static NSDateFormatter *formatter;
+    if (!formatter) {
+        formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"EEEE MMMM dd";
+    }
+    return [formatter stringFromDate:[NSDate date]];
+}
+
+- (UIColor *)headerColor
+{
+    return [UIColor colorWithRed:205.0/255 green:62.0/255 blue:64.0/255 alpha:1.f];
+}
+
+- (SEL)settingsSelector
+{
+    return @selector(showSettings);
 }
 
 

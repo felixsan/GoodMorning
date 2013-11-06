@@ -15,6 +15,4 @@
 @property (nonatomic, strong) IBOutlet UITableViewCell *reminderCell;
 @property (nonatomic, strong) ReminderModel *rm;
 
-- (IBAction)showSettings:(id)sender;
-
 @end
