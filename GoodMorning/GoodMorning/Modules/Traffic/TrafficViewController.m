@@ -7,12 +7,11 @@
 //
 
 #import "TrafficViewController.h"
-#import <MapKit/MapKit.h>
+#import "LocationManager.h"
 
 @interface TrafficViewController ()
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -27,23 +26,16 @@
     return self;
 }
 
-- (CLLocationManager *)locationManager
-{
-    if (!_locationManager) {
-        _locationManager = [[CLLocationManager alloc] init];
-    }
-    return _locationManager;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
-    self.locationManager.distanceFilter = 500; // meters
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationUpdated:) name:LocationDidChangeNotification object:nil];
+}
 
-    [self.locationManager startUpdatingLocation];
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,11 +44,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - CLLocationManager delegate
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+- (void)locationUpdated:(NSNotification *)notification
 {
-    CLLocation* location = [locations lastObject];
+    CLLocation* location = notification.object;
     CLLocationDegrees latitude = location.coordinate.latitude;
     CLLocationDegrees longitude = location.coordinate.longitude;
 

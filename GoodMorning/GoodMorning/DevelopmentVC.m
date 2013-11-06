@@ -13,6 +13,7 @@
 #import "TrafficViewController.h"
 #import "ReminderViewController.h"
 #import "CalendarViewController.h"
+#import "LocationManager.h"
 
 @interface DevelopmentVC ()
 
@@ -52,6 +53,8 @@
     self.collectionView.draggable = YES;
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView reloadData];
+
+    [[LocationManager instance] startUpdatingLocation];
 }
 
 - (void)didReceiveMemoryWarning

@@ -22,7 +22,6 @@
 
 - (void)fetchTimelineForUser;
 - (void)handleRefresh;
-- (void)reloadData;
 
 @end
 
@@ -121,7 +120,7 @@
             } else {
                 [self.tweets removeObjectAtIndex:[self.tweets count] - 1];
                 [self.tweets addObjectsFromArray:response];
-                [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+                [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
             }
             self.loading = NO;
         }];
@@ -139,7 +138,7 @@
                if (error) {
                } else {
                    [self.tweets addObjectsFromArray:response];
-                   [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+                   [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
                }
                self.loading = NO;
            }];
@@ -160,15 +159,10 @@
         } else {
             [self.tweets removeAllObjects];
             [self.tweets addObjectsFromArray:response];
-            [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
         }
         [self.refreshControl endRefreshing];
     }];
-}
-
-- (void)reloadData
-{
-    [self.tableView reloadData];
 }
 
 - (NSString *)headerTitle

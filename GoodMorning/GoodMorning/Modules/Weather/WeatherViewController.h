@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreLocation/CoreLocation.h>
 #import "ModuleController.h"
 
-@interface WeatherViewController : ModuleController <CLLocationManagerDelegate>
+@interface WeatherViewController : ModuleController
 
 @end

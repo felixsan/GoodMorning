@@ -11,11 +11,11 @@
 #import "WeatherView.h"
 #import "HourlyForecastView.h"
 #import "WeatherViewController.h"
+#import "LocationManager.h"
 
 @interface WeatherViewController ()
 
 @property WeatherModel *weather;
-@property CLLocationManager *locationManager;
 
 @end
 
@@ -35,7 +35,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self startStandardUpdates];
+        // Custom initialization
     }
     return self;
 }
@@ -45,6 +45,13 @@
     [super viewDidLoad];
     WeatherView *weatherView = (WeatherView *)self.view;
     weatherView.locationLabel.text = @"";
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationUpdated:) name:LocationDidChangeNotification object:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,22 +84,9 @@
     weatherView.hourlyScrollView.contentSize = CGSizeMake(offset, 222);
 }
 
-- (void)startStandardUpdates
+- (void)locationUpdated:(NSNotification *)notification
 {
-    if (nil == self.locationManager)
-        self.locationManager = [[CLLocationManager alloc] init];
-    
-    self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
-    self.locationManager.distanceFilter = 500; // meters
-    
-    [self.locationManager startUpdatingLocation];
-}
-
-- (void)locationManager:(CLLocationManager *)manager
-     didUpdateLocations:(NSArray *)locations {
-    // If it's a relatively recent event, turn off updates to save power.
-    CLLocation* location = [locations lastObject];
+    CLLocation* location = notification.object;
     [self loadWeatherWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude];
     //[self.locationManager stopUpdatingLocation];
 

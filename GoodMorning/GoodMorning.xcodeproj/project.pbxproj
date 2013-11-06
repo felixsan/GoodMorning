@@ -18,6 +18,7 @@
 		13477C6618224E3C005AF7A6 /* TrafficViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13477C6418224E3C005AF7A6 /* TrafficViewController.m */; };
 		13477C6718224E3C005AF7A6 /* TrafficViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13477C6518224E3C005AF7A6 /* TrafficViewController.xib */; };
 		13477C6918224F0D005AF7A6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13477C6818224F0D005AF7A6 /* Social.framework */; };
+		1374A11D182A3B84001C4C62 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1374A11C182A3B84001C4C62 /* LocationManager.m */; };
 		13CFE382181F59A900946D84 /* ModuleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CFE381181F59A900946D84 /* ModuleController.m */; };
 		13CFE386181F5EAA00946D84 /* TwitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CFE385181F5EAA00946D84 /* TwitterViewController.m */; };
 		90939E9D1827EFFA004E9B94 /* CalendarColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90939E9C1827EFFA004E9B94 /* CalendarColorView.m */; };
@@ -104,6 +105,8 @@
 		13477C6518224E3C005AF7A6 /* TrafficViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TrafficViewController.xib; path = Traffic/TrafficViewController.xib; sourceTree = "<group>"; };
 		13477C6818224F0D005AF7A6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		13477C6A18224F35005AF7A6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1374A11B182A3B84001C4C62 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		1374A11C182A3B84001C4C62 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		13CFE380181F59A900946D84 /* ModuleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModuleController.h; sourceTree = "<group>"; };
 		13CFE381181F59A900946D84 /* ModuleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModuleController.m; sourceTree = "<group>"; };
 		13CFE384181F5EAA00946D84 /* TwitterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterViewController.h; path = Twitter/TwitterViewController.h; sourceTree = "<group>"; };
@@ -421,6 +424,8 @@
 				B5ACBD06181C9B220015FBC3 /* DevelopmentVC.m */,
 				134444101827765E001ECAF9 /* DraggableQuiltLayout.h */,
 				134444111827765E001ECAF9 /* DraggableQuiltLayout.m */,
+				1374A11B182A3B84001C4C62 /* LocationManager.h */,
+				1374A11C182A3B84001C4C62 /* LocationManager.m */,
 			);
 			path = GoodMorning;
 			sourceTree = "<group>";
@@ -504,7 +509,7 @@
 				ORGANIZATIONNAME = MakeItRain;
 				TargetAttributes = {
 					DE3F7F9F1810D3400062126A = {
-						TestTargetID = DE3F7F841810D3400062126A /* GoodMorning */;
+						TestTargetID = DE3F7F841810D3400062126A;
 					};
 				};
 			};
@@ -613,6 +618,7 @@
 				13477C5D182244C2005AF7A6 /* TwitterClient.m in Sources */,
 				B5ACBD0C181CAFF20015FBC3 /* WeatherViewController.m in Sources */,
 				B54BA0B118184CF400EA5A4F /* WeatherView.m in Sources */,
+				1374A11D182A3B84001C4C62 /* LocationManager.m in Sources */,
 				B5ACBE0F181E1E820015FBC3 /* HourlyForecastView.m in Sources */,
 				B54BA0A81818470600EA5A4F /* WeatherAPI.m in Sources */,
 				130E0DB2182232490043E24F /* TweetCell.m in Sources */,
