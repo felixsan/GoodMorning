@@ -83,14 +83,6 @@
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atL-d0-nuM">
-                            <rect key="frame" x="210" y="185" width="22" height="22"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="San Francisco, CA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3W-3r-Tny">
                             <rect key="frame" x="20" y="193" width="186" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -110,10 +102,8 @@
                         <constraint firstItem="E7m-hE-2mJ" firstAttribute="leading" secondItem="En8-gs-hNa" secondAttribute="trailing" constant="41" id="OTi-Po-meR"/>
                         <constraint firstItem="gQF-D9-gqd" firstAttribute="leading" secondItem="YYd-U8-o4Y" secondAttribute="leading" id="P3m-xK-8js"/>
                         <constraint firstItem="A7R-Qt-OfC" firstAttribute="top" secondItem="gQF-D9-gqd" secondAttribute="bottom" constant="18" id="QgF-H9-oyr"/>
-                        <constraint firstAttribute="bottom" secondItem="atL-d0-nuM" secondAttribute="bottom" constant="15" id="T0d-RZ-5Yh"/>
                         <constraint firstItem="En8-gs-hNa" firstAttribute="top" secondItem="gQF-D9-gqd" secondAttribute="bottom" constant="-1" id="UYX-vi-kkm"/>
                         <constraint firstItem="a99-mG-V86" firstAttribute="leading" secondItem="YYd-U8-o4Y" secondAttribute="leading" constant="111" id="WIg-TU-jp2"/>
-                        <constraint firstAttribute="trailing" secondItem="atL-d0-nuM" secondAttribute="trailing" constant="15" id="ZxF-ea-WmM"/>
                         <constraint firstItem="gQF-D9-gqd" firstAttribute="top" secondItem="YYd-U8-o4Y" secondAttribute="top" id="fZr-FZ-hjb"/>
                         <constraint firstItem="k9i-20-hKW" firstAttribute="leading" secondItem="YYd-U8-o4Y" secondAttribute="leading" constant="111" id="rZA-2g-YWw"/>
                         <constraint firstItem="iwL-6P-NTl" firstAttribute="top" secondItem="E7m-hE-2mJ" secondAttribute="bottom" id="suL-D7-3ck"/>
