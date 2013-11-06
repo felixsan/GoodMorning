@@ -73,7 +73,7 @@
     ModuleController *controller = self.controllers[indexPath.row];
     
     if ([controller hasHeader]) {
-        UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 329, 30)];
+        UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 328, 30)];
         header.backgroundColor = [controller headerColor];
 
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 328, 30)];
@@ -88,7 +88,8 @@
         [header addSubview:label];
         
         if ([controller settingsSelector]) {
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoDark];
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
+            button.tintColor = [UIColor whiteColor];
             button.frame = CGRectMake(305, 8, 16, 16);
             [button addTarget:controller action:[controller settingsSelector] forControlEvents:UIControlEventTouchUpInside];
             [header addSubview:button];
