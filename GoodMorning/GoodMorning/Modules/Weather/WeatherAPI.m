@@ -39,4 +39,12 @@
     [self getPath:path parameters:nil success:success failure:failure];
 }
 
+- (void)addressWithLatitude:(float)latitude longitude:(float)longitude success:(void (^)(NSURLRequest *, NSHTTPURLResponse *, id))success failure:(void (^)(NSURLRequest *, NSHTTPURLResponse *, NSError *, id))failure
+{
+    NSString *url = [NSString stringWithFormat:@"http://ws.geonames.org/findNearbyPostalCodesJSON?lat=%f&lng=%f", latitude, longitude];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:success failure:failure];
+    [operation start];
+}
+
 @end

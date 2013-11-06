@@ -43,6 +43,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    WeatherView *weatherView = (WeatherView *)self.view;
+    weatherView.locationLabel.text = @"";
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,7 +94,18 @@
     // If it's a relatively recent event, turn off updates to save power.
     CLLocation* location = [locations lastObject];
     [self loadWeatherWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude];
-    [self.locationManager stopUpdatingLocation];
+    //[self.locationManager stopUpdatingLocation];
+
+    [[WeatherAPI instance] addressWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        id codes = [JSON objectForKey:@"postalCodes"];
+        if ([codes isKindOfClass:[NSArray class]]) {
+            NSDictionary *location = [codes lastObject];
+            WeatherView *view = (WeatherView *)self.view;
+            view.locationLabel.text = [NSString stringWithFormat:@"%@, %@", [location objectForKey:@"placeName"], [location objectForKey:@"adminCode1"]];
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"%@", error);
+    }];
 }
 
 - (void)loadWeatherWithLatitude:(double)latitude longitude:(double)longitude {
