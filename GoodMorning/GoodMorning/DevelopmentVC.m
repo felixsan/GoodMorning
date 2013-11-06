@@ -72,19 +72,15 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     ModuleController *controller = self.controllers[indexPath.row];
     
-    if ([controller hasHeader]) {
-        UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 328, 30)];
-        header.backgroundColor = [controller headerColor];
-
+    if ([controller headerTitle]) {
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 328, 30)];
         label.textAlignment = NSTextAlignmentCenter;
-        
-        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:[controller headerTitle]];
-        NSRange range = NSMakeRange(0, [string length]);
-        [string addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:range];
-        [string addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:18.f] range:range];
-        label.attributedText = string;
-        
+        label.textColor = [UIColor whiteColor];
+        label.font = [UIFont boldSystemFontOfSize:18.f];
+        label.text = [controller headerTitle];
+
+        UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 328, 30)];
+        header.backgroundColor = [controller headerColor];
         [header addSubview:label];
         
         if ([controller settingsSelector]) {

@@ -67,11 +67,6 @@
     [self.webView loadHTMLString:html baseURL:nil];
 }
 
-- (BOOL)hasHeader
-{
-    return YES;
-}
-
 - (NSString *)headerTitle
 {
     return @"Traffic";

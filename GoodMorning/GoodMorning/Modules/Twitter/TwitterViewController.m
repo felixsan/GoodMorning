@@ -171,11 +171,6 @@
     [self.tableView reloadData];
 }
 
-- (BOOL)hasHeader
-{
-    return YES;
-}
-
 - (NSString *)headerTitle
 {
     return @"Twitter";

@@ -24,11 +24,6 @@
     return 1;
 }
 
-- (BOOL)hasHeader
-{
-    return NO;
-}
-
 - (NSString *)headerTitle
 {
     return nil;
@@ -36,7 +31,7 @@
 
 - (UIColor *)headerColor
 {
-    return nil;
+    return [UIColor lightGrayColor];
 }
 
 - (SEL)settingsSelector

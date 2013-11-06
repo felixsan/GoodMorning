@@ -317,11 +317,6 @@
                      completion:nil];
 }
 
-- (BOOL)hasHeader
-{
-    return YES;
-}
-
 - (NSString *)headerTitle
 {
     return @"Reminders";
