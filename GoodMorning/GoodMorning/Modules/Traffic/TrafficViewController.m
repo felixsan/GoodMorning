@@ -82,14 +82,4 @@
     return [UIColor colorWithRed:154.0/255 green:2.0/255 blue:143.0/255  alpha:1.f];
 }
 
-- (SEL)settingsSelector
-{
-    return @selector(showSettingsView);
-}
-
-- (void)showSettingsView
-{
-    NSLog(@"testing");
-}
-
 @end
