@@ -42,9 +42,9 @@
     self.statusView.completed = reminder.isCompleted;
     self.statusView.completedColor = reminder.calendar.CGColor;
     if (reminder.isCompleted) {
-        mainTextAttributes = @{NSForegroundColorAttributeName : [UIColor grayColor], NSStrikethroughStyleAttributeName: @(NSUnderlineStyleSingle)};
+        mainTextAttributes = @{NSStrikethroughStyleAttributeName: @(NSUnderlineStyleSingle)};
     } else {
-        mainTextAttributes = @{NSForegroundColorAttributeName : [UIColor blackColor], NSStrikethroughStyleAttributeName: @(NSUnderlineStyleNone)};
+        mainTextAttributes = @{NSStrikethroughStyleAttributeName: @(NSUnderlineStyleNone)};
     }
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:reminder.title attributes: mainTextAttributes];
 
