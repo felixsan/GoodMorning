@@ -28,6 +28,8 @@
 @property (assign, nonatomic) BOOL retweeted;
 @property (assign, nonatomic) BOOL favorited;
 
+@property (strong, nonatomic, readonly) Tweet *retweetedStatus;
+
 + (NSArray *)tweetsWithArray:(NSArray *)array;
 
 @end

@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *handleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
+@property (weak, nonatomic) IBOutlet UILabel *retweetLabel;
 
 @end
 
@@ -34,6 +35,15 @@
 {
     _tweet = tweet;
     User *user = tweet.user;
+
+    float inset = 20.f;
+    if (tweet.retweetedStatus) {
+        self.retweetLabel.text = [NSString stringWithFormat:@"%@ retweeted", user.name];
+        user = tweet.retweetedStatus.user;
+        inset = 0.f;
+    }
+    CGRect bounds = self.contentView.bounds;
+    self.contentView.bounds = CGRectMake(0, inset, bounds.size.width, bounds.size.height);
 
     // profile pic
     NSURL *url = [NSURL URLWithString:user.profileImageURL];
@@ -55,7 +65,7 @@
         self.timeLabel.text = [NSString stringWithFormat:@"%0.fs", interval];
     }
 
-    self.tweetLabel.text = tweet.text;
+    self.tweetLabel.text = tweet.retweetedStatus ? tweet.retweetedStatus.text : tweet.text;
 }
 
 @end

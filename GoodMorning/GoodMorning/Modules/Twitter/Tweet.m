@@ -32,6 +32,11 @@
 
         _retweeted = [[data objectForKey:@"retweeted"] integerValue];
         _favorited = [[data objectForKey:@"favorited"] integerValue];
+
+        NSDictionary *retweet = [data objectForKey:@"retweeted_status"];
+        if (retweet) {
+            _retweetedStatus = [[Tweet alloc] initWithDictionary:retweet];
+        }
     }
     return self;
 }
