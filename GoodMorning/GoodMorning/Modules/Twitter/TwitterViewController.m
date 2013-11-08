@@ -200,7 +200,7 @@
 
 - (UIColor *)headerColor
 {
-    return [UIColor colorWithRed:75.0/255 green:228.0/255 blue:246.0/255 alpha:1.0];
+    return [UIColor colorWithRed:85.0/255 green:172.0/255 blue:238.0/255 alpha:1.0];
 }
 
 - (SEL)settingsSelector
