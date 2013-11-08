@@ -7,6 +7,7 @@
 //
 
 #import "ReminderSettingsViewController.h"
+#import "CalendarListCell.h"
 
 @interface ReminderSettingsViewController ()
 
@@ -36,10 +37,16 @@
     [super viewDidLoad];
 //    ReminderSettingsView *rsv = (ReminderSettingsView *)self.view;
 //    rsv.rm = self.rm;
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ReminderListCell"];
+    // Add in our custom cell
+    UINib *calendarListCellNib = [UINib nibWithNibName:@"CalendarListCell" bundle:nil];
+    [self.tableView registerNib:calendarListCellNib forCellReuseIdentifier:@"ReminderListCell"];
 
+    // Set the table inset
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 40, 0, 10);
+        
     // Add an empty footer
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
 
 
 }
@@ -71,11 +78,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReminderListCell" forIndexPath:indexPath];
-
-    // Get the event at the row selected and display its title
-    cell.textLabel.text = [[self.rm.reminderLists objectAtIndex:(NSUInteger) indexPath.row] title];
-    NSLog(@"Title - %@", cell.textLabel.text);
+    CalendarListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReminderListCell" forIndexPath:indexPath];
+    EKCalendar *calendar = [self.rm.reminderLists objectAtIndex:(NSUInteger) indexPath.row];
+    cell.calendar = calendar;
     return cell;
 }
 

@@ -29,7 +29,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setTimeStyle:NSDateFormatterShortStyle];
 
-    self.eventTime.text = [formatter stringFromDate:[event startDate]];
+    self.eventTime.text = event.allDay ? @"all day" : [formatter stringFromDate:[event startDate]];
     self.eventName.text = event.title;
     self.eventLocation.text = event.location;
     self.eventCalendar.text = event.calendar.title;

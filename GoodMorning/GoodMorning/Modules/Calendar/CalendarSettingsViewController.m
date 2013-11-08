@@ -61,7 +61,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Get the event at the row selected and display its title
-    EKCalendar *calendar= [self.availableCalendars objectAtIndex:(NSUInteger) indexPath.row];
+    EKCalendar *calendar = [self.availableCalendars objectAtIndex:(NSUInteger) indexPath.row];
 
     CalendarListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"calendarCell" forIndexPath:indexPath];
     cell.calendar = calendar;
