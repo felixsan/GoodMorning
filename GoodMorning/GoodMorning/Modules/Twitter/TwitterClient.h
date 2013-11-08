@@ -14,6 +14,9 @@
 
 + (TwitterClient *)instance;
 
+@property (strong, nonatomic, readonly) NSArray *accounts; // of ACAccount
+@property (strong, nonatomic) ACAccount *account;
+
 - (void)requestAccess:(void (^)(BOOL granted, NSError *error))callback;
 
 - (void)homeTimelineWithCount:(int)count sinceId:(NSString *)sinceId maxId:(NSString *)maxId callback:(void (^)(NSError *error, SLRequest *request, NSArray *response))callback;

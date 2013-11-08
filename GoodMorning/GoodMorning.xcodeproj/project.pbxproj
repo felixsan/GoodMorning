@@ -20,6 +20,8 @@
 		13477C6918224F0D005AF7A6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13477C6818224F0D005AF7A6 /* Social.framework */; };
 		1374A11D182A3B84001C4C62 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1374A11C182A3B84001C4C62 /* LocationManager.m */; };
 		13A9B821182C8B0D00A7A84C /* retweet.png in Resources */ = {isa = PBXBuildFile; fileRef = 13A9B820182C8B0D00A7A84C /* retweet.png */; };
+		13A9B82A182C9D3600A7A84C /* TwitterSettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A9B828182C9D3600A7A84C /* TwitterSettingsVC.m */; };
+		13A9B82B182C9D3600A7A84C /* TwitterSettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13A9B829182C9D3600A7A84C /* TwitterSettingsVC.xib */; };
 		13CFE382181F59A900946D84 /* ModuleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CFE381181F59A900946D84 /* ModuleController.m */; };
 		13CFE386181F5EAA00946D84 /* TwitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CFE385181F5EAA00946D84 /* TwitterViewController.m */; };
 		90939E9D1827EFFA004E9B94 /* CalendarColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90939E9C1827EFFA004E9B94 /* CalendarColorView.m */; };
@@ -109,6 +111,9 @@
 		1374A11B182A3B84001C4C62 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		1374A11C182A3B84001C4C62 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		13A9B820182C8B0D00A7A84C /* retweet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = retweet.png; path = Twitter/retweet.png; sourceTree = "<group>"; };
+		13A9B827182C9D3600A7A84C /* TwitterSettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterSettingsVC.h; path = Twitter/TwitterSettingsVC.h; sourceTree = "<group>"; };
+		13A9B828182C9D3600A7A84C /* TwitterSettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterSettingsVC.m; path = Twitter/TwitterSettingsVC.m; sourceTree = "<group>"; };
+		13A9B829182C9D3600A7A84C /* TwitterSettingsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TwitterSettingsVC.xib; path = Twitter/TwitterSettingsVC.xib; sourceTree = "<group>"; };
 		13CFE380181F59A900946D84 /* ModuleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModuleController.h; sourceTree = "<group>"; };
 		13CFE381181F59A900946D84 /* ModuleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModuleController.m; sourceTree = "<group>"; };
 		13CFE384181F5EAA00946D84 /* TwitterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterViewController.h; path = Twitter/TwitterViewController.h; sourceTree = "<group>"; };
@@ -253,6 +258,9 @@
 				13CFE384181F5EAA00946D84 /* TwitterViewController.h */,
 				13CFE385181F5EAA00946D84 /* TwitterViewController.m */,
 				13477C5F18224C1A005AF7A6 /* TwitterViewController.xib */,
+				13A9B827182C9D3600A7A84C /* TwitterSettingsVC.h */,
+				13A9B828182C9D3600A7A84C /* TwitterSettingsVC.m */,
+				13A9B829182C9D3600A7A84C /* TwitterSettingsVC.xib */,
 			);
 			name = Twitter;
 			sourceTree = "<group>";
@@ -512,7 +520,7 @@
 				ORGANIZATIONNAME = MakeItRain;
 				TargetAttributes = {
 					DE3F7F9F1810D3400062126A = {
-						TestTargetID = DE3F7F841810D3400062126A /* GoodMorning */;
+						TestTargetID = DE3F7F841810D3400062126A;
 					};
 				};
 			};
@@ -540,6 +548,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13477C6718224E3C005AF7A6 /* TrafficViewController.xib in Resources */,
+				13A9B82B182C9D3600A7A84C /* TwitterSettingsVC.xib in Resources */,
 				B5ACBE17181E42CE0015FBC3 /* png in Resources */,
 				90D1B78B1826FDA800B633ED /* CalendarListCell.xib in Resources */,
 				B576B970182640AD006E3E57 /* CalendarSettingsView.xib in Resources */,
@@ -635,6 +644,7 @@
 				B576B96F182640AD006E3E57 /* CalendarSettingsView.m in Sources */,
 				90D1B7AE1826FE3E00B633ED /* ReminderSettingsView.m in Sources */,
 				B576B971182640AD006E3E57 /* CalendarSettingsViewController.m in Sources */,
+				13A9B82A182C9D3600A7A84C /* TwitterSettingsVC.m in Sources */,
 				90C105EB1827508000453208 /* ReminderCell.m in Sources */,
 				D890E45231B5F8FBF31EF79F /* CountdownView.m in Sources */,
 				90939E9D1827EFFA004E9B94 /* CalendarColorView.m in Sources */,

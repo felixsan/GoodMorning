@@ -39,4 +39,9 @@
     return nil;
 }
 
+- (SEL)addSelector
+{
+    return nil;
+}
+
 @end

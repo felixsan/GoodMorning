@@ -9,6 +9,7 @@
 #import "TwitterViewController.h"
 #import "TweetCell.h"
 #import "TwitterClient.h"
+#import "TwitterSettingsVC.h"
 
 #define REUSE_IDENTIFIER @"TweetCell"
 
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) NSMutableArray *tweets;
 @property (assign, nonatomic) BOOL loading;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) TwitterSettingsVC *settingsController;
 
 - (void)fetchTimelineForUser;
 - (void)handleRefresh;
@@ -27,15 +29,39 @@
 
 @implementation TwitterViewController
 
-- (NSUInteger)rows
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    return 2;
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+    }
+    return self;
 }
 
-- (NSUInteger)cols
+- (void)viewDidLoad
 {
-    return 1;
+    [super viewDidLoad];
+
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+
+    UINib *nib = [UINib nibWithNibName:REUSE_IDENTIFIER bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:REUSE_IDENTIFIER];
+
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
+    [self.refreshControl addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
+
+    [self fetchTimelineForUser];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRefresh) name:TwitterAccountChangedNotification object:nil];
 }
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Properties
 
 - (NSMutableArray *)tweets
 {
@@ -53,29 +79,12 @@
     return _refreshControl;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (TwitterSettingsVC *)settingsController
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (!_settingsController) {
+        _settingsController = [[TwitterSettingsVC alloc] init];
     }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-
-    UINib *nib = [UINib nibWithNibName:REUSE_IDENTIFIER bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:REUSE_IDENTIFIER];
-    
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
-    [self.refreshControl addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:self.refreshControl];
-
-    [self fetchTimelineForUser];
+    return _settingsController;
 }
 
 #pragma mark - Table view data source
@@ -97,13 +106,20 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Tweet *tweet = self.tweets[indexPath.row];
-    CGFloat width = self.view.frame.size.width - 72;
+    NSString *text = tweet.text;
+    NSUInteger offset = 30;
+    if (tweet.retweetedStatus) {
+        text = tweet.retweetedStatus.text;
+        offset = 48;
+    }
+
+    CGFloat width = self.view.frame.size.width - 81;
     NSDictionary *attributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:13] };
-    CGRect frame = [tweet.text boundingRectWithSize:CGSizeMake(width, 1000)
-                                            options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
-                                         attributes:attributes
-                                            context:nil];
-    return MAX(68.0, frame.size.height + (tweet.retweetedStatus ? 48 : 30));
+    CGRect frame = [text boundingRectWithSize:CGSizeMake(width, 1000)
+                                      options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
+                                   attributes:attributes
+                                      context:nil];
+    return MAX(68.0, frame.size.height + offset);
 }
 
 #pragma mark - Scroll view delegate
@@ -165,6 +181,18 @@
     }];
 }
 
+#pragma mark - module controller
+
+- (NSUInteger)rows
+{
+    return 2;
+}
+
+- (NSUInteger)cols
+{
+    return 1;
+}
+
 - (NSString *)headerTitle
 {
     return @"Twitter";
@@ -173,6 +201,18 @@
 - (UIColor *)headerColor
 {
     return [UIColor colorWithRed:75.0/255 green:228.0/255 blue:246.0/255 alpha:1.0];
+}
+
+- (SEL)settingsSelector
+{
+    return @selector(showSettings);
+}
+
+- (void)showSettings
+{
+    [self presentViewController:self.settingsController
+                       animated:YES
+                     completion:nil];
 }
 
 @end

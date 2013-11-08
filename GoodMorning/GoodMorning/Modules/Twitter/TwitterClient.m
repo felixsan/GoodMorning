@@ -12,6 +12,7 @@
 @interface TwitterClient ()
 
 @property (strong, nonatomic) ACAccountStore *accountStore;
+@property (strong, nonatomic, readwrite) NSArray *accounts;
 
 @end
 
@@ -51,12 +52,25 @@
     }
 }
 
+- (NSArray *)accounts
+{
+    if (!_accounts) {
+        ACAccountType *twitterAccountType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+        _accounts = [self.accountStore accountsWithAccountType:twitterAccountType];
+    }
+    return _accounts;
+}
+
+- (ACAccount *)account
+{
+    if (!_account) {
+        _account = [[self accounts] lastObject];
+    }
+    return _account;
+}
+
 - (void)homeTimelineWithCount:(int)count sinceId:(NSString *)sinceId maxId:(NSString *)maxId callback:(void (^)(NSError *, SLRequest *, NSArray *))callback
 {
-    ACAccountType *twitterAccountType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    NSArray *twitterAccounts = [self.accountStore accountsWithAccountType:twitterAccountType];
-    ACAccount *twitter = [twitterAccounts lastObject];
-
     NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/statuses/home_timeline.json"];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:@(count) forKey:@"count"];
@@ -72,7 +86,7 @@
                                                parameters:params];
 
     //  Attach an account to the request
-    [request setAccount:twitter];
+    [request setAccount:self.account];
 
     //  Execute the request
     [request performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {

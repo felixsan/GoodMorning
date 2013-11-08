@@ -86,7 +86,7 @@
         header.backgroundColor = [controller headerColor];
         [header addSubview:label];
         
-        if ([controller respondsToSelector:@selector(settingsSelector)]) {
+        if ([controller settingsSelector]) {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
             button.tintColor = [UIColor whiteColor];
             button.frame = CGRectMake(305, 8, 16, 16);
@@ -94,7 +94,7 @@
             [header addSubview:button];
         }
 
-        if ([controller respondsToSelector:@selector(addSelector)]) {
+        if ([controller addSelector]) {
             UIButton *addButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
             addButton.tintColor = [UIColor whiteColor];
             addButton.frame = CGRectMake(20, 8, 16, 16);
