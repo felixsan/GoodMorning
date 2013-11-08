@@ -10,7 +10,7 @@
 
 @interface Forecast : NSObject
 
-@property (weak, nonatomic) NSDate *time;
+@property (nonatomic) int time;
 @property (weak, nonatomic) NSString *summary;
 @property (weak, nonatomic) NSString *icon;
 @property (nonatomic) double precipIntensity;
@@ -29,6 +29,7 @@
 @property (nonatomic) double temperatureMin;
 
 - (id)initWithDictionary:(NSDictionary *)data;
+- (NSDate *)getTime;
 
 
 @end

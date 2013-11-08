@@ -12,7 +12,7 @@
 
 - (id)initWithDictionary:(NSDictionary *)data {
     if (self = [super init]) {
-        self.time = [NSDate dateWithTimeIntervalSince1970:[data[@"time"] integerValue]];
+        self.time = [data[@"time"] integerValue];
         self.summary = data[@"summary"];
         self.icon = data[@"icon"];
         self.temperature = [data[@"temperature"] doubleValue];
@@ -21,6 +21,10 @@
     }
     
     return self;
+}
+
+- (NSDate *)getTime {
+    return [NSDate dateWithTimeIntervalSince1970:self.time];
 }
 
 @end

@@ -67,7 +67,7 @@
 
     NSMutableArray *results = [[NSMutableArray alloc] init];
     for (Forecast *hour in self.hourly) {
-        NSString *time = [outputFormatter stringFromDate:hour.time];
+        NSString *time = [outputFormatter stringFromDate:[hour getTime]];
         if ([reference_hours objectForKey:time] != nil) {
             [results addObject:hour];
         }

@@ -76,7 +76,7 @@
         CGRect frame = CGRectMake(offset, 0, 150, 222);
         HourlyForecastView *hourlyView = [[HourlyForecastView alloc] initWithFrame:frame];
         hourlyView.temperatureLabel.text = [NSString stringWithFormat:@"%1.f", hour.temperature];
-        hourlyView.timeLabel.text = [outputFormatter stringFromDate:hour.time];
+        hourlyView.timeLabel.text = [outputFormatter stringFromDate:[hour getTime]];
         hourlyView.iconImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"png/%@", hour.icon]];
         [weatherView.hourlyScrollView addSubview:hourlyView];
         offset += 150;
