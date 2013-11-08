@@ -136,6 +136,15 @@
 }
 
 
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+    ReminderCell *cell = (ReminderCell *) [tableView cellForRowAtIndexPath:indexPath];
+    cell.reminder.completed = !cell.reminder.completed;
+    [self.eventStore saveReminder:cell.reminder commit:YES error:nil];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [tableView reloadData];
+}
+
+
 #pragma mark -
 #pragma mark Access Reminders
 
