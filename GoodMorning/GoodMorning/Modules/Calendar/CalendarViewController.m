@@ -305,9 +305,13 @@
     return [UIColor colorWithRed:205.0/255 green:62.0/255 blue:64.0/255 alpha:1.f];
 }
 
-- (SEL)settingsSelector
-{
+- (SEL)settingsSelector {
     return @selector(showSettings);
+}
+
+
+- (SEL)addSelector {
+    return @selector(addEvent:);
 }
 
 

@@ -16,5 +16,6 @@
 - (NSString *)headerTitle;
 - (UIColor *)headerColor;
 - (SEL)settingsSelector;
+- (SEL)addSelector;
 
 @end

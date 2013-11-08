@@ -341,4 +341,8 @@
     return @selector(showSettings);
 }
 
+- (SEL)addSelector{
+    return @selector(addEvent:);
+}
+
 @end
