@@ -143,7 +143,7 @@
                self.loading = NO;
            }];
         } else {
-            self.tableView.hidden = YES;
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
             CGRect frame = CGRectMake(10, 10, 328, 24);
             UILabel *label = [[UILabel alloc] initWithFrame:frame];
             label.text = @"Sorry, no twitter accounts found";
