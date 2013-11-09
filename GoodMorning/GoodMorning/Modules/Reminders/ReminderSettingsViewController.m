@@ -52,7 +52,7 @@
 }
 
 - (void)viewWillLayoutSubviews{
-    NSLog(@"view will layout");
+//    NSLog(@"view will layout");
     [super viewWillLayoutSubviews];
     self.view.superview.bounds = CGRectMake(0,0,722, 413);
 }
@@ -73,7 +73,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"I got asked the count");
+//    NSLog(@"I got asked the count");
     return [self.rm.reminderLists count];
 }
 

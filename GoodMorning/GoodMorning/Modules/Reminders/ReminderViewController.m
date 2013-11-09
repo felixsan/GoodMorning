@@ -88,9 +88,6 @@
     // The Add button is initially disabled
     self.addButton.enabled = NO;
 
-//    // Register our cell
-//    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-
     // Add in our custom cell
     UINib *reminderCellNib = [UINib nibWithNibName:@"ReminderCell" bundle:nil];
     [self.tableView registerNib:reminderCellNib forCellReuseIdentifier:@"reminderCell"];

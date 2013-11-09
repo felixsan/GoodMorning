@@ -12,6 +12,8 @@
 #import "CalendarCell.h"
 #import "CalendarSettingsViewController.h"
 
+NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNotification";
+
 @interface CalendarViewController () <EKEventEditViewDelegate>
 
 // EKEventStore instance associated with the current Calendar application
@@ -20,15 +22,11 @@
 // Default calendar associated with the above event store
 @property (nonatomic, strong) EKCalendar *defaultCalendar;
 
-
-@property (nonatomic, strong) NSArray *availableCalendars;
-@property (nonatomic, strong) NSArray *displayedCalendars;
-
 // Array of all events happening within the next 24 hours
 @property (nonatomic, strong) NSMutableArray *eventsList;
 
-// Used to add events to Calendar
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
+@property (nonatomic, strong) NSArray *availableCalendars;
+@property (nonatomic, strong) NSMutableArray *displayedCalendars;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong) CalendarSettingsViewController *calendarSettings;
@@ -71,8 +69,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // The Add button is initially disabled
-    self.addButton.enabled = NO;
 
     // Add in our custom cell
     UINib *calendarCellNib = [UINib nibWithNibName:@"CalendarCell" bundle:nil];
@@ -169,14 +165,15 @@
     NSDictionary *calendarDict = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"calendarKey"];
     if (!calendarDict) {
         // If we don't have anything just show the default calendar
-        self.displayedCalendars = @[self.defaultCalendar];
+        self.displayedCalendars = [@[self.defaultCalendar] mutableCopy];
     } else {
-        self.displayedCalendars  = calendarDict[@"displayedCalendars"];
+        NSMutableArray *savedCalendars = [NSMutableArray arrayWithCapacity:[calendarDict[@"displayedCalendars"] count]];
+        for ( NSString *identifier in calendarDict[@"displayedCalendars"] ) {
+            [savedCalendars addObject: [self.eventStore calendarWithIdentifier:identifier]];
+        }
+        self.displayedCalendars  = savedCalendars;
     }
 
-
-    // Enable the Add button
-    self.addButton.enabled = YES;
     [self refresh];
 }
 
@@ -257,9 +254,16 @@
                                              selector:@selector(refresh)
                                                  name:EKEventStoreChangedNotification
                                                object:self.eventStore];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refresh)
+                                                 name:CalendarSettingsChangeNotification
+                                               object:nil];
+
 }
 
 - (void)refresh {
+//    NSLog(@"Refresh called");
     self.availableCalendars = [self.eventStore calendarsForEntityType:EKEntityTypeEvent];
     self.eventsList = [self fetchEvents];
     // Update the UI with the above events

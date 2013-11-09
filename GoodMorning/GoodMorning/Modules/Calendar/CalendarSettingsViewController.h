@@ -11,6 +11,6 @@
 @interface CalendarSettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong)NSArray *availableCalendars;
-@property (nonatomic, strong)NSArray *displayedCalendars;
+@property (nonatomic, strong)NSMutableArray *displayedCalendars;
 
 @end

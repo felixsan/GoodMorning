@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ModuleController.h"
 
+extern NSString *const CalendarSettingsChangeNotification;
+
 @interface CalendarViewController : ModuleController <UITableViewDelegate, UITableViewDataSource>
 
 @end

@@ -9,6 +9,7 @@
 #import <EventKit/EventKit.h>
 #import "CalendarSettingsViewController.h"
 #import "CalendarListCell.h"
+#import "CalendarViewController.h"
 
 @interface CalendarSettingsViewController ()
 
@@ -45,8 +46,6 @@
 
     // Add an empty footer
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-
-
 }
 
 - (void)viewWillLayoutSubviews{
@@ -62,11 +61,21 @@
 {
     // Get the event at the row selected and display its title
     EKCalendar *calendar = [self.availableCalendars objectAtIndex:(NSUInteger) indexPath.row];
-
     CalendarListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"calendarCell" forIndexPath:indexPath];
+    cell.accessoryType = [self.displayedCalendars containsObject:calendar] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     cell.calendar = calendar;
-
     return cell;
+}
+
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+    CalendarListCell *cell = (CalendarListCell *) [tableView cellForRowAtIndexPath:indexPath];
+    if ([self.displayedCalendars containsObject:cell.calendar]) {
+        [self.displayedCalendars removeObject:cell.calendar];
+    } else {
+        [self.displayedCalendars addObject:cell.calendar];
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [tableView reloadData];
 }
 
 - (IBAction)cancel:(id)sender {
@@ -75,9 +84,15 @@
 }
 
 - (IBAction)saveChanges:(id)sender {
-//    self.displayedCalendars
-//    [[NSUserDefaults standardUserDefaults] setObject:@{} forKey:@"calendarKey"];
-//    [[NSUserDefaults standardUserDefaults] synchronize];
+//    NSLog(@"displayed calendars - %@", self.displayedCalendars);
+    NSMutableArray *savedCalendars = [NSMutableArray arrayWithCapacity:[self.displayedCalendars count]];
+    for ( EKCalendar *calendar in self.displayedCalendars ) {
+        [savedCalendars addObject: [calendar calendarIdentifier]];
+    }
+
+    [[NSUserDefaults standardUserDefaults] setObject:@{@"displayedCalendars": savedCalendars} forKey:@"calendarKey"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSNotificationCenter defaultCenter] postNotificationName:CalendarSettingsChangeNotification object:nil];
     [self dismissViewControllerAnimated:YES  completion:nil];
 
 }
