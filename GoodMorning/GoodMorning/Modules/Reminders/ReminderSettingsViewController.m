@@ -20,8 +20,7 @@
 
 @implementation ReminderSettingsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // For ios 6 and below use the PresentationPage Sheet
@@ -32,8 +31,7 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 //    ReminderSettingsView *rsv = (ReminderSettingsView *)self.view;
 //    rsv.rm = self.rm;
@@ -47,11 +45,9 @@
     // Add an empty footer
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 
-
-
 }
 
-- (void)viewWillLayoutSubviews{
+- (void)viewWillLayoutSubviews {
 //    NSLog(@"view will layout");
     [super viewWillLayoutSubviews];
     self.view.superview.bounds = CGRectMake(0,0,722, 413);

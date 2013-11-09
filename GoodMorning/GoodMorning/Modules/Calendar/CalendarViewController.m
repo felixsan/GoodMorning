@@ -43,7 +43,6 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
     if (!_calendarSettings) {
         _calendarSettings = [[CalendarSettingsViewController alloc] init];
     }
-
     return _calendarSettings;
 }
 
@@ -62,12 +61,9 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
         [self setup];
     }
     return self;
-
 }
 
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     // Add in our custom cell
@@ -84,13 +80,11 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
 #pragma mark -
 #pragma mark TableViewDelegate Functions
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.eventsList.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Get the event at the row selected and display its title
     EKEvent *event = [self.eventsList objectAtIndex:(NSUInteger) indexPath.row];
 
@@ -110,8 +104,7 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
 #pragma mark Access Calendar
 
 // Check the authorization status of our application for Calendar
-- (void)checkEventStoreAccessForCalendar
-{
+- (void)checkEventStoreAccessForCalendar {
     EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
 
     switch (status)
@@ -139,8 +132,7 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
 }
 
 // Prompt the user for access to their Calendar
-- (void)requestCalendarAccess
-{
+- (void)requestCalendarAccess {
     [self.eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error)
     {
         if (granted)
@@ -155,8 +147,7 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
 }
 
 // This method is called when the user has granted permission to Calendar
-- (void)accessGrantedForCalendar
-{
+- (void)accessGrantedForCalendar {
     // Let's get the default calendar associated with our event store
     self.defaultCalendar = self.eventStore.defaultCalendarForNewEvents;
 
@@ -173,7 +164,6 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
         }
         self.displayedCalendars  = savedCalendars;
     }
-
     [self refresh];
 }
 
@@ -181,8 +171,7 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
 #pragma mark Fetch events
 
 // Fetch all events happening in the next 24 hours
-- (NSMutableArray *)fetchEvents
-{
+- (NSMutableArray *)fetchEvents {
     NSDate *startDate = [NSDate date];
 
     //Create the end date components
@@ -192,15 +181,12 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
     NSDate *endDate = [[NSCalendar currentCalendar] dateByAddingComponents:tomorrowDateComponents
                                                                     toDate:startDate
                                                                    options:0];
-
     // Create the predicate
     NSPredicate *predicate = [self.eventStore predicateForEventsWithStartDate:startDate
                                                                       endDate:endDate
                                                                     calendars:self.displayedCalendars];
-
     // Fetch all events that match the predicate
     NSMutableArray *events = [NSMutableArray arrayWithArray:[self.eventStore eventsMatchingPredicate:predicate]];
-
     return events;
 }
 
@@ -218,8 +204,7 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
 
 // Overriding EKEventEditViewDelegate method to update event store according to user actions.
 - (void)eventEditViewController:(EKEventEditViewController *)controller
-          didCompleteWithAction:(EKEventEditViewAction)action
-{
+          didCompleteWithAction:(EKEventEditViewAction)action {
     // Dismiss the modal view controller
     [self dismissViewControllerAnimated:YES completion:^
     {
@@ -233,14 +218,12 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
 }
 
 // Set the calendar edited by EKEventEditViewController to our chosen calendar - the default calendar.
-- (EKCalendar *)eventEditViewControllerDefaultCalendarForNewEvents:(EKEventEditViewController *)controller
-{
+- (EKCalendar *)eventEditViewControllerDefaultCalendarForNewEvents:(EKEventEditViewController *)controller {
     return self.defaultCalendar;
 }
 
 #pragma mark -
 #pragma mark Private Methods
-
 
 - (void)setup {
 
@@ -259,7 +242,6 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
                                              selector:@selector(refresh)
                                                  name:CalendarSettingsChangeNotification
                                                object:nil];
-
 }
 
 - (void)refresh {
@@ -280,7 +262,6 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
     if (event) {
         addController.event = event;
     }
-
     [self presentViewController:addController animated:YES completion:nil];
 }
 
@@ -288,14 +269,10 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
     NSLog(@"Showing the calendar settings");
     self.calendarSettings.availableCalendars = self.availableCalendars;
     self.calendarSettings.displayedCalendars = self.displayedCalendars;
-
-    [self presentViewController:self.calendarSettings
-                       animated:YES
-                     completion:nil];
+    [self presentViewController:self.calendarSettings animated:YES completion:nil];
 }
 
-- (NSString *)headerTitle
-{
+- (NSString *)headerTitle {
     static NSDateFormatter *formatter;
     if (!formatter) {
         formatter = [[NSDateFormatter alloc] init];
@@ -304,8 +281,7 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
     return [formatter stringFromDate:[NSDate date]];
 }
 
-- (UIColor *)headerColor
-{
+- (UIColor *)headerColor {
     return [UIColor colorWithRed:205.0/255 green:62.0/255 blue:64.0/255 alpha:1.f];
 }
 
@@ -313,10 +289,8 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
     return @selector(showSettings);
 }
 
-
 - (SEL)addSelector {
     return @selector(addEvent:);
 }
-
 
 @end

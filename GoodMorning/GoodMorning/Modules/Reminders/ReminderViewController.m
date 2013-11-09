@@ -17,19 +17,13 @@
 // EKEventStore instance associated with the current Reminder application
 @property (nonatomic, strong) EKEventStore *eventStore;
 
-
 // Array of all reminder lists available
 @property (nonatomic, strong) NSArray *remindersLists;
 
 // Array of all reminders in a list
 @property (nonatomic, strong) NSMutableArray *reminders;
 
-// Used to add a reminder
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
-
-
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @property(nonatomic, strong) EKCalendar *currentReminderCalendar;
 
 @property (nonatomic, strong) ReminderSettingsViewController *reminderSettingsVC;
@@ -42,7 +36,6 @@
     if (!_reminderSettingsVC) {
         _reminderSettingsVC = [[ReminderSettingsViewController alloc] init];
     }
-
     return _reminderSettingsVC;
 }
 
@@ -51,7 +44,6 @@
     if (!_rm) {
         _rm = [[ReminderModel alloc] init];
     }
-
     return _rm;
 }
 
@@ -70,28 +62,32 @@
     self.rm.reminders = reminders;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        [self setup];
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Initialize the event store
 	self.eventStore = [[EKEventStore alloc] init];
     // Initialize the events list
 //	self.remindersLists = [[NSMutableArray alloc] initWithCapacity:0];
-    // The Add button is initially disabled
-    self.addButton.enabled = NO;
 
     // Add in our custom cell
     UINib *reminderCellNib = [UINib nibWithNibName:@"ReminderCell" bundle:nil];
     [self.tableView registerNib:reminderCellNib forCellReuseIdentifier:@"reminderCell"];
-
 
     // Set the table inset
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 60, 0, 10);
@@ -103,8 +99,7 @@
     [self checkEventStoreAccessForReminder];
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
+-(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
 }
@@ -120,7 +115,6 @@
     } else {
         return 0;
     }
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -132,7 +126,6 @@
     return cell;
 }
 
-
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
     ReminderCell *cell = (ReminderCell *) [tableView cellForRowAtIndexPath:indexPath];
     cell.reminder.completed = !cell.reminder.completed;
@@ -141,13 +134,11 @@
     [tableView reloadData];
 }
 
-
 #pragma mark -
 #pragma mark Access Reminders
 
 // Check the authorization status of our application for Reminders
--(void)checkEventStoreAccessForReminder
-{
+-(void)checkEventStoreAccessForReminder {
     EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeReminder];
     
     switch (status)
@@ -175,8 +166,7 @@
 }
 
 // Prompt the user for access to their Reminders
--(void)requestReminderAccess
-{
+-(void)requestReminderAccess {
     [self.eventStore requestAccessToEntityType:EKEntityTypeReminder completion:^(BOOL granted, NSError *error)
      {
          if (granted)
@@ -190,20 +180,12 @@
      }];
 }
 
-
 // This method is called when the user has granted permission to their Reminders
--(void)accessGrantedForReminder
-{
+-(void)accessGrantedForReminder {
     // Let's get the default calendar associated with our event store
     self.currentReminderCalendar = self.eventStore.defaultCalendarForNewReminders;
     self.remindersLists = [self.eventStore calendarsForEntityType:EKEntityTypeReminder];
 
-
-
-//    NSLog(@"Default Reminders Calendar - %@", self.eventStore.defaultCalendarForNewReminders.title);
-//    NSLog(@"Default Reminders Calendar - %@", self.eventStore.defaultCalendarForNewReminders);
-    // Enable the Add button
-    self.addButton.enabled = YES;
     // Fetch all reminders
     [self fetchRemindersFrom:self.currentReminderCalendar];
 }
@@ -241,7 +223,6 @@
             [self fetchRemindersFrom:self.currentReminderCalendar];
         }
 //        NSLog(@"Fetched reminders - %@", self.reminders);
-
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"priority" ascending:YES] ;
         NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
         self.reminders = [[self.reminders sortedArrayUsingDescriptors:sortDescriptors] mutableCopy];
@@ -267,14 +248,12 @@
 
 }
 
-
 #pragma mark -
 #pragma mark Add a new reminder
 
 // Display an event edit view controller when the user taps the "+" button.
 // A new event is added to Calendar when the user taps the "Done" button in the above view controller.
-- (IBAction)addEvent:(id)sender
-{
+- (IBAction)addEvent:(id)sender {
     // Create an instance of EKEventEditViewController
     EKEventEditViewController *addController = [[EKEventEditViewController alloc] init];
 
@@ -284,14 +263,12 @@
     [self presentViewController:addController animated:YES completion:nil];
 }
 
-
 #pragma mark -
 #pragma mark EKEventEditViewDelegate
 
 // Overriding EKEventEditViewDelegate method to update event store according to user actions.
 - (void)eventEditViewController:(EKEventEditViewController *)controller
-          didCompleteWithAction:(EKEventEditViewAction)action
-{
+          didCompleteWithAction:(EKEventEditViewAction)action {
     // Dismiss the modal view controller
     [self dismissViewControllerAnimated:YES completion:^
     {
@@ -307,13 +284,10 @@
     }];
 }
 
-
 // Set the calendar edited by EKEventEditViewController to our chosen calendar - the default calendar.
-- (EKCalendar *)eventEditViewControllerDefaultCalendarForNewEvents:(EKEventEditViewController *)controller
-{
+- (EKCalendar *)eventEditViewControllerDefaultCalendarForNewEvents:(EKEventEditViewController *)controller {
     return self.currentReminderCalendar;
 }
-
 
 - (void)showSettings {
 //    NSLog(@"Showing the settings");
@@ -323,22 +297,22 @@
                      completion:nil];
 }
 
-- (NSString *)headerTitle
-{
+- (void)setup {
+}
+
+- (NSString *)headerTitle {
     return @"Reminders";
 }
 
-- (UIColor *)headerColor
-{
+- (UIColor *)headerColor {
     return [UIColor colorWithRed:1.f green:141/255.0 blue:78/255.0 alpha:1.f];
 }
 
-- (SEL)settingsSelector
-{
+- (SEL)settingsSelector {
     return @selector(showSettings);
 }
 
-- (SEL)addSelector{
+- (SEL)addSelector {
     return @selector(addEvent:);
 }
 
