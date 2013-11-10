@@ -15,8 +15,8 @@
 
 @interface WeatherViewController ()
 
-@property WeatherModel *weather;
-
+@property (strong, nonatomic) WeatherModel *weather;
+@property (strong, nonatomic) NSString *curWeatherState;
 @end
 
 @implementation WeatherViewController
@@ -30,6 +30,21 @@
 {
     return 3;
 }
+
+- (WeatherModel *)weather {
+    if (!_weather) {
+        _weather = [[WeatherModel alloc] initWithDictionary:@{}];
+    }
+    return _weather;
+}
+
+- (NSString *)curWeatherState {
+    if (!_curWeatherState) {
+        _curWeatherState = @"";
+    }
+    return _curWeatherState;
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -64,6 +79,7 @@
     WeatherView *weatherView = (WeatherView *)self.view;
     weatherView.temperatureLabel.text = [NSString stringWithFormat:@"%1.f", self.weather.currently.temperature];
     weatherView.summaryLabel.text = self.weather.currently.summary;
+    self.curWeatherState = self.weather.currently.summary;
     weatherView.temperatureLowLabel.text = [NSString stringWithFormat:@"%1.f", self.weather.low];
     weatherView.temperatureHighLabel.text = [NSString stringWithFormat:@"%1.f", self.weather.high];
     weatherView.iconImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", self.weather.currently.icon]];
@@ -95,7 +111,8 @@
         if ([codes isKindOfClass:[NSArray class]]) {
             NSDictionary *location = [codes lastObject];
             WeatherView *view = (WeatherView *)self.view;
-            view.locationLabel.text = [NSString stringWithFormat:@"%@, %@", [location objectForKey:@"placeName"], [location objectForKey:@"adminCode1"]];
+            self.weather.location = [location objectForKey:@"placeName"];
+            view.locationLabel.text = [NSString stringWithFormat:@"%@, %@", self.weather.location, [location objectForKey:@"adminCode1"]];
         }
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSLog(@"%@", error);
@@ -109,6 +126,15 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // Do nothing
     }];
+}
+
+- (NSString *)moduleScript {
+    NSString *curWeather = self.curWeatherState;
+    NSString *chanceOfRain = @"";
+    NSString *location = self.weather.location;
+    NSString *highTemp = [[NSString alloc] initWithFormat:@"%1.f degrees", self.weather.high];
+    NSString *lowTemp = [[NSString alloc] initWithFormat:@"%1.f degrees", self.weather.low];
+    return [[NSString alloc] initWithFormat:@"It is currently %@ %@ in %@.  The high today will be %@ while the low will be %@. ", curWeather, chanceOfRain, location, highTemp, lowTemp];
 }
 
 @end

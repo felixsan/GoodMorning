@@ -14,6 +14,7 @@
 @property (strong, nonatomic) Forecast *currently;
 @property (strong, nonatomic) NSMutableArray *hourly;
 @property (strong, nonatomic) NSMutableArray *daily;
+@property (strong, nonatomic) NSString *location;
 @property (nonatomic, readonly) double high;
 @property (nonatomic, readonly) double low;
 

@@ -16,6 +16,13 @@
 
 @implementation WeatherModel
 
+- (NSString *)location {
+    if (!_location) {
+        _location = @"";
+    }
+    return _location;
+}
+
 - (id)initWithDictionary:(NSDictionary *)data {
     if (self = [super init]) {
         // Current conditions
