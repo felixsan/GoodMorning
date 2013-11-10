@@ -16,5 +16,6 @@ extern NSString *const CountdownGranularity;
 
 + (CountdownModel *)initWithName:(NSString *)name date:(NSDate *)endDate;
 - (NSDictionary *)getTimeLeft;
+- (BOOL)isCountdownCompleted;
 
 @end

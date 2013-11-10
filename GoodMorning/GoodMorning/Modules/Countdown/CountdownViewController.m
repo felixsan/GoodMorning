@@ -3,10 +3,11 @@
 // Copyright (c) 2013 MakeItRain. All rights reserved.
 //
 
-
+#import <EventKit/EventKit.h>
 #import "CountdownViewController.h"
 #import "CountdownSettingsViewController.h"
 #import "CountdownView.h"
+#import "CalendarViewController.h"
 
 @interface CountdownViewController ()
 
@@ -32,6 +33,7 @@
     [super viewDidLoad];
     [self initCountdown];
     // Do any additional setup after loading the view from its nib.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newEventDetected:) name:NewEventDetectedNotification object:nil];
 
 }
 
@@ -109,6 +111,14 @@
     CountdownView *cv = (CountdownView *)self.view;
     NSString *verb = [cv.timeLeft.text isEqualToString:@"1"] ? @"is" : @"are";
     return [[NSString alloc] initWithFormat:@"There %@ %@ %@.  ", verb, cv.timeLeft.text, cv.eventName.text];
+}
+
+- (void)newEventDetected:(NSNotification *)notification {
+    EKEvent *event = notification.object;
+
+    if (self.cm == nil || [self.cm isCountdownCompleted]) {
+        self.cm  = [CountdownModel initWithName:event.title date:event.startDate];
+    }
 }
 
 @end

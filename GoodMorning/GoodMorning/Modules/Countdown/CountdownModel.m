@@ -53,4 +53,9 @@ NSString *const CountdownGranularity = @"CountdownGranularity";
     return @{CountdownAmount: @(result), CountdownGranularity: granularity};
 }
 
+- (BOOL)isCountdownCompleted {
+    NSDictionary *timeLeft = [self getTimeLeft];
+    return [timeLeft[CountdownAmount] isEqual:@(0)];
+}
+
 @end
