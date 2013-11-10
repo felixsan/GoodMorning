@@ -219,13 +219,13 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:NSHourCalendarUnit fromDate:[NSDate date]];
     NSInteger hour = [components hour];
-    NSMutableString *timeOfDay;
+    NSMutableString *timeOfDay = [@"" mutableCopy];
     if (hour >= 0 && hour < 12) {
-        timeOfDay = @'Morning';
+        timeOfDay = [@"Morning" mutableCopy];
     } else if (hour >= 12 && hour < 18) {
-        timeOfDay = @'Afternoon';
+        timeOfDay = [@"Afternoon" mutableCopy];
     } else {
-        timeOfDay = @"Evening";
+        timeOfDay = [@"Evening" mutableCopy];
     }
     NSMutableString *scriptText = [[NSMutableString alloc] initWithFormat:@"Good %@. ", timeOfDay];
     for (ModuleController *controller in self.controllers) {
