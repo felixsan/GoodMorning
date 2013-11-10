@@ -14,6 +14,7 @@
 #import "ReminderViewController.h"
 
 NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNotification";
+NSString * const NewEventDetectedNotification = @"NewEventDetectedNotification";
 
 @interface CalendarViewController () <EKEventEditViewDelegate>
 
@@ -35,6 +36,7 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
 - (void)setup;
 - (void)refresh;
 - (void)presentCalendarEditModalWith:(EKEvent *)event;
+- (void)searchForNewEvents;
 
 @end
 
@@ -198,6 +200,33 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
     return events;
 }
 
+// Looking for new events for the next 90 days.
+- (void)searchForNewEvents {
+    if (self.displayedCalendars.count == 0) {
+        return;
+    }
+    NSDate *startDate = [NSDate date];
+    
+    //Create the end date components
+    NSDateComponents *tomorrowDateComponents = [[NSDateComponents alloc] init];
+    tomorrowDateComponents.day = 90;
+    
+    NSDate *endDate = [[NSCalendar currentCalendar] dateByAddingComponents:tomorrowDateComponents
+                                                                    toDate:startDate
+                                                                   options:0];
+    // Create the predicate
+    NSPredicate *predicate = [self.eventStore predicateForEventsWithStartDate:startDate
+                                                                      endDate:endDate
+                                                                    calendars:self.displayedCalendars];
+    // Fetch all events that match the predicate
+    NSMutableArray *events = [NSMutableArray arrayWithArray:[self.eventStore eventsMatchingPredicate:predicate]];
+    for (EKEvent *event in events) {
+        if ([event.title isEqualToString:@"Vacation"]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:NewEventDetectedNotification object:event];
+        }
+    }
+}
+
 #pragma mark -
 #pragma mark Add a new event
 
@@ -256,6 +285,7 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
 //    NSLog(@"Refresh called");
     self.availableCalendars = [self.eventStore calendarsForEntityType:EKEntityTypeEvent];
     self.eventsList = [self fetchEvents];
+    [self searchForNewEvents];
     // Update the UI with the above events
     [self.tableView reloadData];
 }

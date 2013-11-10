@@ -10,6 +10,7 @@
 #import "ModuleController.h"
 
 extern NSString *const CalendarSettingsChangeNotification;
+extern NSString *const NewEventDetectedNotification;
 
 @interface CalendarViewController : ModuleController <UITableViewDelegate, UITableViewDataSource>
 
