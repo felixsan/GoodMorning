@@ -300,4 +300,20 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
     return @selector(addEvent:);
 }
 
+- (NSString *)moduleScript {
+    if (self.eventsList.count == 0) {
+        return @"You have no events scheduled for today.";
+    }
+    EKEvent *firstEvent = self.eventsList.firstObject;
+    static NSDateFormatter *formatter;
+    if (!formatter) {
+        formatter = [[NSDateFormatter alloc] init];
+        formatter.timeStyle = NSDateFormatterShortStyle;
+    }
+    NSString *startTime = [formatter stringFromDate:firstEvent.startDate];
+    NSString *eventsString = self.eventsList.count == 1 ? @"event" : @"events";
+    NSString *locationString = [firstEvent.location length] != 0 ? [[NSString alloc] initWithFormat:@"at %@", firstEvent.location] : @"";
+    return [[NSString alloc] initWithFormat:@"You have %d upcoming %@.  Your first one, %@ %@, starts at %@.", self.eventsList.count, eventsString, firstEvent.title, locationString, startTime];
+}
+
 @end

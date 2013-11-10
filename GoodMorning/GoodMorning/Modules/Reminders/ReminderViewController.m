@@ -334,4 +334,17 @@ NSString * const ReminderSettingsChangeNotification = @"ReminderSettingsChangeNo
     return @selector(addEvent:);
 }
 
+- (NSString *)moduleScript {
+    NSMutableArray *incompleteReminders = [[NSMutableArray alloc] initWithCapacity:0];
+    for (EKReminder *reminder in self.reminders) {
+        if (!reminder.isCompleted) {
+            [incompleteReminders addObject:reminder];
+        }
+    }
+    if (incompleteReminders.count == 0) {
+        return @"You have no tasks to do today.";
+    }
+    return [[NSString alloc] initWithFormat:@"You have %d tasks to do.", incompleteReminders.count];
+}
+
 @end

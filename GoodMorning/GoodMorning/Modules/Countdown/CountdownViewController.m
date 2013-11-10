@@ -11,6 +11,8 @@
 @interface CountdownViewController ()
 
 @property (nonatomic, strong) CountdownSettingsViewController *countdownSettingsVC;
+@property (nonatomic, getter=isPast) BOOL past;
+
 
 @end
 
@@ -39,41 +41,21 @@
 
     // Set the time
     CountdownView *cv = (CountdownView *)self.view;
-    BOOL isPast = [timeLeft[CountdownAmount] intValue] == 0 && [timeLeft[CountdownGranularity] isEqualToString:@""];
-    cv.timeLeft.text = !isPast ? [timeLeft[CountdownAmount] stringValue] : @"😃" ;
-    cv.eventName.text = !isPast ? [NSString stringWithFormat:@"%@ until %@!", timeLeft[CountdownGranularity], self.cm.eventName] : [NSString stringWithFormat:@"%@!", self.cm.eventName];
+    self.past = [timeLeft[CountdownAmount] intValue] == 0 && [timeLeft[CountdownGranularity] isEqualToString:@""];
+    cv.timeLeft.text = !self.isPast ? [timeLeft[CountdownAmount] stringValue] : @"😃" ;
+    cv.eventName.text = !self.isPast ? [NSString stringWithFormat:@"%@ until %@!", timeLeft[CountdownGranularity], self.cm.eventName] : [NSString stringWithFormat:@"%@!", self.cm.eventName];
 
 }
 
 - (void)showSettings {
     NSLog(@"Showing the settings");
     self.countdownSettingsVC.cm = self.cm;
-    [self presentViewController:self.countdownSettingsVC
-                       animated:YES
-                     completion:nil];
-
-//    [UIView transitionWithView:self.countdownSettingsVC.view
-//                      duration:1
-//                       options:UIViewAnimationOptionTransitionFlipFromRight
-//                    animations:^{
-//                        [[[self.view subviews] objectAtIndex:0] removeFromSuperview],
-//                                [self.view addSubview:self.countdownSettingsVC.view];
-//                    }
-//                    completion:^(BOOL finished){
-//
-//                    }];
-//    [UIView transitionFromView:self.view
-//                        toView:self.countdownSettingsVC.view
-//                      duration:1
-//                       options:UIViewAnimationOptionTransitionFlipFromRight
-//                    completion:nil];
-
+    [self presentViewController:self.countdownSettingsVC animated:YES completion:nil];
 }
 
 - (void)initCountdown {
     CountdownView *cv = (CountdownView *)self.view;
     cv.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CountdownBackground"]];
-
     cv.timeLeft.text = @"";
     cv.eventName.text = @"";
 
@@ -117,6 +99,15 @@
 - (SEL)settingsSelector
 {
     return @selector(showSettings);
+}
+
+- (NSString *)moduleScript {
+    if (self.isPast) {
+        return @"";
+    }
+    CountdownView *cv = (CountdownView *)self.view;
+    NSString *verb = [cv.timeLeft.text isEqualToString:@"1"] ? @"is" : @"are";
+    return [[NSString alloc] initWithFormat:@"There %@ %@ %@.", verb, cv.timeLeft.text, cv.eventName.text];
 }
 
 @end

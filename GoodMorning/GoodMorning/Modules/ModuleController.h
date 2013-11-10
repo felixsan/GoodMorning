@@ -17,5 +17,6 @@
 - (UIColor *)headerColor;
 - (SEL)settingsSelector;
 - (SEL)addSelector;
+- (NSString *)moduleScript;
 
 @end

@@ -44,4 +44,8 @@
     return nil;
 }
 
+- (NSString *)moduleScript {
+    return @"";
+}
+
 @end

@@ -19,8 +19,9 @@
 @interface DevelopmentVC ()
 
 @property (strong, nonatomic) NSMutableArray *controllers;
-
 @property (strong, nonatomic) UIViewController *settingsController;
+
+- (void)onRead;
 - (void)onEditButton;
 
 - (void)moduleAdded:(NSNotification *)notification;
@@ -42,7 +43,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    UIImage *speakerImage = [UIImage imageNamed:@"Speaker"];
+    UIBarButtonItem *speakerButton = [[UIBarButtonItem alloc] initWithImage:speakerImage
+                                                                      style:UIBarButtonItemStyleBordered
+                                                                     target:self
+                                                                     action:@selector(onRead)];
+    [speakerButton setTintColor:[UIColor blackColor]];
+    self.navigationItem.leftBarButtonItem = speakerButton;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditButton)];
 
     WeatherViewController *weather = [[WeatherViewController alloc] init];
@@ -205,6 +212,16 @@
 
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
     [self.collectionView deleteItemsAtIndexPaths:@[ indexPath ]];
+}
+
+- (void)onRead {
+    // time of day
+    // Good morning, afternoon, evening
+    NSMutableString *script = [[NSMutableString alloc] initWithString:@""];
+    for (ModuleController *controller in self.controllers) {
+        [script appendString: [controller moduleScript]];
+    }
+    NSLog(@"I'm gonna say - %@", script);
 }
 
 @end
