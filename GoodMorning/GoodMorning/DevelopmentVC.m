@@ -14,10 +14,17 @@
 #import "ReminderViewController.h"
 #import "CalendarViewController.h"
 #import "LocationManager.h"
+#import "SettingsViewController.h"
 
 @interface DevelopmentVC ()
 
 @property (strong, nonatomic) NSMutableArray *controllers;
+
+@property (strong, nonatomic) UIViewController *settingsController;
+- (void)onEditButton;
+
+- (void)moduleAdded:(NSNotification *)notification;
+- (void)moduleRemoved:(NSNotification *)notification;
 
 @end
 
@@ -35,6 +42,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditButton)];
 
     WeatherViewController *weather = [[WeatherViewController alloc] init];
     TwitterViewController *twitter = [[TwitterViewController alloc] init];
@@ -55,6 +64,14 @@
     [self.collectionView reloadData];
 
     [[LocationManager instance] startUpdatingLocation];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moduleRemoved:) name:ModuleRemovedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moduleAdded:) name:ModuleAddedNotification object:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,6 +90,10 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    for (UIView *view in cell.subviews) {
+        [view removeFromSuperview];
+    }
+
     ModuleController *controller = self.controllers[indexPath.row];
     
     if ([controller headerTitle]) {
@@ -139,6 +160,51 @@
 - (UIEdgeInsets)insetsForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return UIEdgeInsetsMake(5, 5, 5, 5);
+}
+
+#pragma mark - Private methods
+
+- (UIViewController *)settingsController
+{
+    if (!_settingsController) {
+        _settingsController = [[SettingsViewController alloc] init];
+    }
+    return _settingsController;
+}
+
+- (void)onEditButton
+{
+    [self presentViewController:self.settingsController animated:YES completion:nil];
+}
+
+- (void)moduleAdded:(NSNotification *)notification
+{
+    NSString *module = [NSString stringWithFormat:@"%@ViewController", notification.object];
+    ModuleController *controller = [[NSClassFromString(module) alloc] init];
+    [self.controllers addObject:controller];
+
+    [self addChildViewController:controller];
+    [controller didMoveToParentViewController:self];
+
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.controllers count] - 1 inSection:0];
+    [self.collectionView insertItemsAtIndexPaths:@[ indexPath ]];
+}
+
+- (void)moduleRemoved:(NSNotification *)notification
+{
+    NSString *module = [NSString stringWithFormat:@"%@ViewController", notification.object];
+    NSInteger row;
+    for (row = [self.controllers count] - 1; row >= 0; --row) {
+        if ([[[self.controllers[row] class] description] isEqualToString:module]) {
+            break;
+        }
+    }
+    ModuleController *controller = self.controllers[row];
+    [controller removeFromParentViewController];
+    [self.controllers removeObjectAtIndex:row];
+
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+    [self.collectionView deleteItemsAtIndexPaths:@[ indexPath ]];
 }
 
 @end

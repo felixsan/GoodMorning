@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1304B8B1182F115600E6EBBC /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1304B8AF182F115600E6EBBC /* SettingsViewController.m */; };
+		1304B8B6182F21F400E6EBBC /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1304B8B5182F21F400E6EBBC /* SettingsViewController.xib */; };
+		1304B8B9182F274900E6EBBC /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1304B8B7182F274900E6EBBC /* unchecked.png */; };
+		1304B8BA182F274900E6EBBC /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1304B8B8182F274900E6EBBC /* checked.png */; };
 		130E0DAC182231770043E24F /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E0DA9182231770043E24F /* Tweet.m */; };
 		130E0DAD182231770043E24F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E0DAB182231770043E24F /* User.m */; };
 		130E0DB2182232490043E24F /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E0DB1182232490043E24F /* TweetCell.m */; };
@@ -89,6 +93,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1304B8AE182F115600E6EBBC /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		1304B8AF182F115600E6EBBC /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		1304B8B5182F21F400E6EBBC /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		1304B8B7182F274900E6EBBC /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
+		1304B8B8182F274900E6EBBC /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
 		130E0DA8182231770043E24F /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tweet.h; path = Twitter/Tweet.h; sourceTree = "<group>"; };
 		130E0DA9182231770043E24F /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tweet.m; path = Twitter/Tweet.m; sourceTree = "<group>"; };
 		130E0DAA182231770043E24F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Twitter/User.h; sourceTree = "<group>"; };
@@ -432,6 +441,9 @@
 				134444111827765E001ECAF9 /* DraggableQuiltLayout.m */,
 				1374A11B182A3B84001C4C62 /* LocationManager.h */,
 				1374A11C182A3B84001C4C62 /* LocationManager.m */,
+				1304B8AE182F115600E6EBBC /* SettingsViewController.h */,
+				1304B8AF182F115600E6EBBC /* SettingsViewController.m */,
+				1304B8B5182F21F400E6EBBC /* SettingsViewController.xib */,
 			);
 			path = GoodMorning;
 			sourceTree = "<group>";
@@ -439,6 +451,8 @@
 		DE3F7F8F1810D3400062126A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1304B8B7182F274900E6EBBC /* unchecked.png */,
+				1304B8B8182F274900E6EBBC /* checked.png */,
 				DE3F7F901810D3400062126A /* GoodMorning-Info.plist */,
 				DE3F7F911810D3400062126A /* InfoPlist.strings */,
 				DE3F7F941810D3400062126A /* main.m */,
@@ -555,12 +569,15 @@
 				DE3F7F931810D3400062126A /* InfoPlist.strings in Resources */,
 				90C105ED1827509300453208 /* ReminderCell.xib in Resources */,
 				90D1B7AF1826FE3E00B633ED /* ReminderSettingsView.xib in Resources */,
+				1304B8B6182F21F400E6EBBC /* SettingsViewController.xib in Resources */,
 				90D1B7B21826FE3E00B633ED /* ReminderView.xib in Resources */,
 				B54BA0B518184D4200EA5A4F /* WeatherView.xib in Resources */,
 				B54BA0B318184D3400EA5A4F /* WeatherSettingsView.xib in Resources */,
+				1304B8B9182F274900E6EBBC /* unchecked.png in Resources */,
 				DE3F7F9B1810D3400062126A /* Images.xcassets in Resources */,
 				1344440F18276CB1001ECAF9 /* map.html in Resources */,
 				90D1B7891826FDA800B633ED /* CalendarCell.xib in Resources */,
+				1304B8BA182F274900E6EBBC /* checked.png in Resources */,
 				D890E34EDF3CA125B95ECE8C /* CountdownView.xib in Resources */,
 				D890E27E7293CF6DE3A2CF09 /* CountdownSettingsView.xib in Resources */,
 			);
@@ -640,6 +657,7 @@
 				B576B971182640AD006E3E57 /* CalendarSettingsViewController.m in Sources */,
 				13A9B82A182C9D3600A7A84C /* TwitterSettingsVC.m in Sources */,
 				90C105EB1827508000453208 /* ReminderCell.m in Sources */,
+				1304B8B1182F115600E6EBBC /* SettingsViewController.m in Sources */,
 				D890E45231B5F8FBF31EF79F /* CountdownView.m in Sources */,
 				90939E9D1827EFFA004E9B94 /* CalendarColorView.m in Sources */,
 				B54BA0AE18184CC500EA5A4F /* WeatherSettingsView.m in Sources */,
