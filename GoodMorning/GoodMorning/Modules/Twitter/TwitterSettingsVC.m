@@ -25,7 +25,7 @@ NSString * const TwitterAccountChangedNotification = @"TwitterAccountChangedNoti
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.modalPresentationStyle = UIModalPresentationPageSheet;
+        self.modalPresentationStyle = UIModalPresentationFormSheet;
         self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     }
     return self;
@@ -52,7 +52,7 @@ NSString * const TwitterAccountChangedNotification = @"TwitterAccountChangedNoti
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
-    self.view.superview.bounds = CGRectMake(0, 0, 722, 413);
+    self.view.superview.bounds = CGRectMake(0, 0, 540, 244);
 }
 
 #pragma mark - UIPickerView DataSource
