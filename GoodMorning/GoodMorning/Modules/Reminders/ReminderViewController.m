@@ -342,9 +342,9 @@ NSString * const ReminderSettingsChangeNotification = @"ReminderSettingsChangeNo
         }
     }
     if (incompleteReminders.count == 0) {
-        return @"You have no tasks to do today.";
+        return @"You have no tasks to do today.  ";
     }
-    return [[NSString alloc] initWithFormat:@"You have %d tasks to do.", incompleteReminders.count];
+    return [[NSString alloc] initWithFormat:@"You have %d tasks to do. ", incompleteReminders.count];
 }
 
 @end

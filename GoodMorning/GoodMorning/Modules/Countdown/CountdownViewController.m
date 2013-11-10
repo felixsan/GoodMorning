@@ -105,9 +105,10 @@
     if (self.isPast) {
         return @"";
     }
+    NSLog(@"%d", self.isPast);
     CountdownView *cv = (CountdownView *)self.view;
     NSString *verb = [cv.timeLeft.text isEqualToString:@"1"] ? @"is" : @"are";
-    return [[NSString alloc] initWithFormat:@"There %@ %@ %@.", verb, cv.timeLeft.text, cv.eventName.text];
+    return [[NSString alloc] initWithFormat:@"There %@ %@ %@.  ", verb, cv.timeLeft.text, cv.eventName.text];
 }
 
 @end

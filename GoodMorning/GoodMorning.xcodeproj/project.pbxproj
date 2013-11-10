@@ -28,6 +28,7 @@
 		13A9B82B182C9D3600A7A84C /* TwitterSettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13A9B829182C9D3600A7A84C /* TwitterSettingsVC.xib */; };
 		13CFE382181F59A900946D84 /* ModuleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CFE381181F59A900946D84 /* ModuleController.m */; };
 		13CFE386181F5EAA00946D84 /* TwitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CFE385181F5EAA00946D84 /* TwitterViewController.m */; };
+		90057F0F182F646200933D6E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90057F0E182F646200933D6E /* AVFoundation.framework */; };
 		90939E9D1827EFFA004E9B94 /* CalendarColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90939E9C1827EFFA004E9B94 /* CalendarColorView.m */; };
 		90C105EB1827508000453208 /* ReminderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C105EA1827508000453208 /* ReminderCell.m */; };
 		90C105ED1827509300453208 /* ReminderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90C105EC1827509300453208 /* ReminderCell.xib */; };
@@ -126,6 +127,7 @@
 		13CFE381181F59A900946D84 /* ModuleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModuleController.m; sourceTree = "<group>"; };
 		13CFE384181F5EAA00946D84 /* TwitterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterViewController.h; path = Twitter/TwitterViewController.h; sourceTree = "<group>"; };
 		13CFE385181F5EAA00946D84 /* TwitterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterViewController.m; path = Twitter/TwitterViewController.m; sourceTree = "<group>"; };
+		90057F0E182F646200933D6E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		90939E9B1827EFFA004E9B94 /* CalendarColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarColorView.h; sourceTree = "<group>"; };
 		90939E9C1827EFFA004E9B94 /* CalendarColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarColorView.m; sourceTree = "<group>"; };
 		90C105E91827508000453208 /* ReminderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderCell.h; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90057F0F182F646200933D6E /* AVFoundation.framework in Frameworks */,
 				13477C6918224F0D005AF7A6 /* Social.framework in Frameworks */,
 				DE3F7F8B1810D3400062126A /* CoreGraphics.framework in Frameworks */,
 				DE3F7F8D1810D3400062126A /* UIKit.framework in Frameworks */,
@@ -416,6 +419,7 @@
 		DE3F7F871810D3400062126A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90057F0E182F646200933D6E /* AVFoundation.framework */,
 				13477C6A18224F35005AF7A6 /* MapKit.framework */,
 				13477C6818224F0D005AF7A6 /* Social.framework */,
 				DE3F7F881810D3400062126A /* Foundation.framework */,

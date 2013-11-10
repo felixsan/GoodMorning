@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 MakeItRain. All rights reserved.
 //
 
+#import "AVFoundation/AVSpeechSynthesis.h"
 #import "DevelopmentVC.h"
 #import "WeatherViewController.h"
 #import "CountdownViewController.h"
@@ -215,13 +216,29 @@
 }
 
 - (void)onRead {
-    // time of day
-    // Good morning, afternoon, evening
-    NSMutableString *script = [[NSMutableString alloc] initWithString:@""];
-    for (ModuleController *controller in self.controllers) {
-        [script appendString: [controller moduleScript]];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSHourCalendarUnit fromDate:[NSDate date]];
+    NSInteger hour = [components hour];
+    NSMutableString *timeOfDay;
+    if (hour >= 0 && hour < 12) {
+        timeOfDay = @'Morning';
+    } else if (hour >= 12 && hour < 18) {
+        timeOfDay = @'Afternoon';
+    } else {
+        timeOfDay = @"Evening";
     }
-    NSLog(@"I'm gonna say - %@", script);
+    NSMutableString *scriptText = [[NSMutableString alloc] initWithFormat:@"Good %@. ", timeOfDay];
+    for (ModuleController *controller in self.controllers) {
+        [scriptText appendString: [controller moduleScript]];
+    }
+
+
+    AVSpeechUtterance *spokenScript = [[AVSpeechUtterance alloc] initWithString:scriptText];
+    spokenScript.rate = 0.1666;
+    spokenScript.pitchMultiplier = 1.3;
+    AVSpeechSynthesizer *speech = [[AVSpeechSynthesizer alloc] init];
+    [speech speakUtterance:spokenScript];
+    NSLog(@"I'm gonna say - %@", scriptText);
 }
 
 @end
