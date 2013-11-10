@@ -6,13 +6,19 @@
 //  Copyright (c) 2013 MakeItRain. All rights reserved.
 //
 
-
-#import "ReminderModel.h"
 #import "ModuleController.h"
+
+typedef enum ShowRemindersType {
+    ShowAll,
+    ShowIncomplete,
+    ShowComplete
+} ShowRemindersType;
+
+extern NSString *const ReminderSettingsChangeNotification;
 
 @interface ReminderViewController : ModuleController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableViewCell *reminderCell;
-@property (nonatomic, strong) ReminderModel *rm;
+@property (nonatomic) ShowRemindersType type;
 
 @end

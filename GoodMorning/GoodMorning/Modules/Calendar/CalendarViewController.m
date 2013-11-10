@@ -11,6 +11,7 @@
 #import "CalendarViewController.h"
 #import "CalendarCell.h"
 #import "CalendarSettingsViewController.h"
+#import "ReminderViewController.h"
 
 NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNotification";
 
@@ -39,13 +40,16 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
 
 @implementation CalendarViewController
 
+- (NSMutableArray *)displayedCalendars {
+    return _displayedCalendars;
+}
+
 - (CalendarSettingsViewController *)calendarSettings {
     if (!_calendarSettings) {
         _calendarSettings = [[CalendarSettingsViewController alloc] init];
     }
     return _calendarSettings;
 }
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -172,6 +176,10 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
 
 // Fetch all events happening in the next 24 hours
 - (NSMutableArray *)fetchEvents {
+
+    if (self.displayedCalendars.count == 0) {
+        return [@[] mutableCopy];
+    }
     NSDate *startDate = [NSDate date];
 
     //Create the end date components
@@ -266,7 +274,6 @@ NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNo
 }
 
 - (void)showSettings {
-    NSLog(@"Showing the calendar settings");
     self.calendarSettings.availableCalendars = self.availableCalendars;
     self.calendarSettings.displayedCalendars = self.displayedCalendars;
     [self presentViewController:self.calendarSettings animated:YES completion:nil];

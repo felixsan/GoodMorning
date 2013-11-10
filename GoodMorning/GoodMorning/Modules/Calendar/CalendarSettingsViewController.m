@@ -15,6 +15,9 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+- (IBAction)cancel:(id)sender;
+- (IBAction)saveChanges:(id)sender;
+
 @end
 
 @implementation CalendarSettingsViewController
@@ -35,7 +38,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 
     // Add in our custom cell
     UINib *calendarListCellNib = [UINib nibWithNibName:@"CalendarListCell" bundle:nil];
@@ -54,7 +56,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.availableCalendars count];
+    return self.availableCalendars.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,13 +81,12 @@
 }
 
 - (IBAction)cancel:(id)sender {
-    [self dismissViewControllerAnimated:YES
-                             completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)saveChanges:(id)sender {
 //    NSLog(@"displayed calendars - %@", self.displayedCalendars);
-    NSMutableArray *savedCalendars = [NSMutableArray arrayWithCapacity:[self.displayedCalendars count]];
+    NSMutableArray *savedCalendars = [NSMutableArray arrayWithCapacity:self.displayedCalendars.count];
     for ( EKCalendar *calendar in self.displayedCalendars ) {
         [savedCalendars addObject: [calendar calendarIdentifier]];
     }

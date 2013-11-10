@@ -8,4 +8,7 @@
 
 @interface ReminderSettingsView : UIView
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *reminderType;
+
+
 @end

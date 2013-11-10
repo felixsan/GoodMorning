@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ReminderModel.h"
+#import "ReminderViewController.h"
 
 @interface ReminderSettingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong)ReminderModel *rm;
+@property (nonatomic, strong) NSArray *availableReminderCalendars;
+@property (nonatomic, strong) NSMutableArray *displayedReminderCalendars;
+@property (nonatomic) ShowRemindersType type;
 
 @end

@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 MakeItRain. All rights reserved.
 //
 
-#import "ReminderSettingsViewController.h"
 #import "CalendarListCell.h"
+#import "ReminderSettingsViewController.h"
+#import "ReminderViewController.h"
+#import "ReminderSettingsView.h"
 
 @interface ReminderSettingsViewController ()
 
@@ -33,8 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    ReminderSettingsView *rsv = (ReminderSettingsView *)self.view;
-//    rsv.rm = self.rm;
+
     // Add in our custom cell
     UINib *calendarListCellNib = [UINib nibWithNibName:@"CalendarListCell" bundle:nil];
     [self.tableView registerNib:calendarListCellNib forCellReuseIdentifier:@"ReminderListCell"];
@@ -48,36 +49,48 @@
 }
 
 - (void)viewWillLayoutSubviews {
-//    NSLog(@"view will layout");
     [super viewWillLayoutSubviews];
     self.view.superview.bounds = CGRectMake(0,0,722, 413);
 }
 
-- (IBAction)cancel:(id)sender {
-    [self dismissViewControllerAnimated:YES
-                             completion:nil];
-}
-
-- (IBAction)saveChanges:(id)sender {
-//    ReminderSettingsView *rsv = (ReminderSettingsView *)self.view;
-//    self.rm.endDate = rsv.eventDate.date;
-//    self.rm.eventName = rsv.eventName.text;
-//    [[NSUserDefaults standardUserDefaults] setObject:@{@"name": self.cm.eventName, @"date": self.cm.endDate} forKey:@"countdownKey"];
-//    [[NSUserDefaults standardUserDefaults] synchronize];
-    [self dismissViewControllerAnimated:YES  completion:nil];
-
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    NSLog(@"I got asked the count");
-    return [self.rm.reminderLists count];
+    return self.availableReminderCalendars.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    EKCalendar *calendar = [self.availableReminderCalendars objectAtIndex:(NSUInteger) indexPath.row];
     CalendarListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReminderListCell" forIndexPath:indexPath];
-    EKCalendar *calendar = [self.rm.reminderLists objectAtIndex:(NSUInteger) indexPath.row];
+    cell.accessoryType = [self.displayedReminderCalendars containsObject:calendar] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     cell.calendar = calendar;
     return cell;
+}
+
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+    CalendarListCell *cell = (CalendarListCell *) [tableView cellForRowAtIndexPath:indexPath];
+    if ([self.displayedReminderCalendars containsObject:cell.calendar]) {
+        [self.displayedReminderCalendars removeObject:cell.calendar];
+    } else {
+        [self.displayedReminderCalendars addObject:cell.calendar];
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [tableView reloadData];
+}
+
+- (IBAction)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)saveChanges:(id)sender {
+//    NSLog(@"displayed reminder calendars - %@", self.displayedCalendars);
+    NSMutableArray *savedCalendars = [NSMutableArray arrayWithCapacity:self.displayedReminderCalendars.count];
+    for ( EKCalendar *calendar in self.displayedReminderCalendars) {
+        [savedCalendars addObject: [calendar calendarIdentifier]];
+    }
+    ReminderSettingsView *settingsView = (ReminderSettingsView *) self.view;
+    [[NSUserDefaults standardUserDefaults] setObject:@{@"displayedReminderCalendars": savedCalendars, @"displayReminderType": [NSNumber numberWithInteger:settingsView.reminderType.selectedSegmentIndex]} forKey:@"reminderKey"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSNotificationCenter defaultCenter] postNotificationName:ReminderSettingsChangeNotification object:nil];
+    [self dismissViewControllerAnimated:YES  completion:nil];
 }
 
 @end

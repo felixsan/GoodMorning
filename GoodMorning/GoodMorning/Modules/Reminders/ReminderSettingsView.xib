@@ -68,6 +68,9 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="reminderType" destination="XQJ-LI-7Ak" id="w8a-YS-DWV"/>
+            </connections>
         </view>
     </objects>
 </document>

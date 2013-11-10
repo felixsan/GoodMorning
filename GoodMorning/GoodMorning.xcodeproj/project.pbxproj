@@ -32,7 +32,6 @@
 		90D1B7891826FDA800B633ED /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90D1B7841826FDA800B633ED /* CalendarCell.xib */; };
 		90D1B78A1826FDA800B633ED /* CalendarListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D1B7861826FDA800B633ED /* CalendarListCell.m */; };
 		90D1B78B1826FDA800B633ED /* CalendarListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90D1B7871826FDA800B633ED /* CalendarListCell.xib */; };
-		90D1B7AD1826FE3E00B633ED /* ReminderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D1B7A21826FE3E00B633ED /* ReminderModel.m */; };
 		90D1B7AE1826FE3E00B633ED /* ReminderSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D1B7A41826FE3E00B633ED /* ReminderSettingsView.m */; };
 		90D1B7AF1826FE3E00B633ED /* ReminderSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90D1B7A51826FE3E00B633ED /* ReminderSettingsView.xib */; };
 		90D1B7B01826FE3E00B633ED /* ReminderSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D1B7A71826FE3E00B633ED /* ReminderSettingsViewController.m */; };
@@ -131,8 +130,6 @@
 		90D1B7851826FDA800B633ED /* CalendarListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarListCell.h; sourceTree = "<group>"; };
 		90D1B7861826FDA800B633ED /* CalendarListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarListCell.m; sourceTree = "<group>"; };
 		90D1B7871826FDA800B633ED /* CalendarListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarListCell.xib; sourceTree = "<group>"; };
-		90D1B7A11826FE3E00B633ED /* ReminderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderModel.h; sourceTree = "<group>"; };
-		90D1B7A21826FE3E00B633ED /* ReminderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderModel.m; sourceTree = "<group>"; };
 		90D1B7A31826FE3E00B633ED /* ReminderSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderSettingsView.h; sourceTree = "<group>"; };
 		90D1B7A41826FE3E00B633ED /* ReminderSettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderSettingsView.m; sourceTree = "<group>"; };
 		90D1B7A51826FE3E00B633ED /* ReminderSettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReminderSettingsView.xib; sourceTree = "<group>"; };
@@ -268,8 +265,6 @@
 		90D1B7A01826FE3E00B633ED /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
-				90D1B7A11826FE3E00B633ED /* ReminderModel.h */,
-				90D1B7A21826FE3E00B633ED /* ReminderModel.m */,
 				90D1B7A31826FE3E00B633ED /* ReminderSettingsView.h */,
 				90D1B7A41826FE3E00B633ED /* ReminderSettingsView.m */,
 				90D1B7A51826FE3E00B633ED /* ReminderSettingsView.xib */,
@@ -520,7 +515,7 @@
 				ORGANIZATIONNAME = MakeItRain;
 				TargetAttributes = {
 					DE3F7F9F1810D3400062126A = {
-						TestTargetID = DE3F7F841810D3400062126A;
+						TestTargetID = DE3F7F841810D3400062126A /* GoodMorning */;
 					};
 				};
 			};
@@ -620,7 +615,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				90D1B7B01826FE3E00B633ED /* ReminderSettingsViewController.m in Sources */,
-				90D1B7AD1826FE3E00B633ED /* ReminderModel.m in Sources */,
 				90C105F318275E1600453208 /* ReminderCellStatusView.m in Sources */,
 				B576B972182640AD006E3E57 /* CalendarView.m in Sources */,
 				B576B974182640AD006E3E57 /* CalendarViewController.m in Sources */,
