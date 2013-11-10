@@ -291,7 +291,7 @@ NSString * const ReminderSettingsChangeNotification = @"ReminderSettingsChangeNo
                                              selector:@selector(refresh)
                                                  name:ReminderSettingsChangeNotification
                                                object:nil];
-    [self setupValues];
+
 }
 
 - (void)setupValues {
