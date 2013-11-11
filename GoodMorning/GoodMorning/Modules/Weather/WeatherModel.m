@@ -30,6 +30,7 @@
         self.currently = [[Forecast alloc] initWithDictionary:currently];
         
         // Hourly forecasts for up next day
+        self.summary = [data valueForKeyPath:@"hourly.summary"];
         self.hourly = [[NSMutableArray alloc] init];
         NSArray *hourly = [data valueForKeyPath:@"hourly.data"];
         for (NSDictionary *hourlyDict in hourly) {

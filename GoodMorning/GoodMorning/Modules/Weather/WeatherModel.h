@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSString *location;
 @property (nonatomic, readonly) double high;
 @property (nonatomic, readonly) double low;
+@property (strong, nonatomic) NSString *summary;
 
 - (id)initWithDictionary:(NSDictionary *)data;
 

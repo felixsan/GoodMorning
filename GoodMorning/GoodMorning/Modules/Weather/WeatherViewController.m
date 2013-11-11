@@ -41,6 +41,10 @@
 - (NSString *)curWeatherState {
     if (!_curWeatherState) {
         _curWeatherState = @"";
+    } else if ([_curWeatherState  isEqual: @"Drizzle"]) {
+        return @"drizzling";
+    } else if ([_curWeatherState  isEqual: @"Rain"]) {
+        return @"raining";
     }
     return _curWeatherState;
 }
@@ -130,11 +134,17 @@
 
 - (NSString *)moduleScript {
     NSString *curWeather = self.curWeatherState;
-    NSString *chanceOfRain = @"";
-    NSString *location = self.weather.location;
+//    NSString *chanceOfRain = @"";
+//    NSString *location = self.weather.location;
+    NSString *curTemp = [[NSString alloc] initWithFormat:@"%1.f degrees", self.weather.currently.temperature];
     NSString *highTemp = [[NSString alloc] initWithFormat:@"%1.f degrees", self.weather.high];
     NSString *lowTemp = [[NSString alloc] initWithFormat:@"%1.f degrees", self.weather.low];
-    return [[NSString alloc] initWithFormat:@"It is currently %@ %@ in %@.  The high today will be %@ while the low will be %@. ", curWeather, chanceOfRain, location, highTemp, lowTemp];
+    return [[NSString alloc] initWithFormat:@"It is currently %@ and %@.  It will be %@  with a high of %@ and a low of %@. ", curWeather, curTemp, self.weather.summary, highTemp, lowTemp];
 }
+
+//- (void)didMoveToParentViewController:(UIViewController *)parent {
+//    [super didMoveToParentViewController:parent];
+//    [self updateView];
+//}
 
 @end
