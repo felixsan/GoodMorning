@@ -72,7 +72,7 @@ NSString * const NewEventRequestedNotification = @"NewEventRequestedNotification
         [components setDay:11];
         [components setMonth:11];
         [components setYear:2013];
-        [components setHour:21];
+        [components setHour:19];
         NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         NSDate *date = [gregorian dateFromComponents:components];
         self.cm  = [CountdownModel initWithName:@"project demo" date:date];
