@@ -45,7 +45,7 @@ NSString * const ModuleRemovedNotification = @"ModuleRemovedNotification";
 {
     self.modalPresentationStyle = UIModalPresentationFormSheet;
     self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    self.modules = @[ @"Weather", @"Twitter", @"Reminder", @"Calendar", @"Traffic", @"Countdown"]; //, @"Stocks" ];
+    self.modules = @[ @"Weather", @"Twitter", @"Reminder", @"Calendar", @"Traffic", @"Countdown", @"Stocks" ];
 }
 
 - (void)viewDidLoad

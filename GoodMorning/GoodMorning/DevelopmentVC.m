@@ -15,7 +15,6 @@
 #import "ReminderViewController.h"
 #import "CalendarViewController.h"
 #import "StocksViewController.h"
-#import "LocationManager.h"
 #import "SettingsViewController.h"
 
 @interface DevelopmentVC ()
@@ -71,8 +70,6 @@
     self.collectionView.draggable = YES;
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView reloadData];
-
-    [[LocationManager instance] startUpdatingLocation];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moduleRemoved:) name:ModuleRemovedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moduleAdded:) name:ModuleAddedNotification object:nil];

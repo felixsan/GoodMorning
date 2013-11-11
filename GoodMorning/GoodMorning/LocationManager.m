@@ -12,6 +12,7 @@ NSString * const LocationDidChangeNotification = @"LocationDidChangeNotification
 
 @implementation LocationManager {
     CLLocationManager *_locationManager;
+    CLLocation *_lastLocation;
 }
 
 + (LocationManager *)instance
@@ -40,6 +41,7 @@ NSString * const LocationDidChangeNotification = @"LocationDidChangeNotification
 - (void)startUpdatingLocation
 {
     [_locationManager startUpdatingLocation];
+    [self postNotification];
 }
 
 - (void)stopUpdatingLocation
@@ -49,9 +51,17 @@ NSString * const LocationDidChangeNotification = @"LocationDidChangeNotification
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    CLLocation* location = [locations lastObject];
-    NSLog(@"lat:%f long:%f", location.coordinate.latitude, location.coordinate.longitude);
-    [[NSNotificationCenter defaultCenter] postNotificationName:LocationDidChangeNotification object:location];
+    _lastLocation = [locations lastObject];
+    [self postNotification];
+}
+
+#pragma mark - Private methods
+
+- (void)postNotification
+{
+    if (_lastLocation) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:LocationDidChangeNotification object:_lastLocation];
+    }
 }
 
 @end
