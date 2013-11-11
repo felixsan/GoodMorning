@@ -9,6 +9,8 @@
 #import "CountdownView.h"
 #import "CalendarViewController.h"
 
+NSString * const NewEventRequestedNotification = @"NewEventRequestedNotification";
+
 @interface CountdownViewController ()
 
 @property (nonatomic, strong) CountdownSettingsViewController *countdownSettingsVC;
@@ -34,6 +36,7 @@
     [self initCountdown];
     // Do any additional setup after loading the view from its nib.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newEventDetected:) name:NewEventDetectedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NewEventRequestedNotification object:nil];
 
 }
 

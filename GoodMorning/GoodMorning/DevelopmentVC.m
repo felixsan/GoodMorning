@@ -72,6 +72,7 @@
     [self.collectionView reloadData];
 
     [[LocationManager instance] startUpdatingLocation];
+    
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moduleRemoved:) name:ModuleRemovedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moduleAdded:) name:ModuleAddedNotification object:nil];

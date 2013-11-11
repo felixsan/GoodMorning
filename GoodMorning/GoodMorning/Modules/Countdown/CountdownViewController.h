@@ -7,6 +7,8 @@
 #import "ModuleController.h"
 #import "CountdownModel.h"
 
+extern NSString *const NewEventRequestedNotification;
+
 @interface CountdownViewController : ModuleController
 
 @property (nonatomic, strong)NSTimer *countdownTimer;

@@ -12,6 +12,7 @@
 #import "CalendarCell.h"
 #import "CalendarSettingsViewController.h"
 #import "ReminderViewController.h"
+#import "CountdownViewController.h"
 
 NSString * const CalendarSettingsChangeNotification = @"CalendarSettingsChangeNotification";
 NSString * const NewEventDetectedNotification = @"NewEventDetectedNotification";
@@ -81,6 +82,7 @@ NSString * const NewEventDetectedNotification = @"NewEventDetectedNotification";
 
     // Add an empty footer
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchForNewEvents:) name:NewEventRequestedNotification object:nil];
 }
 
 #pragma mark -
@@ -201,7 +203,7 @@ NSString * const NewEventDetectedNotification = @"NewEventDetectedNotification";
 }
 
 // Looking for new events for the next 90 days.
-- (void)searchForNewEvents {
+- (void)searchForNewEvents:(NSNotification *)notification {
     if (self.displayedCalendars.count == 0) {
         return;
     }
@@ -285,7 +287,7 @@ NSString * const NewEventDetectedNotification = @"NewEventDetectedNotification";
 //    NSLog(@"Refresh called");
     self.availableCalendars = [self.eventStore calendarsForEntityType:EKEntityTypeEvent];
     self.eventsList = [self fetchEvents];
-    [self searchForNewEvents];
+    [self searchForNewEvents:nil];
     // Update the UI with the above events
     [self.tableView reloadData];
 }
