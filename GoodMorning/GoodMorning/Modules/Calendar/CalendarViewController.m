@@ -342,10 +342,11 @@ NSString * const NewEventDetectedNotification = @"NewEventDetectedNotification";
         formatter = [[NSDateFormatter alloc] init];
         formatter.timeStyle = NSDateFormatterShortStyle;
     }
+    NSString *preface = self.eventsList.count > 3 ? @"You have a busy day today." : @"";
     NSString *startTime = [formatter stringFromDate:firstEvent.startDate];
     NSString *eventsString = self.eventsList.count == 1 ? @"event" : @"events";
     NSString *locationString = [firstEvent.location length] != 0 ? [[NSString alloc] initWithFormat:@"at %@", firstEvent.location] : @"";
-    return [[NSString alloc] initWithFormat:@"You have %d upcoming %@.  Your first one, %@ %@, starts at %@ .  ", self.eventsList.count, eventsString, firstEvent.title, locationString, startTime];
+    return [[NSString alloc] initWithFormat:@"%@ You have %d upcoming %@.  Your first one, %@ %@, starts at %@ .  ", preface, self.eventsList.count, eventsString, firstEvent.title, locationString, startTime];
 }
 
 @end
