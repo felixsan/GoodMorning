@@ -115,9 +115,9 @@
 
 - (void)newEventDetected:(NSNotification *)notification {
     EKEvent *event = notification.object;
-
     if (self.cm == nil || [self.cm isCountdownCompleted]) {
-        self.cm  = [CountdownModel initWithName:event.title date:event.startDate];
+        NSString *title = [NSString stringWithFormat:@"%@ in %@", event.title, event.location];
+        self.cm  = [CountdownModel initWithName:title date:event.startDate];
     }
 }
 
