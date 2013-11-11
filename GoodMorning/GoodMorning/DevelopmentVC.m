@@ -14,6 +14,7 @@
 #import "TrafficViewController.h"
 #import "ReminderViewController.h"
 #import "CalendarViewController.h"
+#import "StocksViewController.h"
 #import "LocationManager.h"
 #import "SettingsViewController.h"
 
@@ -131,7 +132,7 @@
             [header addSubview:addButton];
         }
         [cell addSubview:header];
-        controller.view.frame = CGRectMake(0, 30, 328, 192);
+        controller.view.frame = CGRectMake(0, 30, 328, [controller rows]*232 - 40);
     }
     [cell addSubview:controller.view];
 

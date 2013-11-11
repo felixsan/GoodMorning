@@ -11,6 +11,12 @@
 		1304B8B6182F21F400E6EBBC /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1304B8B5182F21F400E6EBBC /* SettingsViewController.xib */; };
 		1304B8B9182F274900E6EBBC /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1304B8B7182F274900E6EBBC /* unchecked.png */; };
 		1304B8BA182F274900E6EBBC /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1304B8B8182F274900E6EBBC /* checked.png */; };
+		1304B8C21830994100E6EBBC /* StocksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1304B8C01830994100E6EBBC /* StocksViewController.m */; };
+		1304B8C31830994100E6EBBC /* StocksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1304B8C11830994100E6EBBC /* StocksViewController.xib */; };
+		1304B8C61830995800E6EBBC /* Stock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1304B8C51830995800E6EBBC /* Stock.m */; };
+		1304B8D3183099C200E6EBBC /* StockClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1304B8D2183099C200E6EBBC /* StockClient.m */; };
+		1304B8D61830A3C600E6EBBC /* StockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1304B8D51830A3C600E6EBBC /* StockCell.m */; };
+		1304B8D81830A3E200E6EBBC /* StockCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1304B8D71830A3E200E6EBBC /* StockCell.xib */; };
 		130E0DAC182231770043E24F /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E0DA9182231770043E24F /* Tweet.m */; };
 		130E0DAD182231770043E24F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E0DAB182231770043E24F /* User.m */; };
 		130E0DB2182232490043E24F /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E0DB1182232490043E24F /* TweetCell.m */; };
@@ -98,6 +104,16 @@
 		1304B8B5182F21F400E6EBBC /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		1304B8B7182F274900E6EBBC /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
 		1304B8B8182F274900E6EBBC /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
+		1304B8BF1830994100E6EBBC /* StocksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StocksViewController.h; path = Stocks/StocksViewController.h; sourceTree = "<group>"; };
+		1304B8C01830994100E6EBBC /* StocksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StocksViewController.m; path = Stocks/StocksViewController.m; sourceTree = "<group>"; };
+		1304B8C11830994100E6EBBC /* StocksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StocksViewController.xib; path = Stocks/StocksViewController.xib; sourceTree = "<group>"; };
+		1304B8C41830995800E6EBBC /* Stock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stock.h; path = Stocks/Stock.h; sourceTree = "<group>"; };
+		1304B8C51830995800E6EBBC /* Stock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stock.m; path = Stocks/Stock.m; sourceTree = "<group>"; };
+		1304B8D1183099C200E6EBBC /* StockClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StockClient.h; path = Stocks/StockClient.h; sourceTree = "<group>"; };
+		1304B8D2183099C200E6EBBC /* StockClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StockClient.m; path = Stocks/StockClient.m; sourceTree = "<group>"; };
+		1304B8D41830A3C600E6EBBC /* StockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StockCell.h; path = Stocks/StockCell.h; sourceTree = "<group>"; };
+		1304B8D51830A3C600E6EBBC /* StockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StockCell.m; path = Stocks/StockCell.m; sourceTree = "<group>"; };
+		1304B8D71830A3E200E6EBBC /* StockCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StockCell.xib; path = Stocks/StockCell.xib; sourceTree = "<group>"; };
 		130E0DA8182231770043E24F /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tweet.h; path = Twitter/Tweet.h; sourceTree = "<group>"; };
 		130E0DA9182231770043E24F /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tweet.m; path = Twitter/Tweet.m; sourceTree = "<group>"; };
 		130E0DAA182231770043E24F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Twitter/User.h; sourceTree = "<group>"; };
@@ -238,6 +254,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1304B8BE1830990B00E6EBBC /* Stocks */ = {
+			isa = PBXGroup;
+			children = (
+				1304B8C41830995800E6EBBC /* Stock.h */,
+				1304B8C51830995800E6EBBC /* Stock.m */,
+				1304B8D1183099C200E6EBBC /* StockClient.h */,
+				1304B8D2183099C200E6EBBC /* StockClient.m */,
+				1304B8BF1830994100E6EBBC /* StocksViewController.h */,
+				1304B8C01830994100E6EBBC /* StocksViewController.m */,
+				1304B8C11830994100E6EBBC /* StocksViewController.xib */,
+				1304B8D41830A3C600E6EBBC /* StockCell.h */,
+				1304B8D51830A3C600E6EBBC /* StockCell.m */,
+				1304B8D71830A3E200E6EBBC /* StockCell.xib */,
+			);
+			name = Stocks;
+			sourceTree = "<group>";
+		};
 		13477C6218224E22005AF7A6 /* Traffic */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,6 +404,7 @@
 				D890E77C105CF73AC09E79F9 /* Countdown */,
 				13477C6218224E22005AF7A6 /* Traffic */,
 				13CFE383181F5E6000946D84 /* Twitter */,
+				1304B8BE1830990B00E6EBBC /* Stocks */,
 				13CFE380181F59A900946D84 /* ModuleController.h */,
 				13CFE381181F59A900946D84 /* ModuleController.m */,
 			);
@@ -549,6 +583,7 @@
 				B576B973182640AD006E3E57 /* CalendarView.xib in Resources */,
 				13A9B821182C8B0D00A7A84C /* retweet.png in Resources */,
 				B5ACBE13181E1EB00015FBC3 /* HourlyForecastView.xib in Resources */,
+				1304B8D81830A3E200E6EBBC /* StockCell.xib in Resources */,
 				13477C6118224C1A005AF7A6 /* TwitterViewController.xib in Resources */,
 				DE3F7F931810D3400062126A /* InfoPlist.strings in Resources */,
 				90C105ED1827509300453208 /* ReminderCell.xib in Resources */,
@@ -564,6 +599,7 @@
 				1304B8BA182F274900E6EBBC /* checked.png in Resources */,
 				D890E34EDF3CA125B95ECE8C /* CountdownView.xib in Resources */,
 				D890E27E7293CF6DE3A2CF09 /* CountdownSettingsView.xib in Resources */,
+				1304B8C31830994100E6EBBC /* StocksViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,11 +653,13 @@
 			files = (
 				90D1B7B01826FE3E00B633ED /* ReminderSettingsViewController.m in Sources */,
 				90C105F318275E1600453208 /* ReminderCellStatusView.m in Sources */,
+				1304B8D61830A3C600E6EBBC /* StockCell.m in Sources */,
 				B576B972182640AD006E3E57 /* CalendarView.m in Sources */,
 				B576B974182640AD006E3E57 /* CalendarViewController.m in Sources */,
 				90D1B7881826FDA800B633ED /* CalendarCell.m in Sources */,
 				90D1B7B31826FE3E00B633ED /* ReminderViewController.m in Sources */,
 				130E0DAD182231770043E24F /* User.m in Sources */,
+				1304B8C21830994100E6EBBC /* StocksViewController.m in Sources */,
 				DE3F7F991810D3400062126A /* AppDelegate.m in Sources */,
 				13477C5D182244C2005AF7A6 /* TwitterClient.m in Sources */,
 				B5ACBD0C181CAFF20015FBC3 /* WeatherViewController.m in Sources */,
@@ -630,6 +668,7 @@
 				B5ACBE0F181E1E820015FBC3 /* HourlyForecastView.m in Sources */,
 				B54BA0A81818470600EA5A4F /* WeatherAPI.m in Sources */,
 				130E0DB2182232490043E24F /* TweetCell.m in Sources */,
+				1304B8C61830995800E6EBBC /* Stock.m in Sources */,
 				13477C6618224E3C005AF7A6 /* TrafficViewController.m in Sources */,
 				B5ACBD07181C9B220015FBC3 /* DevelopmentVC.m in Sources */,
 				DE3F7F951810D3400062126A /* main.m in Sources */,
@@ -637,6 +676,7 @@
 				13CFE386181F5EAA00946D84 /* TwitterViewController.m in Sources */,
 				B5ACBC39181B64960015FBC3 /* Forecast.m in Sources */,
 				B576B96F182640AD006E3E57 /* CalendarSettingsView.m in Sources */,
+				1304B8D3183099C200E6EBBC /* StockClient.m in Sources */,
 				90D1B7AE1826FE3E00B633ED /* ReminderSettingsView.m in Sources */,
 				B576B971182640AD006E3E57 /* CalendarSettingsViewController.m in Sources */,
 				13A9B82A182C9D3600A7A84C /* TwitterSettingsVC.m in Sources */,
