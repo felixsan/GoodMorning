@@ -31,6 +31,7 @@
     [super viewDidLoad];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationUpdated:) name:LocationDidChangeNotification object:nil];
+    [[LocationManager instance] startUpdatingLocation];
 }
 
 - (void)dealloc

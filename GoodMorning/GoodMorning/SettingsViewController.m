@@ -45,7 +45,7 @@ NSString * const ModuleRemovedNotification = @"ModuleRemovedNotification";
 {
     self.modalPresentationStyle = UIModalPresentationFormSheet;
     self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    self.modules = @[ @"Weather", @"Twitter", @"Reminder", @"Calendar", @"Traffic", @"Countdown" ];
+    self.modules = @[ @"Weather", @"Twitter", @"Reminder", @"Calendar", @"Traffic", @"Countdown", @"Stocks" ];
 }
 
 - (void)viewDidLoad
@@ -59,7 +59,7 @@ NSString * const ModuleRemovedNotification = @"ModuleRemovedNotification";
 
 - (void)viewWillLayoutSubviews
 {
-    self.view.superview.bounds = CGRectMake(0, 0, 540, 244);
+    self.view.superview.bounds = CGRectMake(0, 0, 540, 60 + ([self.modules count] + 1)/2*60);
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,7 +72,7 @@ NSString * const ModuleRemovedNotification = @"ModuleRemovedNotification";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 6;
+    return [self.modules count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -83,7 +83,7 @@ NSString * const ModuleRemovedNotification = @"ModuleRemovedNotification";
     [button setImage:[UIImage imageNamed:@"unchecked"] forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:@"checked"] forState:UIControlStateSelected];
     button.userInteractionEnabled = NO;
-    button.selected = YES;
+    button.selected = ![self.modules[indexPath.row] isEqualToString:@"Stocks"]; // HACK: stocks is initially not shown
     button.tag = 1;
     [cell.contentView addSubview:button];
 

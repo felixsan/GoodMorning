@@ -14,7 +14,7 @@
 #import "TrafficViewController.h"
 #import "ReminderViewController.h"
 #import "CalendarViewController.h"
-#import "LocationManager.h"
+#import "StocksViewController.h"
 #import "SettingsViewController.h"
 
 @interface DevelopmentVC ()
@@ -70,9 +70,6 @@
     self.collectionView.draggable = YES;
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView reloadData];
-
-    [[LocationManager instance] startUpdatingLocation];
-    
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moduleRemoved:) name:ModuleRemovedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moduleAdded:) name:ModuleAddedNotification object:nil];
@@ -132,7 +129,7 @@
             [header addSubview:addButton];
         }
         [cell addSubview:header];
-        controller.view.frame = CGRectMake(0, 30, 328, 192);
+        controller.view.frame = CGRectMake(0, 30, 328, [controller rows]*232 - 40);
     }
     [cell addSubview:controller.view];
 
