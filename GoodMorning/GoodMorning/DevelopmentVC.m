@@ -51,7 +51,7 @@
                                                                      action:@selector(onRead)];
     [speakerButton setTintColor:[UIColor blackColor]];
     self.navigationItem.leftBarButtonItem = speakerButton;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditButton)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditButton)];
 
     WeatherViewController *weather = [[WeatherViewController alloc] init];
     TwitterViewController *twitter = [[TwitterViewController alloc] init];
