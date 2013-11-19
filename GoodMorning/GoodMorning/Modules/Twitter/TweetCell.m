@@ -31,19 +31,27 @@
     return self;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+
+    float inset = 20.f;
+    if (self.tweet.retweetedStatus) {
+        inset = 0.f;
+    }
+    CGRect frame = self.contentView.frame;
+    self.contentView.frame = CGRectMake(0, -inset, frame.size.width, frame.size.height);
+}
+
 - (void)setTweet:(Tweet *)tweet
 {
     _tweet = tweet;
     User *user = tweet.user;
 
-    float inset = 20.f;
     if (tweet.retweetedStatus) {
         self.retweetLabel.text = [NSString stringWithFormat:@"%@ retweeted", user.name];
         user = tweet.retweetedStatus.user;
-        inset = 0.f;
     }
-    CGRect bounds = self.contentView.bounds;
-    self.contentView.bounds = CGRectMake(0, inset, bounds.size.width, bounds.size.height);
 
     // profile pic
     NSURL *url = [NSURL URLWithString:user.profileImageURL];
