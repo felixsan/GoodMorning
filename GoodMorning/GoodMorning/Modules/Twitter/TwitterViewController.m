@@ -15,45 +15,61 @@
 
 @interface TwitterViewController ()
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UITableView *tableView;
 
 @property (strong, nonatomic) NSMutableArray *tweets;
 @property (assign, nonatomic) BOOL loading;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) TwitterSettingsVC *settingsController;
 
-- (void)fetchTimelineForUser;
 - (void)handleRefresh;
 
 @end
 
 @implementation TwitterViewController
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        [self setup];
     }
     return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (void)setup
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRefresh) name:TwitterAccountChangedNotification object:nil];
+}
+
+- (void)loadView
+{
+    self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 328, 424)];
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        [self handleRefresh];
+    } else {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake((328 - 100) / 2, 100, 100, 20);
+        [button setTitle:@"Authorize" forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(requestAccess) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:button];
+    }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-
-    UINib *nib = [UINib nibWithNibName:REUSE_IDENTIFIER bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:REUSE_IDENTIFIER];
-
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
-    [self.refreshControl addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:self.refreshControl];
-
-    [self fetchTimelineForUser];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRefresh) name:TwitterAccountChangedNotification object:nil];
 }
 
 - (void)dealloc
@@ -69,14 +85,6 @@
         _tweets = [[NSMutableArray alloc] init];;
     }
     return _tweets;
-}
-
-- (UIRefreshControl *)refreshControl
-{
-    if (!_refreshControl) {
-        _refreshControl = [[UIRefreshControl alloc] init];
-    }
-    return _refreshControl;
 }
 
 - (TwitterSettingsVC *)settingsController
@@ -145,31 +153,23 @@
 
 #pragma mark - Private methods
 
-- (void)fetchTimelineForUser
-{
-    [[TwitterClient instance] requestAccess:^(BOOL granted, NSError *error) {
-        if (granted) {
-            self.loading = YES;
-            [[TwitterClient instance] homeTimelineWithCount:20 sinceId:0 maxId:0 callback:^(NSError *error, SLRequest *request, NSArray *response) {
-               if (error) {
-               } else {
-                   [self.tweets addObjectsFromArray:response];
-                   [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
-               }
-               self.loading = NO;
-           }];
-        } else {
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-            CGRect frame = CGRectMake(10, 10, 328, 24);
-            UILabel *label = [[UILabel alloc] initWithFrame:frame];
-            label.text = @"Sorry, no twitter accounts found";
-            [self.view addSubview:label];
-        }
-    }];
-}
-
 - (void)handleRefresh
 {
+    if (self.tableView == nil) {
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 328, 424)];
+        self.tableView.dataSource = self;
+        self.tableView.delegate = self;
+        self.tableView.separatorInset = UIEdgeInsetsZero;
+
+        [self.tableView registerNib:[UINib nibWithNibName:REUSE_IDENTIFIER bundle:nil] forCellReuseIdentifier:REUSE_IDENTIFIER];
+
+        self.refreshControl = [[UIRefreshControl alloc] init];
+        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
+        [self.refreshControl addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
+        [self.tableView addSubview:self.refreshControl];
+
+        [self.view addSubview:self.tableView];
+    }
     [[TwitterClient instance] homeTimelineWithCount:20 sinceId:0 maxId:0 callback:^(NSError *error, SLRequest *request, NSArray *response) {
         if (error) {
         } else {
@@ -213,6 +213,15 @@
     [self presentViewController:self.settingsController
                        animated:YES
                      completion:nil];
+}
+
+- (void)requestAccess
+{
+    [[TwitterClient instance] requestAccess:^(BOOL granted, NSError *error) {
+        if (granted) {
+            [self handleRefresh];
+        }
+    }];
 }
 
 @end
