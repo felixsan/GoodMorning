@@ -74,7 +74,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="cancelDateChange:" destination="-1" id="c0X-Ak-Xrd"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="fMR-z6-umD">
+                            <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="fMR-z6-umD">
                                 <connections>
                                     <action selector="saveDateChange:" destination="-1" id="Tck-7m-9Bm"/>
                                 </connections>
