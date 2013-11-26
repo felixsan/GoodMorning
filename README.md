@@ -1,6 +1,6 @@
 # GoodMorning
 
-GoodMorning is a fun dashboard app built to make your day easier. Think of it like a day-at-a-glance. Pick up your iPad first thing in the morning and know if you will have an awesome or craptastic day immediately. With GoodMorning you can:
+GoodMorning is an iPad only dashboard app built to make your day easier. Think of it like a day-at-a-glance. Pick up your iPad first thing in the morning and know if you will have an awesome or craptastic day immediately. With GoodMorning you can:
 
   * See hourly weather forecast in your area
   * View events that you have scheduled for the day
@@ -10,11 +10,17 @@ GoodMorning is a fun dashboard app built to make your day easier. Think of it li
   * View any twitter feed that you have linked to your iPad
   * Listen to a text-to-speech version of your day
 
-Built GoodMorning as a part of the [iOS CodePath Bootcamp](http://thecodepath.com/iosbootcamp). Released on the [iTunes App Store](https://itunes.apple.com/us/app/plants-vs.-zombies/id350642635).
+We built GoodMorning as a part of the [iOS CodePath Bootcamp](http://thecodepath.com/iosbootcamp). Released on the [iTunes App Store](https://itunes.apple.com/us/app/plants-vs.-zombies/id350642635).
 
 ![Screenshot](wireframes/screenshot1.png)
+![Screenshot](wireframes/screenshot2.png)
+![Screenshot](wireframes/screenshot3.png)
 
-## Interesting features
+## iOS Deployment Target
+
+This project supports iOS 6.0 and above and uses Automatic Reference Counting (ARC).
+
+## Cool features
 
 ### Container view controllers
 Each module represents its own controller with full lifecycle methods. The main controller manages each one as a separate container. You must subclass ModuleController and implement a few methods to make this work.
@@ -24,8 +30,7 @@ If you press and hold a module, you can drag it to a new location. This is achie
 
 ## License
 
-* [MIT](http://opensource.org/licenses/MIT)
-Copyright (c) 2013 Benjamin Henry, Felix Santiago, Benjamin Lindsey
+* [MIT](http://opensource.org/licenses/MIT) Copyright (c) 2013 Benjamin Henry, Felix Santiago, Benjamin Lindsey
 
 ## Building
 
