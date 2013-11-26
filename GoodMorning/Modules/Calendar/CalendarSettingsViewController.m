@@ -52,7 +52,7 @@
 
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
-    self.view.superview.bounds = CGRectMake(0,0,722, 413);
+    self.view.superview.bounds = CGRectMake(0, 0, 540, 244);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

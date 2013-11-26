@@ -60,7 +60,6 @@ NSString * const NewEventRequestedNotification = @"NewEventRequestedNotification
 
 - (void)initCountdown {
     CountdownView *cv = (CountdownView *)self.view;
-    cv.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CountdownBackground"]];
     cv.timeLeft.text = @"";
     cv.eventName.text = @"";
 

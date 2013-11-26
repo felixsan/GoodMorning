@@ -51,7 +51,11 @@
                                                                      action:@selector(onRead)];
     [speakerButton setTintColor:[UIColor blackColor]];
     self.navigationItem.leftBarButtonItem = speakerButton;
+
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditButton)];
+
+    self.navigationController.navigationBar.translucent = NO;
+    self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CountdownBackground"]];
 
     WeatherViewController *weather = [[WeatherViewController alloc] init];
     TwitterViewController *twitter = [[TwitterViewController alloc] init];
@@ -68,8 +72,9 @@
 
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     self.collectionView.draggable = YES;
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+
     [self.collectionView reloadData];
+
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moduleRemoved:) name:ModuleRemovedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moduleAdded:) name:ModuleAddedNotification object:nil];

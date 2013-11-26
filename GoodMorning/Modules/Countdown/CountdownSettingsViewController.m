@@ -40,7 +40,7 @@
 
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
-    self.view.superview.bounds = CGRectMake(0,0,722, 413);
+    self.view.superview.bounds = CGRectMake(0, 0, 540, 336);
 }
 
 - (IBAction)cancelDateChange:(id)sender {

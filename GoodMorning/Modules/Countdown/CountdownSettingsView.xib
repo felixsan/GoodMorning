@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CountdownSettingsViewController">
@@ -11,11 +11,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="1" customClass="CountdownSettingsView">
-            <rect key="frame" x="0.0" y="0.0" width="722" height="413"/>
+            <rect key="frame" x="0.0" y="0.0" width="540" height="336"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6b-P9-ARH">
-                    <rect key="frame" x="20" y="129" width="682" height="216"/>
+                <datePicker contentMode="scaleToFill" placeholderIntrinsicWidth="500" placeholderIntrinsicHeight="216" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" useCurrentDate="NO" id="K6b-P9-ARH">
+                    <rect key="frame" x="127" y="100" width="300" height="216"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <date key="date" timeIntervalSinceReferenceDate="404597747.17255902">
                         <!--2013-10-27 20:15:47 +0000-->
@@ -45,58 +45,45 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                     </timeZone>
                 </datePicker>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNA-fL-G7W">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TNA-fL-G7W">
                     <rect key="frame" x="20" y="100" width="41" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rB-Hj-cQT">
-                    <rect key="frame" x="672" y="363" width="30" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" id="Y63-uh-nmU">
+                    <rect key="frame" x="127" y="61" width="300" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Ok">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="saveDateChange:" destination="-1" eventType="touchUpInside" id="6ty-m1-Uym"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYK-k7-na0">
-                    <rect key="frame" x="583" y="363" width="48" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Cancel">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="cancelDateChange:" destination="-1" eventType="touchUpInside" id="3eS-75-BGv"/>
-                    </connections>
-                </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y63-uh-nmU">
-                    <rect key="frame" x="121" y="41" width="580" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVE-oU-VJB">
-                    <rect key="frame" x="20" y="42" width="99" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZVE-oU-VJB">
+                    <rect key="frame" x="20" y="64" width="99" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <navigationBar contentMode="scaleToFill" id="doP-qI-6Hx">
+                    <rect key="frame" x="0.0" y="-2" width="540" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <items>
+                        <navigationItem title="Countdown Settings" id="Ps0-5r-nWS">
+                            <barButtonItem key="leftBarButtonItem" title="Cancel" id="tJp-hs-kKc">
+                                <connections>
+                                    <action selector="cancelDateChange:" destination="-1" id="c0X-Ak-Xrd"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="fMR-z6-umD">
+                                <connections>
+                                    <action selector="saveDateChange:" destination="-1" id="Tck-7m-9Bm"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="ZVE-oU-VJB" firstAttribute="top" secondItem="1" secondAttribute="top" constant="42" id="6zp-kh-pNF"/>
-                <constraint firstItem="K6b-P9-ARH" firstAttribute="top" secondItem="TNA-fL-G7W" secondAttribute="bottom" constant="8" id="Ccg-Js-zoD"/>
-                <constraint firstAttribute="trailing" secondItem="K6b-P9-ARH" secondAttribute="trailing" constant="20" id="G4u-3Y-t1V"/>
-                <constraint firstItem="TNA-fL-G7W" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="JYY-oj-pVJ"/>
-                <constraint firstItem="K6b-P9-ARH" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="LdT-VK-sgK"/>
-                <constraint firstItem="ZVE-oU-VJB" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="PLq-0e-1Qk"/>
-                <constraint firstAttribute="trailing" secondItem="Y63-uh-nmU" secondAttribute="trailing" constant="21" id="nMg-uu-E5B"/>
-                <constraint firstItem="ZVE-oU-VJB" firstAttribute="bottom" secondItem="Y63-uh-nmU" secondAttribute="bottom" id="u8E-tx-FJx"/>
-                <constraint firstItem="TNA-fL-G7W" firstAttribute="top" secondItem="ZVE-oU-VJB" secondAttribute="bottom" constant="37" id="xaU-A6-J3U"/>
-                <constraint firstItem="Y63-uh-nmU" firstAttribute="leading" secondItem="ZVE-oU-VJB" secondAttribute="trailing" constant="2" id="z63-NH-T5D"/>
-            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="eventDate" destination="K6b-P9-ARH" id="fuy-3e-cZ9"/>
