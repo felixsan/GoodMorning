@@ -37,7 +37,6 @@ NSString * const NewEventDetectedNotification = @"NewEventDetectedNotification";
 - (void)setup;
 - (void)refresh;
 - (void)presentCalendarEditModalWith:(EKEvent *)event;
-- (void)searchForNewEvents;
 
 @end
 

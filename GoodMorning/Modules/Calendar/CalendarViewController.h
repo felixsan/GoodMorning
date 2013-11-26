@@ -14,6 +14,4 @@ extern NSString *const NewEventDetectedNotification;
 
 @interface CalendarViewController : ModuleController <UITableViewDelegate, UITableViewDataSource>
 
-- (void)searchForNewEvents;
-
 @end
