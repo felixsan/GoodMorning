@@ -17,7 +17,7 @@ Built GoodMorning as a part of the [iOS CodePath Bootcamp](http://thecodepath.co
 ## Interesting features
 
 ### Container view controllers
-Each module represents its own controller with full lifecycle methods. The main controller manages each one a separate container.
+Each module represents its own controller with full lifecycle methods. The main controller manages each one as a separate container. You must subclass ModuleController and implement a few methods to make this work.
 
 ### Drag'n'drop
 If you press and hold a module, you can drag it to a new location. This is achieved by pulling the view out of the layout and moving around a slightly bigger facsimile with a red border to the current touch position. The layout restricts modules into a 3x3 grid. Each element is 328 points wide by 222 points tall. 
