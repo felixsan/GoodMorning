@@ -60,7 +60,8 @@
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditButton)];
 
     self.navigationController.navigationBar.translucent = NO;
-    self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CountdownBackground"]];
+//    self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CountdownBackground"]];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     self.controllers = [[NSMutableArray alloc] init];
 
     WeatherViewController *weather = [[WeatherViewController alloc] init];
