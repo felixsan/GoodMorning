@@ -12,6 +12,7 @@
 #import "HourlyForecastView.h"
 #import "WeatherViewController.h"
 #import "LocationManager.h"
+#import "CreditsView.h"
 
 @interface WeatherViewController ()
 
@@ -63,7 +64,7 @@
 {
     [super viewDidLoad];
     WeatherView *weatherView = (WeatherView *)self.view;
-    weatherView.locationLabel.text = @"";
+    weatherView.locationLabel.text = @"Current Location";
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationUpdated:) name:LocationDidChangeNotification object:nil];
     [[LocationManager instance] startUpdatingLocation];
@@ -92,17 +93,23 @@
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setDateFormat:@"h:mm a"];
     
-    float offset = 0;
+    float count = 0;
     for (Forecast *hour in [self.weather keyHours]) {
-        CGRect frame = CGRectMake(offset, 0, 150, 222);
+        if (count >= 15) {
+            break;
+        }
+        CGRect frame = CGRectMake(count*150, 0, 150, 222);
         HourlyForecastView *hourlyView = [[HourlyForecastView alloc] initWithFrame:frame];
         hourlyView.temperatureLabel.text = [NSString stringWithFormat:@"%1.f", hour.temperature];
         hourlyView.timeLabel.text = [outputFormatter stringFromDate:[hour getTime]];
         hourlyView.iconImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", hour.icon]];
         [weatherView.hourlyScrollView addSubview:hourlyView];
-        offset += 150;
+        count += 1; //150;
     }
-    weatherView.hourlyScrollView.contentSize = CGSizeMake(offset, 222);
+    CGRect frame = CGRectMake(count*150, 0, 200, 222);
+    CreditsView *creditsView = [[CreditsView alloc] initWithFrame:frame];
+    [weatherView.hourlyScrollView addSubview:creditsView];
+    weatherView.hourlyScrollView.contentSize = CGSizeMake((count*150) + 200, 222);
 }
 
 - (void)locationUpdated:(NSNotification *)notification
@@ -111,17 +118,17 @@
     [self loadWeatherWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude];
     //[self.locationManager stopUpdatingLocation];
 
-    [[WeatherAPI instance] addressWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        id codes = [JSON objectForKey:@"postalCodes"];
-        if ([codes isKindOfClass:[NSArray class]]) {
-            NSDictionary *location = [codes lastObject];
-            WeatherView *view = (WeatherView *)self.view;
-            self.weather.location = [location objectForKey:@"placeName"];
-            view.locationLabel.text = [NSString stringWithFormat:@"%@, %@", self.weather.location, [location objectForKey:@"adminCode1"]];
-        }
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSLog(@"%@", error);
-    }];
+//    [[WeatherAPI instance] addressWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+//        id codes = [JSON objectForKey:@"postalCodes"];
+//        if ([codes isKindOfClass:[NSArray class]]) {
+//            NSDictionary *location = [codes lastObject];
+//            WeatherView *view = (WeatherView *)self.view;
+//            self.weather.location = [location objectForKey:@"placeName"];
+//            view.locationLabel.text = [NSString stringWithFormat:@"%@, %@", self.weather.location, [location objectForKey:@"adminCode1"]];
+//        }
+//    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+//        NSLog(@"%@", error);
+//    }];
 }
 
 - (void)loadWeatherWithLatitude:(double)latitude longitude:(double)longitude {

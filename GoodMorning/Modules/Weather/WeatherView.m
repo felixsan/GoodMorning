@@ -28,4 +28,12 @@
 }
 */
 
+- (IBAction)apiCreditButton:(id)sender {
+}
+
+- (IBAction)iconCreditRequest:(id)sender {
+}
+
+- (IBAction)apiCreditRequest:(id)sender {
+}
 @end
