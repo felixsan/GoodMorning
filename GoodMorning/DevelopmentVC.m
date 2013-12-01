@@ -6,6 +6,10 @@
 //  Copyright (c) 2013 MakeItRain. All rights reserved.
 //
 
+#import <EventKit/EventKit.h>
+#import <EventKitUI/EventKitUI.h>
+#import <Accounts/Accounts.h>
+#import <Social/Social.h>
 #import "AVFoundation/AVSpeechSynthesis.h"
 #import "DevelopmentVC.h"
 #import "WeatherViewController.h"
@@ -16,6 +20,7 @@
 #import "CalendarViewController.h"
 #import "StocksViewController.h"
 #import "SettingsViewController.h"
+#import "AuthorizationViewController.h"
 
 @interface DevelopmentVC ()
 
@@ -56,14 +61,20 @@
 
     self.navigationController.navigationBar.translucent = NO;
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CountdownBackground"]];
+    self.controllers = [[NSMutableArray alloc] init];
 
     WeatherViewController *weather = [[WeatherViewController alloc] init];
-    TwitterViewController *twitter = [[TwitterViewController alloc] init];
-    ReminderViewController *reminder = [[ReminderViewController alloc] init];
-    CalendarViewController *calendar = [[CalendarViewController alloc] init];
+    [self.controllers addObject:weather];
+    
+    [self.controllers addObject:[self getTwitterController]];
+    [self.controllers addObject:[self getRemindersController]];
+    [self.controllers addObject:[self getCalendarController]];
+
     TrafficViewController *traffic = [[TrafficViewController alloc] init];
+    [self.controllers addObject:traffic];
+    
     CountdownViewController *countdown = [[CountdownViewController alloc] init];
-    self.controllers = [[NSMutableArray alloc] initWithArray:@[ weather, twitter, reminder, calendar, traffic, countdown ]];
+    [self.controllers addObject:countdown];
 
     for (UIViewController *controller in self.controllers) {
         [self addChildViewController:controller];
@@ -78,6 +89,7 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moduleRemoved:) name:ModuleRemovedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moduleAdded:) name:ModuleAddedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authorizationGranted:) name:AuthorizationGrantedNotification object:nil];
 }
 
 - (void)dealloc
@@ -242,6 +254,66 @@
     AVSpeechSynthesizer *speech = [[AVSpeechSynthesizer alloc] init];
     [speech speakUtterance:spokenScript];
     NSLog(@"I'm gonna say - %@", scriptText);
+}
+
+- (ModuleController *)getCalendarController {
+    EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
+    if (EKAuthorizationStatusAuthorized != status) {
+        return [[AuthorizationViewController alloc] initWithType:@"calendar" title:@"Calendar" color:[UIColor colorWithRed:205.0/255 green:62.0/255 blue:64.0/255 alpha:1.f]];
+    }
+    
+    return [[CalendarViewController alloc] init];
+}
+
+- (ModuleController *)getRemindersController {
+    EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeReminder];
+    if (EKAuthorizationStatusAuthorized != status) {
+        return [[AuthorizationViewController alloc]  initWithType:@"reminders" title:@"Reminders" color:[UIColor colorWithRed:1.f green:141/255.0 blue:78/255.0 alpha:1.f]];
+    }
+    return [[ReminderViewController alloc] init];
+}
+
+- (ModuleController *)getTwitterController {
+    //
+    if (![self isTwitterEnabled]) {
+        return [[AuthorizationViewController alloc]  initWithType:@"twitter" title:@"Twitter" color:[UIColor colorWithRed:85.0/255 green:172.0/255 blue:238.0/255 alpha:1.0]];
+    }
+    
+    return [[TwitterViewController alloc] init];
+}
+
+- (BOOL)isTwitterAvailable {
+    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+    return [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter];
+}
+
+- (BOOL)isTwitterEnabled {
+    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+    ACAccountType *twitterAccountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    return twitterAccountType.accessGranted;
+}
+
+- (void)authorizationGranted:(NSNotification *)notification {
+    AuthorizationViewController *avc = (AuthorizationViewController *)notification.object;
+    NSUInteger row = [self.controllers indexOfObject:avc];
+    [avc removeFromParentViewController];
+    [self.controllers removeObject:avc];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+    [self.collectionView deleteItemsAtIndexPaths:@[ indexPath ]];
+
+    ModuleController *newController = nil;
+    if ([avc.type  isEqual: @"calendar"]) {
+        newController = [self getCalendarController];
+    } else if ([avc.type  isEqual: @"reminders"]) {
+        newController = [self getRemindersController];
+    } else if ([avc.type  isEqual: @"twitter"]) {
+        newController = [self getTwitterController];
+    }
+    
+    [self.controllers insertObject:newController atIndex:row];
+    [self addChildViewController:newController];
+    [newController didMoveToParentViewController:self];
+    [self.collectionView insertItemsAtIndexPaths:@[ indexPath ]];
 }
 
 @end
