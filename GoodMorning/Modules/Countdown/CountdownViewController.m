@@ -48,7 +48,7 @@ NSString * const NewEventRequestedNotification = @"NewEventRequestedNotification
     CountdownView *cv = (CountdownView *)self.view;
     self.past = [timeLeft[CountdownAmount] intValue] == 0 && [timeLeft[CountdownGranularity] isEqualToString:@""];
     cv.timeLeft.text = !self.isPast ? [timeLeft[CountdownAmount] stringValue] : @"😃" ;
-    cv.eventName.text = !self.isPast ? [NSString stringWithFormat:@"%@ until %@", timeLeft[CountdownGranularity], self.cm.eventName] : [NSString stringWithFormat:@"%@!", self.cm.eventName];
+    cv.eventName.text = !self.isPast ? [NSString stringWithFormat:@"%@ until %@", timeLeft[CountdownGranularity], self.cm.eventName] : [NSString stringWithFormat:@"%@", self.cm.eventName];
 
 }
 
@@ -74,7 +74,7 @@ NSString * const NewEventRequestedNotification = @"NewEventRequestedNotification
         [components setHour:19];
         NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         NSDate *date = [gregorian dateFromComponents:components];
-        self.cm  = [CountdownModel initWithName:@"project demo" date:date];
+        self.cm  = [CountdownModel initWithName:@"" date:date];
     } else {
         self.cm  = [CountdownModel initWithName:countdownDict[@"name"] date:countdownDict[@"date"]];
     }
