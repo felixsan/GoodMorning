@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 MakeItRain. All rights reserved.
 //
 
+#include <Foundation/NSString.h>
 #import "TwitterViewController.h"
 #import "TweetCell.h"
 #import "TwitterClient.h"
@@ -58,12 +59,12 @@
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
         [self handleRefresh];
     } else {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake((328 - 100) / 2, 100, 100, 20);
-        [button setTitle:@"Authorize" forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(requestAccess) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:button];
+        CGRect frame = CGRectMake(10, 25, 308, 100);
+        UILabel *label = [[UILabel alloc] initWithFrame:frame];
+        label.numberOfLines = 0;
+        label.text = @"No Twitter accounts have been added to this iPad";
+        label.textAlignment = NSTextAlignmentCenter;
+        [self.view addSubview:label];
     }
 }
 
