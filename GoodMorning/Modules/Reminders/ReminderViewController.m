@@ -330,10 +330,6 @@ NSString * const ReminderSettingsChangeNotification = @"ReminderSettingsChangeNo
     return @selector(showSettings);
 }
 
-- (SEL)addSelector {
-    return @selector(addEvent:);
-}
-
 - (NSString *)moduleScript {
     NSMutableArray *incompleteReminders = [[NSMutableArray alloc] initWithCapacity:0];
     for (EKReminder *reminder in self.reminders) {
