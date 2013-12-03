@@ -56,6 +56,7 @@
 - (void)loadView
 {
     self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 328, 424)];
+    self.view.backgroundColor = [UIColor whiteColor];
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
         [self handleRefresh];
     } else {
