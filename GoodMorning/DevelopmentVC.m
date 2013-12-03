@@ -134,7 +134,7 @@
         if ([controller settingsSelector]) {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
             button.tintColor = [UIColor whiteColor];
-            button.frame = CGRectMake(305, 8, 16, 16);
+            button.frame = CGRectMake(303, 8, 16, 16);
             [button addTarget:controller action:[controller settingsSelector] forControlEvents:UIControlEventTouchUpInside];
             [header addSubview:button];
         }
@@ -142,7 +142,7 @@
         if ([controller addSelector]) {
             UIButton *addButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
             addButton.tintColor = [UIColor whiteColor];
-            addButton.frame = CGRectMake(20, 8, 16, 16);
+            addButton.frame = CGRectMake(10, 8, 16, 16);
             [addButton addTarget:controller action:[controller addSelector] forControlEvents:UIControlEventTouchUpInside];
             [header addSubview:addButton];
         }
