@@ -195,11 +195,11 @@ NSString * const ReminderSettingsChangeNotification = @"ReminderSettingsChangeNo
 //    predicate = [self.eventStore predicateForRemindersInCalendars:self.displayedReminderCalendars];
     [self.eventStore fetchRemindersMatchingPredicate:predicate completion:^(NSArray *reminders) {
         self.reminders = [NSMutableArray arrayWithArray:reminders] ;
-        if ([self.reminders count] == 0) {
-            [self createFakeReminders];
-            self.type = ShowAll;
-            [self performSelectorOnMainThread:@selector(fetchReminders) withObject:nil waitUntilDone:YES];
-        }
+//        if ([self.reminders count] == 0) {
+//            [self createFakeReminders];
+//            self.type = ShowAll;
+//            [self performSelectorOnMainThread:@selector(fetchReminders) withObject:nil waitUntilDone:YES];
+//        }
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"priority" ascending:YES] ;
         NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
         self.reminders = [[self.reminders sortedArrayUsingDescriptors:sortDescriptors] mutableCopy];
