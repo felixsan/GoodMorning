@@ -37,8 +37,14 @@ NSString * const TwitterAccountChangedNotification = @"TwitterAccountChangedNoti
 
     NSArray *accounts = [[TwitterClient instance] accounts];
     ACAccount *account = [[TwitterClient instance] account];
-    NSUInteger row = [accounts indexOfObject:account];
-
+    int row = 0;
+    for (int i = 0; i < [accounts count]; ++i) {
+        ACAccount *a = accounts[i];
+        if ([account.username isEqualToString:a.username]) {
+            row = i;
+            break;
+        }
+    }
     [self.accountPicker reloadComponent:0];
     [self.accountPicker selectRow:row inComponent:0 animated:NO];
 }

@@ -54,11 +54,8 @@
 
 - (NSArray *)accounts
 {
-    if (!_accounts) {
-        ACAccountType *twitterAccountType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-        _accounts = [self.accountStore accountsWithAccountType:twitterAccountType];
-    }
-    return _accounts;
+    ACAccountType *twitterAccountType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    return [self.accountStore accountsWithAccountType:twitterAccountType];
 }
 
 - (ACAccount *)account

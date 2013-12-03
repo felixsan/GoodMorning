@@ -24,6 +24,7 @@
 @property (strong, nonatomic) TwitterSettingsVC *settingsController;
 
 - (void)handleRefresh;
+- (void)becameActive;
 
 @end
 
@@ -50,7 +51,8 @@
 
 - (void)setup
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRefresh) name:TwitterAccountChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(becameActive) name:TwitterAccountChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(becameActive) name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
 - (void)loadView
@@ -125,7 +127,7 @@
 
     CGFloat width = self.view.frame.size.width - 81;
     NSDictionary *attributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:13] };
-    CGRect frame = [text boundingRectWithSize:CGSizeMake(width, 1000)
+    CGRect frame = [text boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)
                                       options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
                                    attributes:attributes
                                       context:nil];
@@ -212,9 +214,11 @@
 
 - (void)showSettings
 {
-    [self presentViewController:self.settingsController
-                       animated:YES
-                     completion:nil];
+    if ([[TwitterClient instance].accounts count] > 0) {
+        [self presentViewController:self.settingsController
+                           animated:YES
+                         completion:nil];
+    }
 }
 
 - (void)requestAccess
@@ -224,6 +228,13 @@
             [self handleRefresh];
         }
     }];
+}
+
+- (void)becameActive
+{
+    if ([[TwitterClient instance].accounts count] > 0) {
+        [self handleRefresh];
+    }
 }
 
 @end
