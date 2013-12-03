@@ -41,7 +41,7 @@
 {
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
-        self.title = @"Good Morning";
+        self.title = @"Morning Board";
     }
     return self;
 }
